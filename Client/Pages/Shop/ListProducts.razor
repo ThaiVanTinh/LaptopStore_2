@@ -1,0 +1,78 @@
+﻿@page "/products"
+@inject Microsoft.Extensions.Localization.IStringLocalizer<Home> _localizer
+@using LaptopStore.Application.Features.Products.Queries.GetAllPaged
+@inject NavigationManager Navigation
+
+<style>
+    .mud-table-container {
+        overflow: auto;
+    }
+
+    .search-container {
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+    }
+</style>
+
+<HeroTitle Title="@_localizer["Products"]" Description="@_localizer["All Products."]" />
+@if (!_loaded)
+{
+    <MudProgressCircular Color="Color.Primary" Indeterminate="true" />
+}
+else
+{
+    <MudTable Elevation="25" ServerData="@(new Func<TableState, Task<TableData<GetAllPagedProductsResponse>>>(ServerReload))" Hover="true" @ref="_table">
+
+        <ToolBarContent>
+            <div class="search-container">
+                <MudTextField T="string" ValueChanged="@(s => OnSearch(s))" Placeholder="@_localizer["Search..."]"
+                              Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Search"
+                              IconSize="Size.Medium" Class="mt-0" />
+            </div>
+        </ToolBarContent>
+
+        <HeaderContent>
+            <MudTh></MudTh>
+            <MudTh><MudTableSortLabel T="GetAllPagedProductsResponse" SortLabel="Name">@_localizer["Name"]</MudTableSortLabel></MudTh>
+            <MudTh><MudTableSortLabel T="GetAllPagedProductsResponse" SortLabel="Price">@_localizer["Price"]</MudTableSortLabel></MudTh>
+            <MudTh><MudTableSortLabel T="GetAllPagedProductsResponse" SortLabel="Brand">@_localizer["Brand"]</MudTableSortLabel></MudTh>
+            <MudTh><MudTableSortLabel T="GetAllPagedProductsResponse" SortLabel="Description">@_localizer["Description"]</MudTableSortLabel></MudTh>
+            <MudTh><MudTableSortLabel T="GetAllPagedProductsResponse" SortLabel="Barcode">@_localizer["Barcode"]</MudTableSortLabel></MudTh>
+            <MudTh><MudTableSortLabel T="GetAllPagedProductsResponse" SortLabel="Rate">@_localizer["Rate"]</MudTableSortLabel></MudTh>
+            <MudTh Style="text-align:right"></MudTh>
+        </HeaderContent>
+
+        <RowTemplate>
+            <MudTd DataLabel="Image">
+                <MudAvatar Image="@(context.ImageDataURL)" Square="true" Style="height: auto; width: auto; max-height: 100px;">
+                </MudAvatar>
+            </MudTd>
+            <MudTd DataLabel="Name">
+                <MudHighlighter Text="@context.Name" HighlightedText="@_searchString" />
+            </MudTd>
+            <MudTd DataLabel="Price">@context.Price</MudTd>
+            <MudTd DataLabel="Brand">
+                <MudHighlighter Text="@context.Brand" HighlightedText="@_searchString" />
+            </MudTd>
+            <MudTd DataLabel="Description">
+                <MudHighlighter Text="@context.Description" HighlightedText="@_searchString" />
+            </MudTd>
+            <MudTd DataLabel="Barcode">
+                <MudHighlighter Text="@context.Barcode" HighlightedText="@_searchString" />
+            </MudTd>
+            <MudTd DataLabel="Rate">@context.Rate</MudTd>                
+
+            <MudTd DataLabel="Actions">
+                <MudButton OnClick="@(async () => await NavigateToProductDetail(context.Id))" Color="Color.Primary" Variant="Variant.Filled">
+                    @_localizer["View Details"]
+                </MudButton>
+            </MudTd>
+        </RowTemplate>
+
+        <PagerContent>
+            <TablePager />
+        </PagerContent>
+    </MudTable>
+}
+

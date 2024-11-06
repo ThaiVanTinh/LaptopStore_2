@@ -25,6 +25,12 @@ namespace LaptopStore.Client.Infrastructure.Routes
             return $"api/v1/products/image/{productId}";
         }
 
+        // Endpoint for getting product details by ID
+        public static string GetProductDetail(int productId)
+        {
+            return $"api/v1/products/{productId}";
+        }
+
         public static string ExportFiltered(string searchString)
         {
             return $"{Export}?searchString={searchString}";

@@ -53,12 +53,8 @@ namespace LaptopStore.Application.Features.Products.Queries.Export
                 { _localizer["Barcode"], item => item.Price },
                 { _localizer["Description"], item => item.Description },
                 { _localizer["Rate"], item => item.Rate },
-<<<<<<< HEAD
-                { _localizer["Rate"], item => item.Featured }
-=======
                 { _localizer["Featured"], item => item.Featured },
                 { _localizer["ImageDataURL"], item => item.ImageDataURL }
->>>>>>> de5fa1f (Home page)
             }, sheetName: _localizer["Products"]);
 
             return await Result<string>.SuccessAsync(data: data);

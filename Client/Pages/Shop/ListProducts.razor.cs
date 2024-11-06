@@ -19,7 +19,7 @@ using LaptopStore.Client.Pages.Admin.Products;
 
 namespace LaptopStore.Client.Pages.Shop
 {
-    public partial class Home
+    public partial class ListProducts
     {
         [Inject] private IProductManager ProductManager { get; set; }
 
@@ -98,6 +98,11 @@ namespace LaptopStore.Client.Pages.Shop
         {
             _searchString = text;
             _table.ReloadServerData();
+        }
+        private Task NavigateToProductDetail(int productId)
+        {
+            Navigation.NavigateTo($"/productdetail/{productId}");
+            return Task.CompletedTask;
         }
     }
 }

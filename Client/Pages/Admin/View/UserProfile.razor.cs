@@ -18,11 +18,7 @@ namespace LaptopStore.Client.Pages.Admin.View
         private string _lastName;
         private string _phoneNumber;
         private string _email;
-<<<<<<< HEAD
         private bool _confirm;
-=======
-
->>>>>>> de5fa1f (Home page)
         private bool _loaded;
 
         private async Task ToggleUserStatus()
@@ -59,10 +55,7 @@ namespace LaptopStore.Client.Pages.Admin.View
                     _email = user.Email;
                     _phoneNumber = user.PhoneNumber.ToString();
                     _active = user.IsActive;
-<<<<<<< HEAD
                     _confirm = user.EmailConfirmed;
-=======
->>>>>>> de5fa1f (Home page)
                     var data = await _accountManager.GetProfilePictureAsync(userId);
                     if (data.Succeeded)
                     {
@@ -76,17 +69,8 @@ namespace LaptopStore.Client.Pages.Admin.View
                     _firstLetterOfName = _firstName[0];
                 }
             }
-
-<<<<<<< HEAD
-
             _loaded = true;
         }
 
     }
 }
-=======
-            _loaded = true;
-        }
-    }
-}
->>>>>>> de5fa1f (Home page)

@@ -1,7 +1,6 @@
 ﻿@inherits LayoutComponentBase
 @inject Microsoft.Extensions.Localization.IStringLocalizer<MainLayout> localizer
 
-<audio id="notification" src="/media/notification.mp3" />
 <MudThemeProvider Theme="_currentTheme" />
 <MudDialogProvider />
 <MudSnackbarProvider />
@@ -32,6 +31,14 @@
                 <MudToolBar DisableGutters="true">
                     <MudIconButton Icon="@Icons.Material.Outlined.Menu" Color="Color.Inherit" OnClick="@((e) => DrawerToggle())" Class="ml-3" />
                 </MudToolBar>
+                <MudToolBar Class="d-flex">
+                    <MudSpacer />
+                    <MudNavLink Href="/brands" Class="mx-4">@localizer["Brands"]</MudNavLink>
+                    <MudNavLink Href="/products" Class="mx-4">@localizer["Products"]</MudNavLink>
+                    <MudNavLink Href="/about" Class="mx-4">@localizer["About"]</MudNavLink>
+                    <MudNavLink Href="/contact" Class="mx-4">@localizer["Contact"]</MudNavLink>
+                    <MudSpacer />
+                </MudToolBar>
                 <MudAppBarSpacer />
                     <MudHidden Breakpoint="Breakpoint.MdAndUp" Invert="true">
                         <MudDivider Vertical="true" FlexItem="true" DividerType="DividerType.Middle" Class="mx-4 my-5" />
@@ -53,8 +60,7 @@
                                     <MudIconButton Icon="@Icons.Material.Filled.Brightness4" Color="Color.Inherit" OnClick="@((e) => DarkMode())" />
                                 </MudTooltip>
                             </div>
-                            <MudText Typo="Typo.body2" Class="px-4 py-2"><b>@localizer["Community"]</b></MudText>
-                            <MudText Typo="Typo.body2" Class="px-4 py-2"><b>@localizer["Resources"]</b></MudText>
+                            
                         </MudMenu>
                     </MudHidden>
                     <MudMenu Direction="_rightToLeft ? Direction.Right : Direction.Left" OffsetX="true" Dense="true" Class="mt-1 ml-4">
@@ -68,6 +74,8 @@
                                 <MudAvatar Image="@ImageDataUrl" Style="height:50px; width:50px;"> </MudAvatar>
                             }
                         </ActivatorContent>
+                        
+                            
                         <ChildContent>
                             <UserCard Class="mt-n2" />
                             <MudDivider Class="mb-2" />

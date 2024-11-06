@@ -1,6 +1,6 @@
-﻿namespace LaptopStore.Application.Features.Products.Queries.GetAllPaged
+﻿namespace LaptopStore.Application.Features.Products.Queries.GetProductDetail
 {
-    public class GetAllPagedProductsResponse
+    public class GetProductsDetailResponse
     {
         public int Id { get; set; }
         public string Name { get; set; }

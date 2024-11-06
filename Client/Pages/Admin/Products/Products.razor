@@ -52,10 +52,7 @@ else
             <MudTh><MudTableSortLabel T="GetAllPagedProductsResponse" SortLabel="Barcode">@_localizer["Barcode"]</MudTableSortLabel></MudTh>
             <MudTh><MudTableSortLabel T="GetAllPagedProductsResponse" SortLabel="Rate">@_localizer["Rate"]</MudTableSortLabel></MudTh>
             <MudTh><MudTableSortLabel T="GetAllPagedProductsResponse" SortLabel="Featured">@_localizer["Featured"]</MudTableSortLabel></MudTh>
-<<<<<<< HEAD
-=======
             <MudTh><MudTableSortLabel T="GetAllPagedProductsResponse" SortLabel="ImageDataURL">@_localizer["ImageDataURL"]</MudTableSortLabel></MudTh>
->>>>>>> de5fa1f (Home page)
             <MudTh Style="text-align:right">@_localizer["Actions"]</MudTh>
         </HeaderContent>
         <RowTemplate>
@@ -75,13 +72,10 @@ else
             </MudTd>
             <MudTd DataLabel="Rate">@context.Rate</MudTd>
             <MudTd DataLabel="Featured">@context.Featured</MudTd>
-<<<<<<< HEAD
-=======
             <MudTd DataLabel="Image">
                 <MudAvatar Image="@(context.ImageDataURL)" Square="true" Style="height: auto; width: auto; max-height: 100px;">
                 </MudAvatar>
             </MudTd>
->>>>>>> de5fa1f (Home page)
             <MudTd DataLabel="Actions" Style="text-align: right">
                 @if (_canEditProducts || _canDeleteProducts)
                 {

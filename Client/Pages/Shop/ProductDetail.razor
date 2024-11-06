@@ -1,0 +1,74 @@
+﻿@page "/productdetail/{productId}"
+@inject Microsoft.Extensions.Localization.IStringLocalizer<ProductDetail> _localizer
+@inject NavigationManager NavigationManager
+
+@using LaptopStore.Application.Features.Products.Queries.GetProductDetail
+@using MediatR
+@inject IMediator Mediator
+
+<PageTitle>@_localizer["Product Detail"]</PageTitle>
+
+<MudPaper Elevation="4" Class="p-4">
+    <MudText Typo="Typo.h6">@_localizer["Product Detail"]</MudText>
+
+    @if (_productDetail == null)
+    {
+        <MudProgressCircular Indeterminate="true" Color="Color.Primary" />
+    }
+    else
+    {
+        <MudGrid>
+            <MudItem xs="12" sm="6">
+                <MudText>@_localizer["Name"]</MudText>
+                <MudText Typo="Typo.body1">@_productDetail.Name</MudText>
+            </MudItem>
+            <MudItem xs="12" sm="6">
+                <MudText>@_localizer["Price"]</MudText>
+                <MudText Typo="Typo.body1">@_productDetail.Price</MudText>
+            </MudItem>
+            <MudItem xs="12" sm="6">
+                <MudText>@_localizer["Brand"]</MudText>
+                <MudText Typo="Typo.body1">@_productDetail.Brand</MudText>
+            </MudItem>
+            <MudItem xs="12" sm="6">
+                <MudText>@_localizer["Description"]</MudText>
+                <MudText Typo="Typo.body1">@_productDetail.Description</MudText>
+            </MudItem>
+            <MudItem xs="12" sm="6">
+                <MudText>@_localizer["Barcode"]</MudText>
+                <MudText Typo="Typo.body1">@_productDetail.Barcode</MudText>
+            </MudItem>
+            <MudItem xs="12" sm="6">
+                <MudText>@_localizer["Rate"]</MudText>
+                <MudText Typo="Typo.body1">@_productDetail.Rate</MudText>
+            </MudItem>
+            <MudItem xs="12" sm="6">
+                <MudText>@_localizer["Featured"]</MudText>
+                <MudText Typo="Typo.body1">@_productDetail.Featured</MudText>
+            </MudItem>
+            <MudItem xs="12">
+                <MudText>@_localizer["Image"]</MudText>
+                <MudAvatar Image="@( _productDetail.ImageDataURL)" Square="true" Style="height: auto; width: auto; max-height: 100px;" />
+            </MudItem>
+        </MudGrid>
+
+        <MudButton Variant="Variant.Filled" Color="Color.Primary" @onclick="BackToList">@_localizer["Back to List"]</MudButton>
+    }
+</MudPaper>
+
+@code {
+    
+    private GetProductsDetailResponse _productDetail;
+    [Parameter] public int ProductId { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        var query = new GetProductDetailByIdQuery(ProductId);
+        _productDetail = await Mediator.Send(query);
+    }
+
+    private void BackToList()
+    {
+        NavigationManager.NavigateTo("/admin/products");
+    }
+}

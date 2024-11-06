@@ -9,10 +9,6 @@ using System.Threading.Tasks;
 using LaptopStore.Shared.Constants.Permission;
 using Microsoft.AspNetCore.Authorization;
 
-<<<<<<< HEAD
-
-=======
->>>>>>> de5fa1f (Home page)
 namespace LaptopStore.Client.Pages.Admin.View
 {
     public partial class UserRoles

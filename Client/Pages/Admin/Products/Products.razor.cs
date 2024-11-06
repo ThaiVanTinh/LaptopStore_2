@@ -26,11 +26,7 @@ namespace LaptopStore.Client.Pages.Admin.Products
 
         private IEnumerable<GetAllPagedProductsResponse> _pagedData;
         private MudTable<GetAllPagedProductsResponse> _table;
-<<<<<<< HEAD
-=======
         [Parameter] public AddEditProductCommand ProductIMG { get; set; } = new();
-
->>>>>>> de5fa1f (Home page)
         private int _totalItems;
         private int _currentPage;
         private string _searchString = "";
@@ -98,8 +94,6 @@ namespace LaptopStore.Client.Pages.Admin.Products
             }
         }
 
-<<<<<<< HEAD
-=======
         private async Task LoadImageAsync()
         {
             var data = await ProductManager.GetProductImageAsync(ProductIMG.Id);
@@ -112,8 +106,6 @@ namespace LaptopStore.Client.Pages.Admin.Products
                 }
             }
         }
-
->>>>>>> de5fa1f (Home page)
         private void OnSearch(string text)
         {
             _searchString = text;

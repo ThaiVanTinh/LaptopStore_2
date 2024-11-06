@@ -28,10 +28,8 @@ namespace LaptopStore.Application.Requests.Identity
         public string PhoneNumber { get; set; }
 
         public bool ActivateUser { get; set; } = true;
-<<<<<<< HEAD
+
         public bool AutoConfirmEmail { get; set; } = true;
-=======
-        public bool AutoConfirmEmail { get; set; } = false;
->>>>>>> de5fa1f (Home page)
+
     }
 }

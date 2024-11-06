@@ -53,12 +53,8 @@ namespace LaptopStore.Application.Features.Products.Queries.GetAllPaged
                 Featured = e.Featured,
                 Barcode = e.Barcode,
                 Brand = e.Brand.Name,
-<<<<<<< HEAD
-                BrandId = e.BrandId
-=======
                 BrandId = e.BrandId,
                 ImageDataURL = e.ImageDataURL
->>>>>>> de5fa1f (Home page)
             };
             var productFilterSpec = new ProductFilterSpecification(request.SearchString);
             if (request.OrderBy?.Any() != true)
