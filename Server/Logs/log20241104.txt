@@ -1,0 +1,51 @@
+2024-11-04 17:26:24.694 +07:00 [INF] Seeded Administrator Role.
+2024-11-04 17:26:24.887 +07:00 [INF] Seeded Default SuperAdmin User.
+2024-11-04 17:26:25.232 +07:00 [INF] Seeded Basic Role.
+2024-11-04 17:26:25.253 +07:00 [INF] Seeded User with Basic Role.
+2024-11-04 17:26:25.388 +07:00 [INF] Now listening on: https://localhost:5001
+2024-11-04 17:26:25.391 +07:00 [INF] Now listening on: http://localhost:5000
+2024-11-04 17:26:25.394 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-11-04 17:26:25.394 +07:00 [INF] Hosting environment: Development
+2024-11-04 17:26:25.395 +07:00 [INF] Content root path: D:\LaptopStore\src\Server
+2024-11-04 17:44:09.504 +07:00 [INF] Now listening on: https://localhost:5001
+2024-11-04 17:44:09.541 +07:00 [INF] Now listening on: http://localhost:5000
+2024-11-04 17:44:09.543 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-11-04 17:44:09.543 +07:00 [INF] Hosting environment: Development
+2024-11-04 17:44:09.544 +07:00 [INF] Content root path: D:\LaptopStore\src\Server
+2024-11-04 17:48:04.649 +07:00 [INF] Now listening on: https://localhost:5001
+2024-11-04 17:48:04.683 +07:00 [INF] Now listening on: http://localhost:5000
+2024-11-04 17:48:04.685 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-11-04 17:48:04.685 +07:00 [INF] Hosting environment: Development
+2024-11-04 17:48:04.686 +07:00 [INF] Content root path: D:\LaptopStore\src\Server
+2024-11-04 17:48:17.524 +07:00 [INF] Application is shutting down...
+2024-11-04 17:48:36.654 +07:00 [INF] Now listening on: https://localhost:5001
+2024-11-04 17:48:36.692 +07:00 [INF] Now listening on: http://localhost:5000
+2024-11-04 17:48:36.695 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-11-04 17:48:36.696 +07:00 [INF] Hosting environment: Development
+2024-11-04 17:48:36.696 +07:00 [INF] Content root path: D:\LaptopStore\src\Server
+2024-11-04 17:49:05.462 +07:00 [INF] Now listening on: https://localhost:5001
+2024-11-04 17:49:05.493 +07:00 [INF] Now listening on: http://localhost:5000
+2024-11-04 17:49:05.495 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-11-04 17:49:05.496 +07:00 [INF] Hosting environment: Development
+2024-11-04 17:49:05.496 +07:00 [INF] Content root path: D:\LaptopStore\src\Server
+2024-11-04 17:50:03.048 +07:00 [INF] Application is shutting down...
+2024-11-04 20:30:21.825 +07:00 [INF] Now listening on: https://localhost:5001
+2024-11-04 20:30:21.863 +07:00 [INF] Now listening on: http://localhost:5000
+2024-11-04 20:30:21.866 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-11-04 20:30:21.866 +07:00 [INF] Hosting environment: Development
+2024-11-04 20:30:21.867 +07:00 [INF] Content root path: D:\LaptopStore\src\Server
+2024-11-04 21:59:37.607 +07:00 [INF] Now listening on: https://localhost:5001
+2024-11-04 21:59:37.639 +07:00 [INF] Now listening on: http://localhost:5000
+2024-11-04 21:59:37.641 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-11-04 21:59:37.642 +07:00 [INF] Hosting environment: Development
+2024-11-04 21:59:37.642 +07:00 [INF] Content root path: D:\backup11.4.18h\LaptopStore\src\Server
+2024-11-04 22:12:57.291 +07:00 [INF] Now listening on: https://localhost:5001
+2024-11-04 22:12:57.332 +07:00 [INF] Now listening on: http://localhost:5000
+2024-11-04 22:12:57.334 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-11-04 22:12:57.334 +07:00 [INF] Hosting environment: Development
+2024-11-04 22:12:57.335 +07:00 [INF] Content root path: D:\LaptopStore\Server
+2024-11-04 22:18:03.806 +07:00 [INF] Now listening on: https://localhost:5001
+2024-11-04 22:18:03.837 +07:00 [INF] Now listening on: http://localhost:5000
+2024-11-04 22:18:03.839 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-11-04 22:18:03.839 +07:00 [INF] Hosting environment: Development
+2024-11-04 22:18:03.840 +07:00 [INF] Content root path: D:\LaptopStore\Server

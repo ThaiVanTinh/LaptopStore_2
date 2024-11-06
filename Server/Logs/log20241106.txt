@@ -1,0 +1,86 @@
+2024-11-06 00:01:02.354 +07:00 [INF] Now listening on: https://localhost:5001
+2024-11-06 00:01:02.397 +07:00 [INF] Now listening on: http://localhost:5000
+2024-11-06 00:01:02.399 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-11-06 00:01:02.400 +07:00 [INF] Hosting environment: Development
+2024-11-06 00:01:02.400 +07:00 [INF] Content root path: D:\LaptopStore\Server
+2024-11-06 00:01:40.619 +07:00 [ERR] 535: Authentication failed
+2024-11-06 00:02:39.681 +07:00 [ERR] 535: Authentication failed
+2024-11-06 00:04:43.407 +07:00 [INF] Now listening on: https://localhost:5001
+2024-11-06 00:04:43.440 +07:00 [INF] Now listening on: http://localhost:5000
+2024-11-06 00:04:43.442 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-11-06 00:04:43.444 +07:00 [INF] Hosting environment: Development
+2024-11-06 00:04:43.444 +07:00 [INF] Content root path: D:\LaptopStore\Server
+2024-11-06 00:23:35.797 +07:00 [INF] Now listening on: https://localhost:5001
+2024-11-06 00:23:35.829 +07:00 [INF] Now listening on: http://localhost:5000
+2024-11-06 00:23:35.831 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-11-06 00:23:35.831 +07:00 [INF] Hosting environment: Development
+2024-11-06 00:23:35.832 +07:00 [INF] Content root path: D:\LaptopStore\Server
+2024-11-06 00:25:27.460 +07:00 [INF] Now listening on: https://localhost:5001
+2024-11-06 00:25:27.498 +07:00 [INF] Now listening on: http://localhost:5000
+2024-11-06 00:25:27.500 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-11-06 00:25:27.500 +07:00 [INF] Hosting environment: Development
+2024-11-06 00:25:27.501 +07:00 [INF] Content root path: D:\LaptopStore\Server
+2024-11-06 00:26:22.735 +07:00 [INF] Now listening on: https://localhost:5001
+2024-11-06 00:26:22.778 +07:00 [INF] Now listening on: http://localhost:5000
+2024-11-06 00:26:22.780 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-11-06 00:26:22.781 +07:00 [INF] Hosting environment: Development
+2024-11-06 00:26:22.781 +07:00 [INF] Content root path: D:\LaptopStore\Server
+2024-11-06 00:26:50.678 +07:00 [INF] Now listening on: https://localhost:5001
+2024-11-06 00:26:50.710 +07:00 [INF] Now listening on: http://localhost:5000
+2024-11-06 00:26:50.712 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-11-06 00:26:50.712 +07:00 [INF] Hosting environment: Development
+2024-11-06 00:26:50.713 +07:00 [INF] Content root path: D:\LaptopStore\Server
+2024-11-06 00:27:35.613 +07:00 [ERR] 535: Authentication failed
+2024-11-06 00:28:43.545 +07:00 [ERR] 535: Authentication failed
+2024-11-06 00:29:37.251 +07:00 [ERR] 535: Authentication failed
+2024-11-06 00:49:26.429 +07:00 [INF] Now listening on: https://localhost:5001
+2024-11-06 00:49:26.460 +07:00 [INF] Now listening on: http://localhost:5000
+2024-11-06 00:49:26.462 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-11-06 00:49:26.462 +07:00 [INF] Hosting environment: Development
+2024-11-06 00:49:26.462 +07:00 [INF] Content root path: D:\LaptopStore\Server
+2024-11-06 00:56:22.315 +07:00 [INF] Now listening on: https://localhost:5001
+2024-11-06 00:56:22.353 +07:00 [INF] Now listening on: http://localhost:5000
+2024-11-06 00:56:22.355 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-11-06 00:56:22.356 +07:00 [INF] Hosting environment: Development
+2024-11-06 00:56:22.356 +07:00 [INF] Content root path: D:\LaptopStore\Server
+2024-11-06 00:57:18.922 +07:00 [ERR] 535: Authentication failed
+2024-11-06 00:59:15.364 +07:00 [INF] Now listening on: https://localhost:5001
+2024-11-06 00:59:15.396 +07:00 [INF] Now listening on: http://localhost:5000
+2024-11-06 00:59:15.398 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-11-06 00:59:15.398 +07:00 [INF] Hosting environment: Development
+2024-11-06 00:59:15.399 +07:00 [INF] Content root path: D:\LaptopStore\Server
+2024-11-06 01:06:04.104 +07:00 [INF] Seeded Administrator Role.
+2024-11-06 01:06:04.274 +07:00 [INF] Seeded Default SuperAdmin User.
+2024-11-06 01:06:04.541 +07:00 [INF] Seeded Basic Role.
+2024-11-06 01:06:04.554 +07:00 [INF] Seeded User with Basic Role.
+2024-11-06 01:06:04.666 +07:00 [INF] Now listening on: https://localhost:5001
+2024-11-06 01:06:04.669 +07:00 [INF] Now listening on: http://localhost:5000
+2024-11-06 01:06:04.672 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-11-06 01:06:04.672 +07:00 [INF] Hosting environment: Development
+2024-11-06 01:06:04.673 +07:00 [INF] Content root path: D:\LaptopStore\Server
+2024-11-06 01:07:25.059 +07:00 [INF] Now listening on: https://localhost:5001
+2024-11-06 01:07:25.093 +07:00 [INF] Now listening on: http://localhost:5000
+2024-11-06 01:07:25.095 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-11-06 01:07:25.095 +07:00 [INF] Hosting environment: Development
+2024-11-06 01:07:25.096 +07:00 [INF] Content root path: D:\LaptopStore\Server
+2024-11-06 01:14:01.674 +07:00 [INF] Now listening on: https://localhost:5001
+2024-11-06 01:14:01.707 +07:00 [INF] Now listening on: http://localhost:5000
+2024-11-06 01:14:01.709 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-11-06 01:14:01.709 +07:00 [INF] Hosting environment: Development
+2024-11-06 01:14:01.710 +07:00 [INF] Content root path: D:\LaptopStore\Server
+2024-11-06 01:14:56.396 +07:00 [INF] Now listening on: https://localhost:5001
+2024-11-06 01:14:56.428 +07:00 [INF] Now listening on: http://localhost:5000
+2024-11-06 01:14:56.430 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-11-06 01:14:56.430 +07:00 [INF] Hosting environment: Development
+2024-11-06 01:14:56.431 +07:00 [INF] Content root path: D:\LaptopStore\Server
+2024-11-06 01:17:15.952 +07:00 [INF] Now listening on: https://localhost:5001
+2024-11-06 01:17:15.984 +07:00 [INF] Now listening on: http://localhost:5000
+2024-11-06 01:17:15.986 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-11-06 01:17:15.986 +07:00 [INF] Hosting environment: Development
+2024-11-06 01:17:15.987 +07:00 [INF] Content root path: D:\LaptopStore\Server
+2024-11-06 01:19:50.924 +07:00 [ERR] 535: Authentication failed
+2024-11-06 23:57:26.735 +07:00 [INF] Now listening on: https://localhost:5001
+2024-11-06 23:57:26.772 +07:00 [INF] Now listening on: http://localhost:5000
+2024-11-06 23:57:26.775 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-11-06 23:57:26.775 +07:00 [INF] Hosting environment: Development
+2024-11-06 23:57:26.775 +07:00 [INF] Content root path: D:\LaptopStore\Server
