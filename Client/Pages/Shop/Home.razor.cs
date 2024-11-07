@@ -36,15 +36,9 @@ namespace LaptopStore.Client.Pages.Shop
 
         protected override async Task OnInitializedAsync()
         {
-
-
-
+            _loaded = false;
+            await LoadData(0, 10, new TableState()); // Example page size of 10
             _loaded = true;
-            HubConnection = HubConnection.TryInitialize(_navigationManager);
-            if (HubConnection.State == HubConnectionState.Disconnected)
-            {
-                await HubConnection.StartAsync();
-            }
         }
 
         private async Task<TableData<GetAllPagedProductsResponse>> ServerReload(TableState state)
@@ -57,30 +51,22 @@ namespace LaptopStore.Client.Pages.Shop
             return new TableData<GetAllPagedProductsResponse> { TotalItems = _totalItems, Items = _pagedData };
         }
 
+        private string DescriptionFilter { get; set; } = string.Empty;
+
         private async Task LoadData(int pageNumber, int pageSize, TableState state)
         {
-            string[] orderings = null;
-            if (!string.IsNullOrEmpty(state.SortLabel))
-            {
-                orderings = state.SortDirection != SortDirection.None ? new[] { $"{state.SortLabel} {state.SortDirection}" } : new[] { $"{state.SortLabel}" };
-            }
-
-            var request = new GetAllPagedProductsRequest { PageSize = pageSize, PageNumber = pageNumber + 1, SearchString = _searchString, Orderby = orderings };
+            // Existing logic for loading data into _pagedData
+            // Example:
+            var request = new GetAllPagedProductsRequest { PageSize = pageSize, PageNumber = pageNumber + 1, SearchString = _searchString };
             var response = await ProductManager.GetProductsAsync(request);
             if (response.Succeeded)
             {
-                _totalItems = response.TotalCount;
-                _currentPage = response.CurrentPage;
                 _pagedData = response.Data;
+                _totalItems = response.TotalCount;
             }
-            else
-            {
-                foreach (var message in response.Messages)
-                {
-                    _snackBar.Add(message, Severity.Error);
-                }
-            }
+            _loaded = true;
         }
+
 
         private async Task LoadImageAsync()
         {
@@ -97,7 +83,7 @@ namespace LaptopStore.Client.Pages.Shop
         private void OnSearch(string text)
         {
             _searchString = text;
-            _table.ReloadServerData();
+            LoadData(0, 10, new TableState()); // Refresh data with search
         }
     }
 }
