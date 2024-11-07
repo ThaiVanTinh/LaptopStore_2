@@ -10,9 +10,22 @@
         margin-bottom: 10px;
     }
 
+    .filter-panel {
+        width: 100%;
+        padding: 16px;
+    }
     .product-grid .mud-item {
         display: flex;
         flex-direction: column;
+    }
+
+    .full-width {
+        margin-left: 0; 
+        width: 100%; 
+    }
+
+    .product-grid-container {
+        transition: margin 0.3s ease;
     }
 </style>
 
@@ -23,68 +36,133 @@
                   IconSize="Size.Medium" Class="mt-0" />
 </div>
 
-<!-- Featured Products Section -->
-<HeroTitle Title="@_localizer["Featured Products"]" Description="@_localizer["Featured Products."]" />
-@if (!_loaded)
-{
-    <MudProgressCircular Color="Color.Primary" Indeterminate="false" />
-}
-else if (_featuredProducts.Any())
-{
-    <MudGrid GutterSpacing="3" Class="product-grid">
-        @foreach (var context in _featuredProducts)
-        {
-            <MudItem xs="12" sm="6" md="4" lg="3">
-                <MudCard Style="padding: 16px; margin-bottom: 16px; height: 100%;">
-                    <MudCardContent>
-                        <MudAvatar Image="@(context.ImageDataURL)" Square="true" Style="height: auto; width: 100%; max-height: 150px;" />
-                        <MudText Typo="Typo.h6" Class="mt-2">@context.Name</MudText>
-                        <MudText Typo="Typo.subtitle2" Color="Color.Primary">
-                            @context.Price.ToString("N0") đ
-                        </MudText>
-                        <MudText Typo="Typo.body2" Color="Color.Secondary">@context.Brand</MudText>
-                        <MudText Typo="Typo.body2">@context.Description</MudText>
-                        <MudText Typo="Typo.body2">Đánh giá: @context.Rate</MudText>
-                    </MudCardContent>
-                    <MudCardActions>
-                        <MudButton Variant="Variant.Filled" Color="Color.Primary">Xem chi tiết</MudButton>
-                        <MudButton Variant="Variant.Text" Color="Color.Secondary">So sánh</MudButton>
-                    </MudCardActions>
-                </MudCard>
-            </MudItem>
-        }
-    </MudGrid>
-}
+<MudGrid>
+    <!-- Filter Panel on the Left Side -->
+    <MudItem xs="12" md="3" >
+        <!-- Toggle Button for Filter Panel -->
+        <MudIconButton Icon="@Icons.Material.Filled.Menu" OnClick="ToggleFilterPanel" Color="Color.Primary" />
 
-<!-- High Rate Products Section -->
-<HeroTitle Title="@_localizer["High Rate Products"]" Description="@_localizer["Products with rate >= 4"]" />
-@if (!_loaded)
-{
-    <MudProgressCircular Color="Color.Primary" Indeterminate="false" />
-}
-else if (_highRatedProducts.Any())
-{
-    <MudGrid GutterSpacing="3" Class="product-grid">
-        @foreach (var context in _highRatedProducts)
+        
+        <!-- Conditionally Render Filter Panel -->
+        @if (isFilterPanelVisible )
         {
-            <MudItem xs="12" sm="6" md="4" lg="3">
-                <MudCard Style="padding: 16px; margin-bottom: 16px; height: 100%;">
-                    <MudCardContent>
-                        <MudAvatar Image="@(context.ImageDataURL)" Square="true" Style="height: auto; width: 100%; max-height: 150px;" />
-                        <MudText Typo="Typo.h6" Class="mt-2">@context.Name</MudText>
-                        <MudText Typo="Typo.subtitle2" Color="Color.Primary">
-                            @context.Price.ToString("N0") đ
-                        </MudText>
-                        <MudText Typo="Typo.body2" Color="Color.Secondary">@context.Brand</MudText>
-                        <MudText Typo="Typo.body2">@context.Description</MudText>
-                        <MudText Typo="Typo.body2">Đánh giá: @context.Rate</MudText>
-                    </MudCardContent>
-                    <MudCardActions>
-                        <MudButton Variant="Variant.Filled" Color="Color.Primary">Xem chi tiết</MudButton>
-                        <MudButton Variant="Variant.Text" Color="Color.Secondary">So sánh</MudButton>
-                    </MudCardActions>
-                </MudCard>
-            </MudItem>
+            <MudPaper Class="filter-panel" >
+                <HeroTitle Title="@_localizer["Bộ lọc tìm kiếm"]" />
+                <MudExpansionPanels>
+
+                    <!-- Brand Filter -->
+                    <MudExpansionPanel Text="@_localizer["Brand"]">
+                        @foreach (var brand in _brands)
+                        {
+                            <MudCheckBox @bind-Checked="brand.IsSelected" Label="@brand.Name" />
+                        }
+                    </MudExpansionPanel>
+
+                    <!-- Description Filter -->
+                    <MudExpansionPanel Text="@_localizer["Description"]">
+                        @foreach (var description in _descriptions)
+                        {
+                            <MudCheckBox @bind-Checked="description.IsSelected" Label="@description.Name" />
+                        }
+                    </MudExpansionPanel>
+
+                    <!-- Price Filter -->
+                    <MudExpansionPanel Text="@_localizer["Price"]">
+                        <MudRadioGroup T="string" @bind-SelectedValue="SelectedPriceRange">
+                            <MudRadio T="string" Value="all" Label="Tất cả" />
+                            <MudRadio T="string" Value="under10" Label="Dưới 10 triệu" />
+                            <MudRadio T="string" Value="10to15" Label="Từ 10 - 15 triệu" />
+                            <MudRadio T="string" Value="15to20" Label="Từ 15 - 20 triệu" />
+                            <MudRadio T="string" Value="20to25" Label="Từ 20 - 25 triệu" />
+                            <MudRadio T="string" Value="25to30" Label="Từ 25 - 30 triệu" />
+                            <MudRadio T="string" Value="over30" Label="Trên 30 triệu" />
+                        </MudRadioGroup>
+                    </MudExpansionPanel>
+
+                    <!-- Rate Filter -->
+                    <MudExpansionPanel Text="@_localizer["Rate"]">
+                        <MudRadioGroup T="string" @bind-SelectedValue="SelectedRateRange">
+                            <MudRadio T="string" Value="all" Label="Tất cả" />
+                            <MudRadio T="string" Value="4andAbove" Label="4 sao trở lên" />
+                            <MudRadio T="string" Value="3andAbove" Label="3 sao trở lên" />
+                            <MudRadio T="string" Value="2andAbove" Label="2 sao trở lên" />
+                            <MudRadio T="string" Value="1andAbove" Label="1 sao trở lên" />
+                        </MudRadioGroup>
+                    </MudExpansionPanel>
+
+                </MudExpansionPanels>
+
+                <MudButton Variant="Variant.Filled" Color="Color.Primary" OnClick="ApplyFilters">Áp dụng lọc</MudButton>
+            </MudPaper>
         }
-    </MudGrid>
-}
+    </MudItem>
+
+    <!-- Product Grid on the Right Side -->
+    <MudItem xs="12" md="9" Class="product-grid-container full-width">
+        <!-- Featured Products Section -->
+        <HeroTitle Title="@_localizer["Featured Products"]" Description="@_localizer["Featured Products."]" />
+        @if (!_loaded)
+        {
+            <MudProgressCircular Color="Color.Primary" Indeterminate="false" />
+        }
+        else if (_featuredProducts.Any())
+        {
+            <MudGrid GutterSpacing="3" Class="product-grid">
+                @foreach (var context in _featuredProducts)
+                {
+                    <MudItem xs="12" sm="6" md="4" lg="3">
+                        <MudCard Style="padding: 16px; margin-bottom: 16px; height: 100%;">
+                            <MudCardContent>
+                                <MudAvatar Image="@(context.ImageDataURL)" Square="true" Style="height: auto; width: 100%; max-height: 150px;" />
+                                <MudText Typo="Typo.h6" Class="mt-2">@context.Name</MudText>
+                                <MudText Typo="Typo.subtitle2" Color="Color.Primary">
+                                    @context.Price.ToString("N0") đ
+                                </MudText>
+                                <MudText Typo="Typo.body2" Color="Color.Secondary">@context.Brand</MudText>
+                                <MudText Typo="Typo.body2">@context.Description</MudText>
+                                <MudText Typo="Typo.body2">Đánh giá: @context.Rate</MudText>
+                            </MudCardContent>
+                            <MudCardActions>
+                                <MudButton Variant="Variant.Filled" Color="Color.Primary">Xem chi tiết</MudButton>
+                                <MudButton Variant="Variant.Text" Color="Color.Secondary">So sánh</MudButton>
+                            </MudCardActions>
+                        </MudCard>
+                    </MudItem>
+                }
+            </MudGrid>
+        }
+
+        <!-- High Rate Products Section -->
+        <HeroTitle Title="@_localizer["High Rate Products"]" Description="@_localizer["Products with rate >= 4"]" />
+        @if (!_loaded)
+        {
+            <MudProgressCircular Color="Color.Primary" Indeterminate="false" />
+        }
+        else if (_RatedProducts.Any())
+        {
+            <MudGrid GutterSpacing="3" Class="product-grid">
+                @foreach (var context in _RatedProducts)
+                {
+                    <MudItem xs="12" sm="6" md="4" lg="3">
+                        <MudCard Style="padding: 16px; margin-bottom: 16px; height: 100%;">
+                            <MudCardContent>
+                                <MudAvatar Image="@(context.ImageDataURL)" Square="true" Style="height: auto; width: 100%; max-height: 150px;" />
+                                <MudText Typo="Typo.h6" Class="mt-2">@context.Name</MudText>
+                                <MudText Typo="Typo.subtitle2" Color="Color.Primary">
+                                    @context.Price.ToString("N0") đ
+                                </MudText>
+                                <MudText Typo="Typo.body2" Color="Color.Secondary">@context.Brand</MudText>
+                                <MudText Typo="Typo.body2">@context.Description</MudText>
+                                <MudText Typo="Typo.body2">Đánh giá: @context.Rate</MudText>
+                            </MudCardContent>
+                            <MudCardActions>
+                                <MudButton Variant="Variant.Filled" Color="Color.Primary">Xem chi tiết</MudButton>
+                                <MudButton Variant="Variant.Text" Color="Color.Secondary">So sánh</MudButton>
+                            </MudCardActions>
+                        </MudCard>
+                    </MudItem>
+                }
+            </MudGrid>
+        }
+    </MudItem>
+</MudGrid>

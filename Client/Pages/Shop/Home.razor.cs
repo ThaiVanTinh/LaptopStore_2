@@ -29,23 +29,25 @@ namespace LaptopStore.Client.Pages.Shop
         private MudTable<GetAllPagedProductsResponse> _table;
         [Parameter] public AddEditProductCommand ProductIMG { get; set; } = new();
 
+        private bool isFilterPanelVisible = false;
         private int _totalItems;
         private int _currentPage;
         private string _searchString = "";
         private bool _loaded;
         private IEnumerable<GetAllPagedProductsResponse> _featuredProducts;
-        private IEnumerable<GetAllPagedProductsResponse> _highRatedProducts;
+        private IEnumerable<GetAllPagedProductsResponse> _RatedProducts;
 
         protected override async Task OnInitializedAsync()
         {
             _loaded = false;
             await LoadData(0, 10, new TableState()); // Example page size of 10
-            _featuredProducts = _pagedData.Where(p => p.Featured).ToList();
-            _highRatedProducts = _pagedData.Where(p => p.Rate >= 4).ToList();
+            ApplyFilters(); // Call ApplyFilters to initialize filtered lists
             _loaded = true;
-
         }
-
+        private void ToggleFilterPanel()
+        {
+            isFilterPanelVisible = !isFilterPanelVisible;
+        }
         private async Task<TableData<GetAllPagedProductsResponse>> ServerReload(TableState state)
         {
             if (!string.IsNullOrWhiteSpace(_searchString))
@@ -72,7 +74,6 @@ namespace LaptopStore.Client.Pages.Shop
             }
         }
 
-
         private async Task LoadImageAsync()
         {
             var data = await ProductManager.GetProductImageAsync(ProductIMG.Id);
@@ -85,11 +86,69 @@ namespace LaptopStore.Client.Pages.Shop
                 }
             }
         }
-        private void OnSearch(string text)
+
+        private async Task OnSearch(string text)
         {
             _searchString = text;
-            LoadData(0, 10, new TableState());
-            _table.ReloadServerData();
+            await LoadData(0, 10, new TableState());
+            ApplyFilters(); // Update filters based on new search data
+            await _table.ReloadServerData();
+        }
+
+        // Define filter classes for Brand and Description
+        private class BrandFilter
+        {
+            public string Name { get; set; }
+            public bool IsSelected { get; set; }
+        }
+
+        private class DescriptionFilter
+        {
+            public string Name { get; set; }
+            public bool IsSelected { get; set; }
+        }
+
+        // Initialize filter options for brands and descriptions
+        private List<BrandFilter> _brands = new List<BrandFilter>
+        {
+            new BrandFilter { Name = "Apple" },
+            new BrandFilter { Name = "Lenovo" },
+            new BrandFilter { Name = "Asus" },
+            new BrandFilter { Name = "MSI" },
+            new BrandFilter { Name = "HP" },
+            new BrandFilter { Name = "Acer" }
+        };
+
+        private List<DescriptionFilter> _descriptions = new List<DescriptionFilter>
+        {
+            new DescriptionFilter { Name = "Gaming" },
+            new DescriptionFilter { Name = "Office" },
+            new DescriptionFilter { Name = "Ultrabook" }
+        };
+
+        private string SelectedPriceRange = "all";
+        private int CustomPriceRangeStart;
+        private int CustomPriceRangeEnd;
+        private string SelectedRateRange = "all";
+
+        // Filter the product data based on selected filters
+        private void ApplyFilters()
+        {
+            if (_pagedData == null) return;
+
+            var selectedBrands = _brands.Where(b => b.IsSelected).Select(b => b.Name).ToList();
+            var selectedDescriptions = _descriptions.Where(d => d.IsSelected).Select(d => d.Name).ToList();
+
+            _featuredProducts = _pagedData.Where(p =>
+                (selectedBrands.Count == 0 || selectedBrands.Contains(p.Brand)) &&
+                (selectedDescriptions.Count == 0 || selectedDescriptions.Contains(p.Description)) &&
+                (SelectedRateRange == "all" || (SelectedRateRange == "4andAbove" && p.Rate == 4) ||
+                 (SelectedRateRange == "3andAbove" && p.Rate == 3) ||
+                 (SelectedRateRange == "2andAbove" && p.Rate == 2) ||
+                 (SelectedRateRange == "1andAbove" && p.Rate == 1))
+            ).ToList();
+
+            _RatedProducts = _pagedData.Where(p => p.Rate >= 4).ToList();
         }
     }
 }
