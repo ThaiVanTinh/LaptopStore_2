@@ -11,6 +11,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using System.Timers; // Add this line
 using LaptopStore.Application.Features.Products.Commands.AddEdit;
 using LaptopStore.Client.Infrastructure.Managers.Catalog.Product;
 using LaptopStore.Shared.Constants.Permission;
@@ -19,10 +20,9 @@ using LaptopStore.Client.Pages.Admin.Products;
 
 namespace LaptopStore.Client.Pages.Shop
 {
-    public partial class Home
+    public partial class Home : IDisposable // Implement IDisposable to manage resources
     {
         [Inject] private IProductManager ProductManager { get; set; }
-
         [CascadingParameter] private HubConnection HubConnection { get; set; }
 
         private IEnumerable<GetAllPagedProductsResponse> _pagedData;
@@ -43,11 +43,18 @@ namespace LaptopStore.Client.Pages.Shop
             await LoadData(0, 10, new TableState()); // Example page size of 10
             ApplyFilters(); // Call ApplyFilters to initialize filtered lists
             _loaded = true;
+
+            // Initialize and start the timer for automatic rotation
+            bannerTimer = new Timer(3000);
+            bannerTimer.Elapsed += (s, e) => InvokeAsync(ShowNextImage);
+            bannerTimer.Start();
         }
+
         private void ToggleFilterPanel()
         {
             isFilterPanelVisible = !isFilterPanelVisible;
         }
+
         private async Task<TableData<GetAllPagedProductsResponse>> ServerReload(TableState state)
         {
             if (!string.IsNullOrWhiteSpace(_searchString))
@@ -116,7 +123,9 @@ namespace LaptopStore.Client.Pages.Shop
             new BrandFilter { Name = "Asus" },
             new BrandFilter { Name = "MSI" },
             new BrandFilter { Name = "HP" },
-            new BrandFilter { Name = "Acer" }
+            new BrandFilter { Name = "Acer" },
+            new BrandFilter { Name = "Samsung" },
+            new BrandFilter { Name = "MSI" },
         };
 
         private List<DescriptionFilter> _descriptions = new List<DescriptionFilter>
@@ -149,6 +158,37 @@ namespace LaptopStore.Client.Pages.Shop
             ).ToList();
 
             _RatedProducts = _pagedData.Where(p => p.Rate >= 4).ToList();
+        }
+
+        // List of banner images
+        private List<string> bannerImages = new List<string>
+        {
+            "/images/banner/1.png",
+            "/images/banner/2.png",
+            "/images/banner/3.png",
+            "/images/banner/4.png",
+            "/images/banner/5.png"
+        };
+
+        private int currentImageIndex = 0;
+        private int secondImageIndex => (currentImageIndex + 1) % bannerImages.Count; // Lấy chỉ số ảnh thứ hai
+        private Timer bannerTimer;
+
+        private void ShowNextImage()
+        {
+            currentImageIndex = (currentImageIndex + 1) % bannerImages.Count;
+            StateHasChanged();
+        }
+
+        private void ShowPreviousImage()
+        {
+            currentImageIndex = (currentImageIndex - 1 + bannerImages.Count) % bannerImages.Count;
+            StateHasChanged();
+        }
+
+        public void Dispose()
+        {
+            bannerTimer?.Dispose();
         }
     }
 }
