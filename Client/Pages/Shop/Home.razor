@@ -1,4 +1,4 @@
-@page "/"
+﻿@page "/"
 @page "/home"
 @inject Microsoft.Extensions.Localization.IStringLocalizer<ListProducts> _localizer
 @using LaptopStore.Application.Features.Products.Queries.GetAllPaged;
@@ -7,6 +7,7 @@
     .mud-table-container {
         overflow: auto;
     }
+
     .search-container {
         display: flex;
         align-items: center;
@@ -14,7 +15,14 @@
     }
 </style>
 
-<HeroTitle Title="@_localizer["Products"]" Description="@_localizer["Featured Products."]" />
+<!-- Tìm kiếm chung cho cả hai bảng -->
+<div class="search-container">
+    <MudTextField T="string" @bind-Value="_searchString" Placeholder="@_localizer["Search..."]"
+                  Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Search"
+                  IconSize="Size.Medium" Class="mt-0" />
+</div>
+
+<HeroTitle Title="@_localizer["Featured Products"]" Description="@_localizer["Featured Products."]" />
 @if (!_loaded)
 {
     <MudProgressCircular Color="Color.Primary" Indeterminate="false" />
@@ -22,15 +30,6 @@
 else
 {
     <MudTable Elevation="25" ServerData="@(new Func<TableState, Task<TableData<GetAllPagedProductsResponse>>>(ServerReload))" Hover="true" @ref="_table">
-        
-        <ToolBarContent>
-            <div class="search-container">
-                <MudTextField T="string" ValueChanged="@(s => OnSearch(s))" Placeholder="@_localizer["Search..."]" 
-                              Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Search" 
-                              IconSize="Size.Medium" Class="mt-0" />
-            </div>
-        </ToolBarContent>
-
         <HeaderContent>
             <MudTh></MudTh>
             <MudTh><MudTableSortLabel T="GetAllPagedProductsResponse" SortLabel="Name">@_localizer["Name"]</MudTableSortLabel></MudTh>
@@ -41,7 +40,7 @@ else
         </HeaderContent>
 
         <RowTemplate>
-            @if (context.Featured)
+            @if (context.Featured && (string.IsNullOrEmpty(_searchString) || context.Name.Contains(_searchString, StringComparison.OrdinalIgnoreCase)))
             {
                 <MudTd DataLabel="Image">
                     <MudAvatar Image="@(context.ImageDataURL)" Square="true" Style="height: auto; width: auto; max-height: 100px;" />
@@ -57,10 +56,43 @@ else
                     <MudHighlighter Text="@context.Description" HighlightedText="@_searchString" />
                 </MudTd>
                 <MudTd DataLabel="Rate">@context.Rate</MudTd>
-                
             }
         </RowTemplate>
-       
+
+        <PagerContent>
+            <TablePager />
+        </PagerContent>
+    </MudTable>
+}
+
+<HeroTitle Title="@_localizer["High Rate Products"]" Description="@_localizer["Products with rate >= 4"]" />
+@if (!_loaded)
+{
+    <MudProgressCircular Color="Color.Primary" Indeterminate="false" />
+}
+else
+{
+    <MudTable Elevation="25" ServerData="@(new Func<TableState, Task<TableData<GetAllPagedProductsResponse>>>(ServerReload))" Hover="true" @ref="_table">
+        <RowTemplate>
+            @if (context.Rate >= 4 && (string.IsNullOrEmpty(_searchString) || context.Name.Contains(_searchString, StringComparison.OrdinalIgnoreCase)))
+            {
+                <MudTd DataLabel="Image">
+                    <MudAvatar Image="@(context.ImageDataURL)" Square="true" Style="height: auto; width: auto; max-height: 100px;" />
+                </MudTd>
+                <MudTd DataLabel="Name">
+                    <MudHighlighter Text="@context.Name" HighlightedText="@_searchString" />
+                </MudTd>
+                <MudTd DataLabel="Price">@context.Price</MudTd>
+                <MudTd DataLabel="Brand">
+                    <MudHighlighter Text="@context.Brand" HighlightedText="@_searchString" />
+                </MudTd>
+                <MudTd DataLabel="Description">
+                    <MudHighlighter Text="@context.Description" HighlightedText="@_searchString" />
+                </MudTd>
+                <MudTd DataLabel="Rate">@context.Rate</MudTd>
+            }
+        </RowTemplate>
+
         <PagerContent>
             <TablePager />
         </PagerContent>

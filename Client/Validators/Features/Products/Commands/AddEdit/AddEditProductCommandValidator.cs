@@ -19,7 +19,8 @@ namespace LaptopStore.Application.Validators.Features.Products.Commands.AddEdit
             RuleFor(request => request.BrandId)
                 .GreaterThan(0).WithMessage(x => localizer["Brand is required!"]);
             RuleFor(request => request.Rate)
-                .GreaterThan(0).WithMessage(x => localizer["Rate must be greater than 0"]);
+                .InclusiveBetween(1, 5).WithMessage(x => localizer["Rate must be between 1 and 5"]);
+
         }
     }
 }
