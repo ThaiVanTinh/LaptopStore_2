@@ -107,32 +107,36 @@ namespace LaptopStore.Client.Pages.Shop
         {
             public string Name { get; set; }
             public bool IsSelected { get; set; }
+            public string LogoPath { get; set; }
         }
 
         private class DescriptionFilter
         {
             public string Name { get; set; }
             public bool IsSelected { get; set; }
+            public string DescriptionPath { get; set; }
         }
 
         // Initialize filter options for brands and descriptions
         private List<BrandFilter> _brands = new List<BrandFilter>
-        {
-            new BrandFilter { Name = "Apple" },
-            new BrandFilter { Name = "Lenovo" },
-            new BrandFilter { Name = "Asus" },
-            new BrandFilter { Name = "MSI" },
-            new BrandFilter { Name = "HP" },
-            new BrandFilter { Name = "Acer" },
-            new BrandFilter { Name = "Samsung" },
-            new BrandFilter { Name = "MSI" },
+{
+            new BrandFilter { Name = "Apple", LogoPath = "/images/brand/mac-icon.png" },
+            new BrandFilter { Name = "Lenovo", LogoPath = "/images/brand/lenovo-icon.png" },
+            new BrandFilter { Name = "Asus", LogoPath = "/images/brand/asus-icon.png" },
+            new BrandFilter { Name = "MSI", LogoPath = "/images/brand/msi-icon.png" },
+            new BrandFilter { Name = "HP", LogoPath = "/images/brand/hp-icon.png" },
+            new BrandFilter { Name = "Acer", LogoPath = "/images/brand/acer-icon.png" },
+            new BrandFilter { Name = "Samsung", LogoPath = "/images/brand/samsung-icon.png" },
+            new BrandFilter { Name = "Dell", LogoPath = "/images/brand/dell-icon.png" }
         };
 
         private List<DescriptionFilter> _descriptions = new List<DescriptionFilter>
         {
-            new DescriptionFilter { Name = "Gaming" },
-            new DescriptionFilter { Name = "Office" },
-            new DescriptionFilter { Name = "Ultrabook" }
+            new DescriptionFilter { Name = "Gaming",DescriptionPath="/images/description/Gaming-Lap.png" },
+            new DescriptionFilter { Name = "Office",DescriptionPath="/images/description/Office-Lap.png" },
+            new DescriptionFilter { Name = "Ultrabook",DescriptionPath="/images/description/Book-Lap.png" },
+            new DescriptionFilter { Name = "AI",DescriptionPath="/images/description/AI-Lap.png" },
+            new DescriptionFilter { Name = "Graphic",DescriptionPath="/images/description/Graphic-Lap.png" },
         };
 
         private string SelectedPriceRange = "all";
