@@ -24,6 +24,20 @@ namespace LaptopStore.Application.Features.Products.Commands.AddEdit
         [Required]
         public int Price { get; set; }
         [Required]
+        public string CPU { get; set; }
+        [Required]
+        public string Screen { get; set; }
+        [Required]
+        public string Card { get; set; }
+        [Required]
+        public string Ram { get; set; }
+        [Required]
+        public string Rom { get; set; }
+        [Required]
+        public string Battery { get; set; }
+        [Required]
+        public string Weight { get; set; }
+        [Required]
         public string Description { get; set; }
         public string ImageDataURL { get; set; }
         [Required]
@@ -82,6 +96,13 @@ namespace LaptopStore.Application.Features.Products.Commands.AddEdit
                 {
                     product.Price = (command.Price == 0) ? product.Price : command.Price; ;
                     product.Name = command.Name ?? product.Name;
+                    product.CPU = command.CPU ?? product.CPU;
+                    product.Card = command.Card ?? product.Card;
+                    product.Screen = command.Screen ?? product.Screen;
+                    product.Ram = command.Ram ?? product.Ram;
+                    product.Rom = command.Rom ?? product.Rom;
+                    product.Battery = command.Battery ?? product.Battery;
+                    product.Weight = command.Weight ?? product.Weight;
                     product.Description = command.Description ?? product.Description;
                     if (uploadRequest != null)
                     {

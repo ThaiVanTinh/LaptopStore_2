@@ -4,14 +4,16 @@ using LaptopStore.Infrastructure.Contexts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace LaptopStore.Client.Migrations
 {
     [DbContext(typeof(BlazorHeroContext))]
-    partial class BlazorHeroContextModelSnapshot : ModelSnapshot
+    [Migration("20241108124839_8h8d11m")]
+    partial class _8h8d11m
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
