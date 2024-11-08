@@ -304,7 +304,11 @@
                                 </MudText>
                             </MudCardContent>
                             <MudCardActions>
-                                <MudButton Variant="Variant.Filled" Color="Color.Primary">Xem chi tiết</MudButton>
+                                <MudTd DataLabel="Actions" Style="text-align: right">
+                                    <MudButton Color="Color.Primary" @onclick="@(() => InvokeModal(context.Id))">
+                                        @_localizer["View"]
+                                    </MudButton>
+                                </MudTd>
                                 <MudButton Variant="Variant.Text" Color="Color.Secondary">So sánh</MudButton>
                             </MudCardActions>
                         </MudCard>
@@ -338,7 +342,11 @@
                                 </MudText>
                             </MudCardContent>
                             <MudCardActions>
-                                <MudButton Variant="Variant.Filled" Color="Color.Primary">Xem chi tiết</MudButton>
+                                <MudTd DataLabel="Actions" Style="text-align: right">
+                                    <MudButton Color="Color.Primary" @onclick="@(() => InvokeModal(context.Id))">
+                                        @_localizer["View"]
+                                    </MudButton>
+                                </MudTd>
                                 <MudButton Variant="Variant.Text" Color="Color.Secondary">So sánh</MudButton>
                             </MudCardActions>
                         </MudCard>
