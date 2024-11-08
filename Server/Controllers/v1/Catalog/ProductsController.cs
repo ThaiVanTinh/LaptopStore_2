@@ -2,6 +2,7 @@
 using LaptopStore.Application.Features.Products.Commands.Delete;
 using LaptopStore.Application.Features.Products.Queries.Export;
 using LaptopStore.Application.Features.Products.Queries.GetAllPaged;
+using LaptopStore.Application.Features.Products.Queries.GetProductById;
 using LaptopStore.Application.Features.Products.Queries.GetProductImage;
 using LaptopStore.Shared.Constants.Permission;
 using Microsoft.AspNetCore.Authorization;
@@ -19,6 +20,14 @@ namespace LaptopStore.Server.Controllers.v1.Catalog
         {
             var products = await _mediator.Send(new GetAllProductsQuery(pageNumber, pageSize, searchString, orderBy));
             return Ok(products);
+        }
+
+        [AllowAnonymous]
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetProductByIdAsync(int id)
+        {
+            var productDetail = await _mediator.Send(new GetProductByIdQuery(id) { Id = id });
+            return Ok(productDetail);
         }
 
         [AllowAnonymous]

@@ -11,7 +11,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
-using LaptopStore.Application.Features.Products.Commands.AddEdit;
+using LaptopStore.Application.Features.Products.Queries.GetProductById;
 using LaptopStore.Client.Infrastructure.Managers.Catalog.Product;
 using LaptopStore.Shared.Constants.Permission;
 using Microsoft.AspNetCore.Authorization;
@@ -27,7 +27,6 @@ namespace LaptopStore.Client.Pages.Shop
 
         private IEnumerable<GetAllPagedProductsResponse> _pagedData;
         private MudTable<GetAllPagedProductsResponse> _table;
-        [Parameter] public AddEditProductCommand ProductIMG { get; set; } = new();
 
         private int _totalItems;
         private int _currentPage;
@@ -36,9 +35,6 @@ namespace LaptopStore.Client.Pages.Shop
 
         protected override async Task OnInitializedAsync()
         {
-
-
-
             _loaded = true;
             HubConnection = HubConnection.TryInitialize(_navigationManager);
             if (HubConnection.State == HubConnectionState.Disconnected)
@@ -82,18 +78,6 @@ namespace LaptopStore.Client.Pages.Shop
             }
         }
 
-        private async Task LoadImageAsync()
-        {
-            var data = await ProductManager.GetProductImageAsync(ProductIMG.Id);
-            if (data.Succeeded)
-            {
-                var imageData = data.Data;
-                if (!string.IsNullOrEmpty(imageData))
-                {
-                    ProductIMG.ImageDataURL = imageData;
-                }
-            }
-        }
         private void OnSearch(string text)
         {
             _searchString = text;
@@ -104,5 +88,45 @@ namespace LaptopStore.Client.Pages.Shop
             Navigation.NavigateTo($"/productdetail/{productId}");
             return Task.CompletedTask;
         }
+        private async Task InvokeModal(int id = 0)
+        {
+            var parameters = new DialogParameters();
+            if (id != 0)
+            {
+                var product = _pagedData.FirstOrDefault(c => c.Id == id);
+                if (product != null)
+                {
+                    parameters.Add(nameof(ProductDetail.Product), new GetProductByIdResponse
+                    {
+                        ImageDataURL = product.ImageDataURL,
+                        Name = product.Name,
+                        Price = product.Price,
+                        Description = product.Description,
+                        Rate = product.Rate,
+                        Barcode = product.Barcode,
+                    });
+                }
+            }
+
+            // Thay đổi tiêu đề modal để chỉ hiển thị thông tin
+            var options = new DialogOptions
+            {
+                CloseButton = true,
+                MaxWidth = MaxWidth.Medium,
+                FullWidth = true,
+                DisableBackdropClick = true
+            };
+
+            // Chỉ hiển thị modal để xem sản phẩm, không cho chỉnh sửa
+            var dialog = _dialogService.Show<ProductDetail>("View Product", parameters, options);
+            var result = await dialog.Result;
+
+            // Không cần xử lý kết quả vì chỉ xem
+            if (!result.Cancelled)
+            {
+                OnSearch(""); // Cập nhật danh sách nếu cần thiết
+            }
+        }
     }
+
 }

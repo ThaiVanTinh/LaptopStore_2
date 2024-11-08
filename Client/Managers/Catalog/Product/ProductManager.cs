@@ -1,5 +1,6 @@
 ﻿using LaptopStore.Application.Features.Products.Commands.AddEdit;
 using LaptopStore.Application.Features.Products.Queries.GetAllPaged;
+using LaptopStore.Application.Features.Products.Queries.GetProductById;
 using LaptopStore.Application.Requests.Catalog;
 using LaptopStore.Client.Infrastructure.Extensions;
 using LaptopStore.Shared.Wrapper;
@@ -18,6 +19,11 @@ namespace LaptopStore.Client.Infrastructure.Managers.Catalog.Product
             _httpClient = httpClient;
         }
 
+        public async Task<IResult<int>> GetProductByIdAsync(int ProductId)
+        {
+            var response = await _httpClient.GetAsync(Routes.ProductsEndpoints.GetProductById(ProductId));
+            return await response.ToResult<int>();
+        }
         public async Task<IResult<int>> DeleteAsync(int id)
         {
             var response = await _httpClient.DeleteAsync($"{Routes.ProductsEndpoints.Delete}/{id}");

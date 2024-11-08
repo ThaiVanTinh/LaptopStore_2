@@ -1,5 +1,5 @@
 ﻿@page "/products"
-@inject Microsoft.Extensions.Localization.IStringLocalizer<Home> _localizer
+@inject Microsoft.Extensions.Localization.IStringLocalizer<ListProducts> _localizer
 @using LaptopStore.Application.Features.Products.Queries.GetAllPaged
 @inject NavigationManager Navigation
 
@@ -15,6 +15,12 @@
     }
 </style>
 
+<div class="search-container">
+                <MudTextField T="string" ValueChanged="@(s => OnSearch(s))" Placeholder="@_localizer["Search..."]"
+                              Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Search"
+                              IconSize="Size.Medium" Class="mt-0" />
+            </div>
+
 <HeroTitle Title="@_localizer["Products"]" Description="@_localizer["All Products."]" />
 @if (!_loaded)
 {
@@ -23,14 +29,6 @@
 else
 {
     <MudTable Elevation="25" ServerData="@(new Func<TableState, Task<TableData<GetAllPagedProductsResponse>>>(ServerReload))" Hover="true" @ref="_table">
-
-        <ToolBarContent>
-            <div class="search-container">
-                <MudTextField T="string" ValueChanged="@(s => OnSearch(s))" Placeholder="@_localizer["Search..."]"
-                              Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Search"
-                              IconSize="Size.Medium" Class="mt-0" />
-            </div>
-        </ToolBarContent>
 
         <HeaderContent>
             <MudTh></MudTh>
@@ -61,12 +59,15 @@ else
             <MudTd DataLabel="Barcode">
                 <MudHighlighter Text="@context.Barcode" HighlightedText="@_searchString" />
             </MudTd>
-            <MudTd DataLabel="Rate">@context.Rate</MudTd>                
+            <MudTd DataLabel="Rate">@context.Rate</MudTd>
 
-            <MudTd DataLabel="Actions">
-                <MudButton OnClick="@(async () => await NavigateToProductDetail(context.Id))" Color="Color.Primary" Variant="Variant.Filled">
-                    @_localizer["View Details"]
-                </MudButton>
+            <MudTd DataLabel="Actions" Style="text-align: right">
+
+                <MudTd DataLabel="Actions" Style="text-align: right">
+                    <MudButton Color="Color.Primary" @onclick="@(() => InvokeModal(context.Id))">
+                        @_localizer["View"]
+                    </MudButton>
+                </MudTd>
             </MudTd>
         </RowTemplate>
 

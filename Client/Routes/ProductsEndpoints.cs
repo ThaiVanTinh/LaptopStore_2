@@ -1,4 +1,6 @@
-﻿using System.Linq;
+﻿using LaptopStore.Application.Features.Products.Queries.GetProductById;
+using System;
+using System.Linq;
 
 namespace LaptopStore.Client.Infrastructure.Routes
 {
@@ -20,20 +22,24 @@ namespace LaptopStore.Client.Infrastructure.Routes
 
         public static string GetCount = "api/v1/products/count";
 
+        public static string GetProductById(int productId)
+        {
+            return $"api/v1/products/{productId}";
+        }
+
         public static string GetProductImage(int productId)
         {
             return $"api/v1/products/image/{productId}";
         }
 
-        // Endpoint for getting product details by ID
-        public static string GetProductDetail(int productId)
-        {
-            return $"api/v1/products/{productId}";
-        }
-
         public static string ExportFiltered(string searchString)
         {
             return $"{Export}?searchString={searchString}";
+        }
+
+        internal static string GetProductById(GetProductByIdResponse product)
+        {
+            throw new NotImplementedException();
         }
 
         public static string Save = "api/v1/products";
