@@ -12,11 +12,8 @@ namespace LaptopStore.Server.Controllers.v1.Catalog
 {
     public class BrandsController : BaseApiController<BrandsController>
     {
-        /// <summary>
-        /// Get All Brands
-        /// </summary>
-        /// <returns>Status 200 OK</returns>
-        [Authorize(Policy = Permissions.Brands.View)]
+       
+        [AllowAnonymous]
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
@@ -24,12 +21,7 @@ namespace LaptopStore.Server.Controllers.v1.Catalog
             return Ok(brands);
         }
 
-        /// <summary>
-        /// Get a Brand By Id
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns>Status 200 Ok</returns>
-        [Authorize(Policy = Permissions.Brands.View)]
+        [AllowAnonymous]
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById(int id)
         {
@@ -37,11 +29,6 @@ namespace LaptopStore.Server.Controllers.v1.Catalog
             return Ok(brand);
         }
 
-        /// <summary>
-        /// Create/Update a Brand
-        /// </summary>
-        /// <param name="command"></param>
-        /// <returns>Status 200 OK</returns>
         [Authorize(Policy = Permissions.Brands.Create)]
         [HttpPost]
         public async Task<IActionResult> Post(AddEditBrandCommand command)
@@ -49,11 +36,6 @@ namespace LaptopStore.Server.Controllers.v1.Catalog
             return Ok(await _mediator.Send(command));
         }
 
-        /// <summary>
-        /// Delete a Brand
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns>Status 200 OK</returns>
         [Authorize(Policy = Permissions.Brands.Delete)]
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
@@ -61,11 +43,6 @@ namespace LaptopStore.Server.Controllers.v1.Catalog
             return Ok(await _mediator.Send(new DeleteBrandCommand { Id = id }));
         }
 
-        /// <summary>
-        /// Search Brands and Export to Excel
-        /// </summary>
-        /// <param name="searchString"></param>
-        /// <returns></returns>
         [Authorize(Policy = Permissions.Brands.Export)]
         [HttpGet("export")]
         public async Task<IActionResult> Export(string searchString = "")

@@ -48,7 +48,8 @@ namespace LaptopStore.Application.Features.Brands.Queries.Export
             var data = await _excelService.ExportAsync(brands, mappers: new Dictionary<string, Func<Brand, object>>
             {
                 { _localizer["Id"], item => item.Id },
-                { _localizer["Name"], item => item.Name }
+                { _localizer["Name"], item => item.Name },
+                { _localizer["ProductLine"], item => item.ProductLine }
             }, sheetName: _localizer["Brands"]);
 
             return await Result<string>.SuccessAsync(data: data);

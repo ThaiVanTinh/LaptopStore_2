@@ -10,6 +10,7 @@ namespace LaptopStore.Application.Specifications.Catalog
             if (!string.IsNullOrEmpty(searchString))
             {
                 Criteria = p => p.Name.Contains(searchString);
+                Criteria = p => p.ProductLine.Contains(searchString);
             }
             else
             {

@@ -46,12 +46,16 @@ else
         <HeaderContent>
             <MudTh><MudTableSortLabel SortBy="new Func<GetAllBrandsResponse, object>(x => x.Id)">@_localizer["Id"]</MudTableSortLabel></MudTh>
             <MudTh><MudTableSortLabel SortBy="new Func<GetAllBrandsResponse, object>(x => x.Name)">@_localizer["Name"]</MudTableSortLabel></MudTh>
+            <MudTh><MudTableSortLabel SortBy="new Func<GetAllBrandsResponse, object>(x => x.ProductLine)">@_localizer["ProductLine"]</MudTableSortLabel></MudTh>
             <MudTh Style="text-align:right">@_localizer["Actions"]</MudTh>
         </HeaderContent>
         <RowTemplate>
             <MudTd DataLabel="Id">@context.Id</MudTd>
             <MudTd DataLabel="Name">
                 <MudHighlighter Text="@context.Name" HighlightedText="@_searchString" />
+            </MudTd>
+            <MudTd DataLabel="ProductLine">
+                <MudHighlighter Text="@context.ProductLine" HighlightedText="@_searchString" />
             </MudTd>
             <MudTd DataLabel="Actions" Style="text-align: right">
                 @if (_canEditBrands || _canDeleteBrands)

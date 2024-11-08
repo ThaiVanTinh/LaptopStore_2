@@ -204,40 +204,6 @@
             <param name="languageCode"></param>
             <returns>Status 200 OK</returns>
         </member>
-        <member name="M:LaptopStore.Server.Controllers.v1.Catalog.BrandsController.GetAll">
-            <summary>
-            Get All Brands
-            </summary>
-            <returns>Status 200 OK</returns>
-        </member>
-        <member name="M:LaptopStore.Server.Controllers.v1.Catalog.BrandsController.GetById(System.Int32)">
-            <summary>
-            Get a Brand By Id
-            </summary>
-            <param name="id"></param>
-            <returns>Status 200 Ok</returns>
-        </member>
-        <member name="M:LaptopStore.Server.Controllers.v1.Catalog.BrandsController.Post(LaptopStore.Application.Features.Brands.Commands.AddEdit.AddEditBrandCommand)">
-            <summary>
-            Create/Update a Brand
-            </summary>
-            <param name="command"></param>
-            <returns>Status 200 OK</returns>
-        </member>
-        <member name="M:LaptopStore.Server.Controllers.v1.Catalog.BrandsController.Delete(System.Int32)">
-            <summary>
-            Delete a Brand
-            </summary>
-            <param name="id"></param>
-            <returns>Status 200 OK</returns>
-        </member>
-        <member name="M:LaptopStore.Server.Controllers.v1.Catalog.BrandsController.Export(System.String)">
-            <summary>
-            Search Brands and Export to Excel
-            </summary>
-            <param name="searchString"></param>
-            <returns></returns>
-        </member>
         <member name="M:LaptopStore.Server.Controllers.v1.DashboardController.GetDataAsync">
             <summary>
             Get Dashboard Data

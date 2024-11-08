@@ -137,7 +137,8 @@ namespace LaptopStore.Client.Pages.Admin.Brands
                     parameters.Add(nameof(AddEditBrandModal.AddEditBrandModel), new AddEditBrandCommand
                     {
                         Id = _brand.Id,
-                        Name = _brand.Name
+                        Name = _brand.Name,
+                        ProductLine = _brand.ProductLine
                     });
                 }
             }
