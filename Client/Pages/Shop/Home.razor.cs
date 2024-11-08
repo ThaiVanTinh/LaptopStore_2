@@ -17,6 +17,7 @@ using LaptopStore.Client.Infrastructure.Managers.Catalog.Product;
 using LaptopStore.Shared.Constants.Permission;
 using Microsoft.AspNetCore.Authorization;
 using LaptopStore.Client.Pages.Admin.Products;
+using LaptopStore.Application.Features.Products.Queries.GetProductById;
 
 namespace LaptopStore.Client.Pages.Shop
 {
@@ -193,6 +194,46 @@ namespace LaptopStore.Client.Pages.Shop
         public void Dispose()
         {
             bannerTimer?.Dispose();
+        }
+        private async Task InvokeModal(int id = 0)
+        {
+            var parameters = new DialogParameters();
+            if (id != 0)
+            {
+                var product = _pagedData.FirstOrDefault(c => c.Id == id);
+                if (product != null)
+                {
+                    parameters.Add(nameof(ProductDetail.Product), new GetProductByIdResponse
+                    {
+                        ImageDataURL = product.ImageDataURL,
+                        Name = product.Name,
+                        Price = product.Price,
+                        CPU = product.CPU,
+                        Screen = product.Screen,
+                        Card = product.Card,
+                        Ram = product.Ram,
+                        Rom = product.Rom,
+                        Battery = product.Battery,
+                        Weight = product.Weight,
+                        Description = product.Description,
+                        Rate = product.Rate,
+                        Barcode = product.Barcode,
+                    });
+                }
+            }
+
+            // Thay đổi tiêu đề modal để chỉ hiển thị thông tin
+            var options = new DialogOptions
+            {
+                CloseButton = true,
+                MaxWidth = MaxWidth.Medium,
+                FullWidth = true,
+                DisableBackdropClick = true
+            };
+
+            // Chỉ hiển thị modal để xem sản phẩm, không cho chỉnh sửa
+            var dialog = _dialogService.Show<ProductDetail>("View Product", parameters, options);
+            var result = await dialog.Result;
         }
     }
 }

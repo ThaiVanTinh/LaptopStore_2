@@ -392,18 +392,18 @@
                 @foreach (var context in _featuredProducts)
                 {
                     <MudItem xs="12" sm="6" md="4" lg="4">
-                        <MudCard Class="product-card" Style="padding: 16px; margin-bottom: 16px; height: 100%;">
+                        <MudCard Class="product-card" Style="position: relative; padding: 16px; margin-bottom: 16px; height: 100%; border-radius: 12px;">
                             <MudCardContent>
                                 <div class="badge-container">
                                     <MudText Typo="Typo.overline" Class="badge">Trả góp 0%</MudText>
                                     <MudText Typo="Typo.overline" Class="badge">Giá rẻ quá</MudText>
                                 </div>
-                                <MudAvatar Image="@(context.ImageDataURL)" Square="true" Style="height: 250px; width: 100%; object-fit: cover; border-radius: 8px;" />
+                                <MudAvatar Image="@(context.ImageDataURL)" Square="true" Style="height: 150px; width: 100%; object-fit: cover; border-radius: 8px;" />
                                 <MudText Typo="Typo.h6" Class="product-name">@context.Name</MudText>
 
                                 <div class="specs">
-                                    <MudText Typo="Typo.body2" Class="spec">Ram: @context.Ram.Split(' ').FirstOrDefault()</MudText>
-                                    <MudText Typo="Typo.body2" Class="spec">SSD: @context.Rom.Split(' ').FirstOrDefault()</MudText>
+                                    <MudText Typo="Typo.body2" Class="spec">@context.Ram.Split(' ').FirstOrDefault() GB</MudText>
+                                    <MudText Typo="Typo.body2" Class="spec">@context.Rom.Split(' ').FirstOrDefault() GB</MudText>
                                 </div>
 
                                 <MudText Typo="Typo.h6" Color="Color.Error" Class="price">@context.Price.ToString("N0") đ</MudText>
@@ -419,7 +419,9 @@
 
                             </MudCardContent>
 
+                            <!-- Fixed Position for Buttons at the Bottom -->
                             <MudCardActions Class="action-buttons">
+
                                 <div class="product-rating">
                                     <MudIcon Icon="@Icons.Material.Filled.Star" Color="Color.Warning" />
                                     <MudText Typo="Typo.caption">@context.Rate</MudText>
@@ -445,18 +447,18 @@
                 @foreach (var context in _RatedProducts)
                 {
                     <MudItem xs="12" sm="6" md="4" lg="4">
-                        <MudCard Class="product-card" Style="padding: 16px; margin-bottom: 16px; height: 100%;">
+                        <MudCard Class="product-card" Style="position: relative; padding: 16px; margin-bottom: 16px; height: 100%; border-radius: 12px;">
                             <MudCardContent>
                                 <div class="badge-container">
                                     <MudText Typo="Typo.overline" Class="badge">Trả góp 0%</MudText>
                                     <MudText Typo="Typo.overline" Class="badge">Giá rẻ quá</MudText>
                                 </div>
-                                <MudAvatar Image="@(context.ImageDataURL)" Square="true" Style="height: 250px; width: 100%; object-fit: cover; border-radius: 8px;" />
+                                <MudAvatar Image="@(context.ImageDataURL)" Square="true" Style="height: 150px; width: 100%; object-fit: cover; border-radius: 8px;" />
                                 <MudText Typo="Typo.h6" Class="product-name">@context.Name</MudText>
 
                                 <div class="specs">
-                                    <MudText Typo="Typo.body2" Class="spec">Ram: @context.Ram.Split(' ').FirstOrDefault()</MudText>
-                                    <MudText Typo="Typo.body2" Class="spec">SSD: @context.Rom.Split(' ').FirstOrDefault()</MudText>
+                                    <MudText Typo="Typo.body2" Class="spec">@context.Ram.Split(' ').FirstOrDefault() GB</MudText>
+                                    <MudText Typo="Typo.body2" Class="spec">@context.Rom.Split(' ').FirstOrDefault() GB</MudText>
                                 </div>
 
                                 <MudText Typo="Typo.h6" Color="Color.Error" Class="price">@context.Price.ToString("N0") đ</MudText>
@@ -470,8 +472,10 @@
                                     Khối lượng: @context.Weight
                                 </MudText>
 
+                              
                             </MudCardContent>
 
+                            <!-- Fixed Position for Buttons at the Bottom -->
                             <MudCardActions Class="action-buttons">
                                 <div class="product-rating">
                                     <MudIcon Icon="@Icons.Material.Filled.Star" Color="Color.Warning" />
