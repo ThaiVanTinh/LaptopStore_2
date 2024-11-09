@@ -203,7 +203,7 @@ namespace LaptopStore.Client.Pages.Shop
                 var product = _pagedData.FirstOrDefault(c => c.Id == id);
                 if (product != null)
                 {
-                    parameters.Add(nameof(ProductDetail.Product), new GetProductByIdResponse
+                    parameters.Add(nameof(ViewProduct.Product), new GetProductByIdResponse
                     {
                         ImageDataURL = product.ImageDataURL,
                         Name = product.Name,
@@ -222,7 +222,6 @@ namespace LaptopStore.Client.Pages.Shop
                 }
             }
 
-            // Thay đổi tiêu đề modal để chỉ hiển thị thông tin
             var options = new DialogOptions
             {
                 CloseButton = true,
@@ -231,8 +230,7 @@ namespace LaptopStore.Client.Pages.Shop
                 DisableBackdropClick = true
             };
 
-            // Chỉ hiển thị modal để xem sản phẩm, không cho chỉnh sửa
-            var dialog = _dialogService.Show<ProductDetail>("View Product", parameters, options);
+            var dialog = _dialogService.Show<ViewProduct>("Thông tin sản phẩm", parameters, options);
             var result = await dialog.Result;
         }
     }

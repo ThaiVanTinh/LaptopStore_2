@@ -19,11 +19,12 @@ namespace LaptopStore.Client.Infrastructure.Managers.Catalog.Product
             _httpClient = httpClient;
         }
 
-        public async Task<IResult<int>> GetProductByIdAsync(int ProductId)
+        public async Task<IResult<GetProductByIdResponse>> GetProductByIdAsync(int productId)
         {
-            var response = await _httpClient.GetAsync(Routes.ProductsEndpoints.GetProductById(ProductId));
-            return await response.ToResult<int>();
+            var response = await _httpClient.GetAsync(Routes.ProductsEndpoints.GetProductById(productId));
+            return await response.ToResult<GetProductByIdResponse>();
         }
+
         public async Task<IResult<int>> DeleteAsync(int id)
         {
             var response = await _httpClient.DeleteAsync($"{Routes.ProductsEndpoints.Delete}/{id}");

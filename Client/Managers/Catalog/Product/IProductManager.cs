@@ -10,8 +10,8 @@ namespace LaptopStore.Client.Infrastructure.Managers.Catalog.Product
     public interface IProductManager : IManager
     {
         Task<PaginatedResult<GetAllPagedProductsResponse>> GetProductsAsync(GetAllPagedProductsRequest request);
-        
-        Task<IResult<int>> GetProductByIdAsync(int ProductId);
+
+        Task<IResult<GetProductByIdResponse>> GetProductByIdAsync(int productId);
 
         Task<IResult<string>> GetProductImageAsync(int id);
 
