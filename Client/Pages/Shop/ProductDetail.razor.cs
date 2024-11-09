@@ -1,66 +1,91 @@
 ﻿using LaptopStore.Application.Features.Products.Queries.GetProductById;
-using LaptopStore.Application.Requests;
 using LaptopStore.Client.Extensions;
-using LaptopStore.Shared.Constants.Application;
+using LaptopStore.Client.Infrastructure.Managers.Catalog.Product;
 using Microsoft.AspNetCore.Components;
-using Microsoft.AspNetCore.Components.Forms;
 using Microsoft.AspNetCore.SignalR.Client;
 using MudBlazor;
 using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
 using System.Threading.Tasks;
-using Blazored.FluentValidation;
-using LaptopStore.Client.Infrastructure.Managers.Catalog.Brand;
-using LaptopStore.Client.Infrastructure.Managers.Catalog.Product;
-using LaptopStore.Client.Pages.Admin.Products;
 
 namespace LaptopStore.Client.Pages.Shop
 {
-    public partial class ProductDetail
+    public partial class ProductDetail : ComponentBase
     {
         [Inject] private IProductManager ProductManager { get; set; }
-        [Inject] private IBrandManager BrandManager { get; set; }
+        [Inject] private NavigationManager NavigationManager { get; set; }
+        [Inject] private ISnackbar Snackbar { get; set; }
 
-        [Parameter] public GetProductByIdResponse Product { get; set; } = new();
+        [Parameter] public int productId { get; set; }
+        public GetProductByIdResponse Product { get; set; } = new();
         [CascadingParameter] private HubConnection HubConnection { get; set; }
-        [CascadingParameter] private MudDialogInstance MudDialog { get; set; }
-
-        private FluentValidationValidator _fluentValidationValidator;
-        private bool Validated => _fluentValidationValidator.Validate(options => { options.IncludeAllRuleSets(); });
-
-        public void Cancel()
-        {
-            MudDialog.Cancel();
-        }
 
         protected override async Task OnInitializedAsync()
         {
-            await LoadDataAsync();
-            HubConnection = HubConnection.TryInitialize(_navigationManager);
-            if (HubConnection.State == HubConnectionState.Disconnected)
+            try
             {
-                await HubConnection.StartAsync();
+                await LoadProductDetails();
+                HubConnection = HubConnection.TryInitialize(NavigationManager);
+                if (HubConnection.State == HubConnectionState.Disconnected)
+                {
+                    await HubConnection.StartAsync();
+                }
+            }
+            catch (Exception ex)
+            {
+                Snackbar.Add($"Đã xảy ra lỗi khi khởi tạo: {ex.Message}", Severity.Error);
             }
         }
 
-        private async Task LoadDataAsync()
+        private async Task LoadProductDetails()
         {
-            await LoadImageAsync();
-        }
- 
-        private async Task LoadImageAsync()
-        {
-            var data = await ProductManager.GetProductImageAsync(Product.Id);
-            if (data.Succeeded)
+            try
             {
-                var imageData = data.Data;
-                if (!string.IsNullOrEmpty(imageData))
+                var result = await ProductManager.GetProductByIdAsync(productId);
+                if (result.Succeeded && result.Data != null)
                 {
-                    Product.ImageDataURL = imageData;
+                    Product = result.Data;
+                    Snackbar.Add("Dữ liệu sản phẩm đã tải thành công!", Severity.Success);
+                    await LoadImageAsync(); // Gọi để tải ảnh nếu cần thiết
+                    StateHasChanged(); // Cập nhật giao diện sau khi có dữ liệu
+                }
+                else
+                {
+                    Snackbar.Add("Không thể tải dữ liệu sản phẩm hoặc sản phẩm không tồn tại.", Severity.Error);
+                    NavigationManager.NavigateTo("/not-found");
                 }
             }
-        }  
+            catch (NotImplementedException ex)
+            {
+                Snackbar.Add($"Chức năng chưa được triển khai: {ex.Message}", Severity.Error);
+            }
+            catch (Exception ex)
+            {
+                Snackbar.Add($"Đã xảy ra lỗi: {ex.Message}", Severity.Error);
+            }
+        }
+
+        private async Task LoadImageAsync()
+        {
+            try
+            {
+                var data = await ProductManager.GetProductImageAsync(productId);
+                if (data.Succeeded)
+                {
+                    var imageData = data.Data;
+                    if (!string.IsNullOrEmpty(imageData))
+                    {
+                        Product.ImageDataURL = imageData;
+                    }
+                }
+            }
+            catch (NotImplementedException ex)
+            {
+                Snackbar.Add($"Chức năng tải ảnh chưa được triển khai: {ex.Message}", Severity.Error);
+            }
+            catch (Exception ex)
+            {
+                Snackbar.Add($"Đã xảy ra lỗi khi tải ảnh: {ex.Message}", Severity.Error);
+            }
+        }
     }
 }
