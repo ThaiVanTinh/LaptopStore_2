@@ -12,7 +12,11 @@ namespace LaptopStore.Client.Pages.Admin.Carts
 {
     public partial class AddEditCartModal
     {
+<<<<<<< HEAD
         [Inject] private ICartManager CartManager { get; set; }
+=======
+        [Inject] private ICartManager Carts { get; set; }
+>>>>>>> 9d7f1a9 (cart)
 
         [Parameter] public AddEditCartCommand AddEditCartModel { get; set; } = new();
         [CascadingParameter] private MudDialogInstance MudDialog { get; set; }
@@ -28,7 +32,11 @@ namespace LaptopStore.Client.Pages.Admin.Carts
 
         private async Task SaveAsync()
         {
+<<<<<<< HEAD
             var response = await CartManager.SaveAsync(AddEditCartModel);
+=======
+            var response = await Carts.SaveAsync(AddEditCartModel);
+>>>>>>> 9d7f1a9 (cart)
             if (response.Succeeded)
             {
                 _snackBar.Add(response.Messages[0], Severity.Success);

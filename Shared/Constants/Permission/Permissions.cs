@@ -25,16 +25,27 @@ namespace LaptopStore.Shared.Constants.Permission
             public const string Export = "Permissions.Brands.Export";
             public const string Search = "Permissions.Brands.Search";
         }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 9d7f1a9 (cart)
         public static class Carts
         {
             public const string View = "Permissions.Carts.View";
             public const string Create = "Permissions.Carts.Create";
             public const string Edit = "Permissions.Carts.Edit";
+<<<<<<< HEAD
             public const string Delete = "Permissions.Carts.Delete";
             public const string Export = "Permissions.Carts.Export";
             public const string Search = "Permissions.Carts.Search";
         }
 
+=======
+            public const string Export = "Permissions.Brands.Export";
+            public const string Delete = "Permissions.Carts.Delete";
+            public const string Search = "Permissions.Carts.Search";
+        }
+>>>>>>> 9d7f1a9 (cart)
 
         public static class Users
         {

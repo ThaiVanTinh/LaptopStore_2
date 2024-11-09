@@ -19,13 +19,21 @@ namespace LaptopStore.Application.Features.Carts.Queries.GetAll
         }
     }
 
+<<<<<<< HEAD
     internal class GetAllCartsQueryHandler : IRequestHandler<GetAllCartsQuery, Result<List<GetAllCartsResponse>>>
+=======
+    internal class GetAllCartsCachedQueryHandler : IRequestHandler<GetAllCartsQuery, Result<List<GetAllCartsResponse>>>
+>>>>>>> 9d7f1a9 (cart)
     {
         private readonly IUnitOfWork<int> _unitOfWork;
         private readonly IMapper _mapper;
         private readonly IAppCache _cache;
 
+<<<<<<< HEAD
         public GetAllCartsQueryHandler(IUnitOfWork<int> unitOfWork, IMapper mapper, IAppCache cache)
+=======
+        public GetAllCartsCachedQueryHandler(IUnitOfWork<int> unitOfWork, IMapper mapper, IAppCache cache)
+>>>>>>> 9d7f1a9 (cart)
         {
             _unitOfWork = unitOfWork;
             _mapper = mapper;

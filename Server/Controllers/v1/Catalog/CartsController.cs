@@ -12,7 +12,11 @@ namespace LaptopStore.Server.Controllers.v1.Catalog
 {
     public class CartsController : BaseApiController<CartsController>
     {
+<<<<<<< HEAD
        
+=======
+
+>>>>>>> 9d7f1a9 (cart)
         [AllowAnonymous]
         [HttpGet]
         public async Task<IActionResult> GetAll()

@@ -9,14 +9,22 @@
                 {
                     <MudText Typo="Typo.h6">
                         <MudIcon Icon="@Icons.Material.Filled.Add" Class="mr-3 mb-n1" />
+<<<<<<< HEAD
                         @_localizer["Add Cart"]
+=======
+                        @_localizer["Add Brand"]
+>>>>>>> 9d7f1a9 (cart)
                     </MudText>
                 }
                 else
                 {
                     <MudText Typo="Typo.h6">
                         <MudIcon Icon="@Icons.Material.Filled.Update" Class="mr-3 mb-n1" />
+<<<<<<< HEAD
                         @_localizer["Update Cart"]
+=======
+                        @_localizer["Update Brand"]
+>>>>>>> 9d7f1a9 (cart)
                     </MudText>
                 }
             }
@@ -30,11 +38,25 @@
                     </MudItem>
                 }
                 <MudItem xs="12" md="6">
+<<<<<<< HEAD
                     <MudTextField For="@(() => AddEditCartModel.TotalPrice)" @bind-Value="AddEditCartModel.TotalPrice" Label="@_localizer["TotalPrice"]" />
                 </MudItem>
                 <MudItem xs="12" md="6">
                     <MudTextField T="string" For="@(() => AddEditCartModel.PaymentStatus)" @bind-Value="AddEditCartModel.PaymentStatus" Label="@_localizer["PaymentStatus"]" />
                 </MudItem> 
+=======
+                    <MudTextField For="@(() => AddEditCartModel.ProductId)" @bind-Value="AddEditCartModel.ProductId" Label="@_localizer["Id"]" />
+                </MudItem>
+                <MudItem xs="12" md="6">
+                    <MudTextField For="@(() => AddEditCartModel.Quantity)" @bind-Value="AddEditCartModel.Quantity" Label="@_localizer["Id"]" />
+                </MudItem>
+                <MudItem xs="12" md="6">
+                    <MudTextField For="@(() => AddEditCartModel.Product.Id)" @bind-Value="AddEditCartModel.Product.Id" Label="@_localizer["Name"]" />
+                </MudItem>
+                <MudItem xs="12" md="6">
+                    <MudTextField For="@(() => AddEditCartModel.Product.Price)" @bind-Value="AddEditCartModel.Product.Price" Label="@_localizer["ProductLine"]" />
+                </MudItem>
+>>>>>>> 9d7f1a9 (cart)
             </MudGrid>
         </DialogContent>
         <DialogActions>

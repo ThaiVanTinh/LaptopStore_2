@@ -20,6 +20,10 @@ namespace LaptopStore.Client.Pages.Admin.Carts
     public partial class Carts
     {
         [Inject] private ICartManager CartManager { get; set; }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 9d7f1a9 (cart)
         [CascadingParameter] private HubConnection HubConnection { get; set; }
 
         private List<GetAllCartsResponse> _cartList = new();
@@ -30,9 +34,15 @@ namespace LaptopStore.Client.Pages.Admin.Carts
         private bool _bordered = false;
 
         private ClaimsPrincipal _currentUser;
+<<<<<<< HEAD
         private bool _canCreateCarts; 
         private bool _canEditCarts;
         private bool _canDeleteCarts; 
+=======
+        private bool _canCreateCarts;
+        private bool _canEditCarts;
+        private bool _canDeleteCarts;
+>>>>>>> 9d7f1a9 (cart)
         private bool _canExportCarts;
         private bool _canSearchCarts;
         private bool _loaded;
@@ -103,7 +113,11 @@ namespace LaptopStore.Client.Pages.Admin.Carts
 
         private async Task ExportToExcel()
         {
+<<<<<<< HEAD
             var response = await CartManager.ExportToExcelAsync(_searchString); // Thay đổi tên phương thức
+=======
+            var response = await CartManager.ExportToExcelAsync(_searchString);
+>>>>>>> 9d7f1a9 (cart)
             if (response.Succeeded)
             {
                 await _jsRuntime.InvokeVoidAsync("Download", new
@@ -113,7 +127,11 @@ namespace LaptopStore.Client.Pages.Admin.Carts
                     MimeType = ApplicationConstants.MimeTypes.OpenXml
                 });
                 _snackBar.Add(string.IsNullOrWhiteSpace(_searchString)
+<<<<<<< HEAD
                     ? _localizer["Carts exported"] // Thay đổi thông điệp
+=======
+                    ? _localizer["Carts exported"]
+>>>>>>> 9d7f1a9 (cart)
                     : _localizer["Filtered Carts exported"], Severity.Success);
             }
             else
@@ -130,6 +148,7 @@ namespace LaptopStore.Client.Pages.Admin.Carts
             var parameters = new DialogParameters();
             if (id != 0)
             {
+<<<<<<< HEAD
                 _cart = _cartList.FirstOrDefault(c => c.Id == id); // Thay đổi tên biến
                 if (_cart != null)
                 {
@@ -138,6 +157,17 @@ namespace LaptopStore.Client.Pages.Admin.Carts
                         Id = _cart.Id,
                         TotalPrice = _cart.TotalPrice,
                         PaymentStatus = _cart.PaymentStatus
+=======
+                _cart = _cartList.FirstOrDefault(c => c.Id == id);
+                if (_cart != null)
+                {
+                    parameters.Add(nameof(AddEditCartModal.AddEditCartModel), new AddEditCartCommand
+                    {
+                        Id = _cart.Id,
+                        ProductId = _cart.ProductId,
+                        Quantity = _cart.Quantity,
+                        Product = _cart.Product
+>>>>>>> 9d7f1a9 (cart)
                     });
                 }
             }
@@ -159,11 +189,19 @@ namespace LaptopStore.Client.Pages.Admin.Carts
         private bool Search(GetAllCartsResponse cart)
         {
             if (string.IsNullOrWhiteSpace(_searchString)) return true;
+<<<<<<< HEAD
             if (cart.PaymentStatus?.Contains(_searchString, StringComparison.OrdinalIgnoreCase) == true)
             {
                 return true;
             }
 
+=======
+            if (cart.Product.Name?.Contains(_searchString, StringComparison.OrdinalIgnoreCase) == true)
+            {
+                return true;
+            }
+            
+>>>>>>> 9d7f1a9 (cart)
             return false;
         }
     }

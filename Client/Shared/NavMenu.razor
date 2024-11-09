@@ -26,6 +26,7 @@
         </MudNavLink>
         
     }
+<<<<<<< HEAD
     @if (_canViewCarts)
     {
         <MudListSubheader Class="mt-2 mb-n2">@_localizer["Administrator"]</MudListSubheader>
@@ -36,6 +37,9 @@
 
     }
     @if (_canViewProducts || _canViewBrands)
+=======
+    @if (_canViewProducts || _canViewBrands || _canViewCarts)
+>>>>>>> 9d7f1a9 (cart)
     {
         <MudListSubheader Class="mt-2 mb-n2">@_localizer["Catalog Management"]</MudListSubheader>
         @if (_canViewProducts)
@@ -50,6 +54,12 @@
                 @_localizer["Brands"]
             </MudNavLink>
         }
+        @if (_canViewCarts)
+        {
+            <MudNavLink Href="/admin/carts" Icon="@Icons.Material.Outlined.CallToAction">
+                @_localizer["Carts"]
+            </MudNavLink>
+        }
     }
 </MudNavMenu>
 
@@ -62,6 +72,8 @@
     private bool _canViewCarts;
     private bool _canViewProducts;
     private bool _canViewBrands;
+    private bool _canViewCarts;
+
 
     protected override async Task OnParametersSetAsync()
     {
@@ -72,5 +84,6 @@
         _canViewCarts = (await _authorizationService.AuthorizeAsync(_authenticationStateProviderUser, Permissions.Carts.View)).Succeeded;
         _canViewProducts = (await _authorizationService.AuthorizeAsync(_authenticationStateProviderUser, Permissions.Products.View)).Succeeded;
         _canViewBrands = (await _authorizationService.AuthorizeAsync(_authenticationStateProviderUser, Permissions.Brands.View)).Succeeded;
+        _canViewCarts = (await _authorizationService.AuthorizeAsync(_authenticationStateProviderUser, Permissions.Carts.View)).Succeeded;
     }
 }

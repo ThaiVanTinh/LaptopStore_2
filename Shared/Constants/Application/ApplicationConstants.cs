@@ -25,6 +25,7 @@
         {
             public const string GetAllBrandsCacheKey = "all-brands";
             public const string GetAllCartsCacheKey = "all-carts";
+<<<<<<< HEAD
 
             public static string GetAllEntityExtendedAttributesCacheKey(string entityFullName)
             {
@@ -35,6 +36,8 @@
             {
                 return $"all-{entityFullName}-extended-attributes-{entityId}";
             }
+=======
+>>>>>>> 9d7f1a9 (cart)
         }
 
         public static class MimeTypes
