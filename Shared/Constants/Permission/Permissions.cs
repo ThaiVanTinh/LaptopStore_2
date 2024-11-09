@@ -26,33 +26,14 @@ namespace LaptopStore.Shared.Constants.Permission
             public const string Search = "Permissions.Brands.Search";
         }
 
-        public static class Documents
+        public static class Carts
         {
-            public const string View = "Permissions.Documents.View";
-            public const string Create = "Permissions.Documents.Create";
-            public const string Edit = "Permissions.Documents.Edit";
-            public const string Delete = "Permissions.Documents.Delete";
-            public const string Search = "Permissions.Documents.Search";
-        }
-
-        public static class DocumentTypes
-        {
-            public const string View = "Permissions.DocumentTypes.View";
-            public const string Create = "Permissions.DocumentTypes.Create";
-            public const string Edit = "Permissions.DocumentTypes.Edit";
-            public const string Delete = "Permissions.DocumentTypes.Delete";
-            public const string Export = "Permissions.DocumentTypes.Export";
-            public const string Search = "Permissions.DocumentTypes.Search";
-        }
-
-        public static class DocumentExtendedAttributes
-        {
-            public const string View = "Permissions.DocumentExtendedAttributes.View";
-            public const string Create = "Permissions.DocumentExtendedAttributes.Create";
-            public const string Edit = "Permissions.DocumentExtendedAttributes.Edit";
-            public const string Delete = "Permissions.DocumentExtendedAttributes.Delete";
-            public const string Export = "Permissions.DocumentExtendedAttributes.Export";
-            public const string Search = "Permissions.DocumentExtendedAttributes.Search";
+            public const string View = "Permissions.Carts.View";
+            public const string Create = "Permissions.Carts.Create";
+            public const string Edit = "Permissions.Carts.Edit";
+            public const string Export = "Permissions.Brands.Export";
+            public const string Delete = "Permissions.Carts.Delete";
+            public const string Search = "Permissions.Carts.Search";
         }
 
         public static class Users
