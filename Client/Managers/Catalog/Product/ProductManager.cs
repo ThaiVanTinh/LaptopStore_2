@@ -55,5 +55,10 @@ namespace LaptopStore.Client.Infrastructure.Managers.Catalog.Product
             var response = await _httpClient.PostAsJsonAsync(Routes.ProductsEndpoints.Save, request);
             return await response.ToResult<int>();
         }
+
+        Task<IResult<GetProductByIdResponse>> IProductManager.GetProductByIdAsync(int productId)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }
