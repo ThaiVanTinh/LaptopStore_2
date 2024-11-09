@@ -48,16 +48,11 @@ else
             <MudTh><MudTableSortLabel T="GetAllPagedProductsResponse" SortLabel="Name">@_localizer["Name"]</MudTableSortLabel></MudTh>
             <MudTh><MudTableSortLabel T="GetAllPagedProductsResponse" SortLabel="Price">@_localizer["Price"]</MudTableSortLabel></MudTh>
             <MudTh><MudTableSortLabel T="GetAllPagedProductsResponse" SortLabel="Brand">@_localizer["Brand"]</MudTableSortLabel></MudTh>
-            <MudTh><MudTableSortLabel T="GetAllPagedProductsResponse" SortLabel="CPU">@_localizer["CPU"]</MudTableSortLabel></MudTh>
-            <MudTh><MudTableSortLabel T="GetAllPagedProductsResponse" SortLabel="Screen">@_localizer["Screen"]</MudTableSortLabel></MudTh>
-            <MudTh><MudTableSortLabel T="GetAllPagedProductsResponse" SortLabel="Card">@_localizer["Card"]</MudTableSortLabel></MudTh>
-            <MudTh><MudTableSortLabel T="GetAllPagedProductsResponse" SortLabel="Ram">@_localizer["Ram"]</MudTableSortLabel></MudTh>
-            <MudTh><MudTableSortLabel T="GetAllPagedProductsResponse" SortLabel="Rom">@_localizer["Rom"]</MudTableSortLabel></MudTh>
-            <MudTh><MudTableSortLabel T="GetAllPagedProductsResponse" SortLabel="Battery">@_localizer["Battery"]</MudTableSortLabel></MudTh>
-            <MudTh><MudTableSortLabel T="GetAllPagedProductsResponse" SortLabel="Weight">@_localizer["Weight"]</MudTableSortLabel></MudTh>
+            <MudTh><MudTableSortLabel T="GetAllPagedProductsResponse" SortLabel="Description">@_localizer["Description"]</MudTableSortLabel></MudTh>
             <MudTh><MudTableSortLabel T="GetAllPagedProductsResponse" SortLabel="Barcode">@_localizer["Barcode"]</MudTableSortLabel></MudTh>
             <MudTh><MudTableSortLabel T="GetAllPagedProductsResponse" SortLabel="Rate">@_localizer["Rate"]</MudTableSortLabel></MudTh>
             <MudTh><MudTableSortLabel T="GetAllPagedProductsResponse" SortLabel="Featured">@_localizer["Featured"]</MudTableSortLabel></MudTh>
+            <MudTh><MudTableSortLabel T="GetAllPagedProductsResponse" SortLabel="Info">@_localizer["Info"]</MudTableSortLabel></MudTh>
             <MudTh><MudTableSortLabel T="GetAllPagedProductsResponse" SortLabel="ImageDataURL">@_localizer["ImageDataURL"]</MudTableSortLabel></MudTh>
             <MudTh Style="text-align:right">@_localizer["Actions"]</MudTh>
         </HeaderContent>
@@ -70,27 +65,6 @@ else
             <MudTd DataLabel="Brand">
                 <MudHighlighter Text="@context.Brand" HighlightedText="@_searchString" />
             </MudTd>
-            <MudTd DataLabel="CPU">
-                <MudHighlighter Text="@context.CPU" HighlightedText="@_searchString" />
-            </MudTd>
-            <MudTd DataLabel="Screen">
-                <MudHighlighter Text="@context.Screen" HighlightedText="@_searchString" />
-            </MudTd>
-            <MudTd DataLabel="Card">
-                <MudHighlighter Text="@context.Card" HighlightedText="@_searchString" />
-            </MudTd>
-            <MudTd DataLabel="Ram">
-                <MudHighlighter Text="@context.Ram" HighlightedText="@_searchString" />
-            </MudTd>
-            <MudTd DataLabel="Rom">
-                <MudHighlighter Text="@context.Rom" HighlightedText="@_searchString" />
-            </MudTd>
-            <MudTd DataLabel="Battery">
-                <MudHighlighter Text="@context.Battery" HighlightedText="@_searchString" />
-            </MudTd>
-            <MudTd DataLabel="Weight">
-                <MudHighlighter Text="@context.Weight" HighlightedText="@_searchString" />
-            </MudTd>
             <MudTd DataLabel="Description">
                 <MudHighlighter Text="@context.Description" HighlightedText="@_searchString" />
             </MudTd>
@@ -99,6 +73,15 @@ else
             </MudTd>
             <MudTd DataLabel="Rate">@context.Rate</MudTd>
             <MudTd DataLabel="Featured">@context.Featured</MudTd>
+            <MudTd DataLabel="Info">
+                <MudText Typo="Typo.body2" Class="product-specs">
+                    Màn hình: @context.Screen<br />
+                    CPU: @context.CPU<br />
+                    Card: @context.Card<br />
+                    Pin: @context.Battery<br />
+                    Khối lượng: @context.Weight
+                </MudText>
+            </MudTd>
             <MudTd DataLabel="Image">
                 <MudAvatar Image="@(context.ImageDataURL)" Square="true" Style="height: auto; width: auto; max-height: 100px;">
                 </MudAvatar>
