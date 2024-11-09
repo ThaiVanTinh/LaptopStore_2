@@ -35,12 +35,9 @@ namespace LaptopStore.Client.Pages.Shop
 
         protected override async Task OnInitializedAsync()
         {
+            _loaded = false; // Bắt đầu tải dữ liệu
+            await LoadData(0, 10, new TableState());
             _loaded = true;
-            HubConnection = HubConnection.TryInitialize(_navigationManager);
-            if (HubConnection.State == HubConnectionState.Disconnected)
-            {
-                await HubConnection.StartAsync();
-            }
         }
 
         private async Task<TableData<GetAllPagedProductsResponse>> ServerReload(TableState state)
@@ -61,22 +58,29 @@ namespace LaptopStore.Client.Pages.Shop
                 orderings = state.SortDirection != SortDirection.None ? new[] { $"{state.SortLabel} {state.SortDirection}" } : new[] { $"{state.SortLabel}" };
             }
 
-            var request = new GetAllPagedProductsRequest { PageSize = pageSize, PageNumber = pageNumber + 1, SearchString = _searchString, Orderby = orderings };
+            var request = new GetAllPagedProductsRequest
+            {
+                PageSize = pageSize,
+                PageNumber = pageNumber + 1,
+                SearchString = _searchString,
+                Orderby = orderings
+            };
+
             var response = await ProductManager.GetProductsAsync(request);
-            if (response.Succeeded)
+            if (response.Succeeded && response.Data != null && response.Data.Any())
             {
                 _totalItems = response.TotalCount;
-                _currentPage = response.CurrentPage;
                 _pagedData = response.Data;
             }
             else
             {
-                foreach (var message in response.Messages)
-                {
-                    _snackBar.Add(message, Severity.Error);
-                }
+                _pagedData = new List<GetAllPagedProductsResponse>();
+                _totalItems = 0;
+                _snackBar.Add("Không tìm thấy sản phẩm nào.", Severity.Info);
             }
         }
+
+
 
         private void OnSearch(string text)
         {

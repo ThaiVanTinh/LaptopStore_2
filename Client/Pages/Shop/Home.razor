@@ -269,6 +269,13 @@
         box-sizing: border-box;
     }
 
+    .button-small {
+        padding: 4px 8px;
+        font-size: 0.85em; /* Giảm font size để làm nút nhỏ lại */
+        min-width: 80px; /* Tùy chọn: Đặt min-width nhỏ hơn */
+    }
+
+
 </style>
 
 <!-- Tìm kiếm chung cho cả hai bảng -->
@@ -424,26 +431,19 @@
                                 <MudText Typo="Typo.h6" Color="Color.Error" Class="price">@context.Price.ToString("N0") đ</MudText>
                                 <MudText Typo="Typo.caption" Class="original-price">@((context.Price * 1.14).ToString("N0")) đ -14%</MudText>
 
-                                <MudText Typo="Typo.body2" Class="product-specs">
-                                    Màn hình: @context.Screen<br />
-                                    CPU: @context.CPU<br />
-                                    Card: @context.Card<br />
-                                    Pin: @context.Battery<br />
-                                    Khối lượng: @context.Weight
-                                </MudText>
-
                             </MudCardContent>
 
                             <!-- Fixed Position for Buttons at the Bottom -->
                             <MudCardActions Class="action-buttons">
-
                                 <div class="product-rating">
                                     <MudIcon Icon="@Icons.Material.Filled.Star" Color="Color.Warning" />
                                     <MudText Typo="Typo.caption">@context.Rate</MudText>
                                 </div>
-                                <MudButton Variant="Variant.Filled" Color="Color.Primary" Style="margin-right: 8px;">Xem chi tiết</MudButton>
-                                <MudButton Variant="Variant.Text" Color="Color.Secondary">So sánh</MudButton>
+                                <MudButton Variant="Variant.Filled" Color="Color.Primary" Class="button-small" Style="margin-right: 8px;">
+                                    Xem chi tiết
+                                </MudButton>
                             </MudCardActions>
+
                         </MudCard>
                     </MudItem>
                 }
@@ -479,15 +479,6 @@
                                 <MudText Typo="Typo.h6" Color="Color.Error" Class="price">@context.Price.ToString("N0") đ</MudText>
                                 <MudText Typo="Typo.caption" Class="original-price">@((context.Price * 1.14).ToString("N0")) đ -14%</MudText>
 
-                                <MudText Typo="Typo.body2" Class="product-specs">
-                                    Màn hình: @context.Screen<br />
-                                    CPU: @context.CPU<br />
-                                    Card: @context.Card<br />
-                                    Pin: @context.Battery<br />
-                                    Khối lượng: @context.Weight
-                                </MudText>
-
-                              
                             </MudCardContent>
 
                             <!-- Fixed Position for Buttons at the Bottom -->
@@ -496,9 +487,11 @@
                                     <MudIcon Icon="@Icons.Material.Filled.Star" Color="Color.Warning" />
                                     <MudText Typo="Typo.caption">@context.Rate</MudText>
                                 </div>
-                                <MudButton Variant="Variant.Filled" Color="Color.Primary" Style="margin-right: 8px;">Xem chi tiết</MudButton>
-                                <MudButton Variant="Variant.Text" Color="Color.Secondary">So sánh</MudButton>
+                                <MudButton Variant="Variant.Filled" Color="Color.Primary" Class="button-small" Style="margin-right: 8px;">
+                                    Xem chi tiết
+                                </MudButton>
                             </MudCardActions>
+
                         </MudCard>
                     </MudItem>
                 }
