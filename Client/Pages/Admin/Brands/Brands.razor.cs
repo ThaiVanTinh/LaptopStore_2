@@ -138,7 +138,7 @@ namespace LaptopStore.Client.Pages.Admin.Brands
                     {
                         Id = _brand.Id,
                         Name = _brand.Name,
-                        ProductLine = _brand.ProductLine
+                        ProductLines = _brand.ProductLines // Updated to use ProductLines list
                     });
                 }
             }
@@ -164,7 +164,7 @@ namespace LaptopStore.Client.Pages.Admin.Brands
             {
                 return true;
             }
-            
+
             return false;
         }
     }

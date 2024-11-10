@@ -23,6 +23,8 @@ namespace LaptopStore.Client.Pages.Shop
 {
     public partial class Home : IDisposable // Implement IDisposable to manage resources
     {
+        [Inject] private NavigationManager NavigationManager { get; set; }
+
         [Inject] private IProductManager ProductManager { get; set; }
         [CascadingParameter] private HubConnection HubConnection { get; set; }
 
@@ -232,6 +234,10 @@ namespace LaptopStore.Client.Pages.Shop
 
             var dialog = _dialogService.Show<ViewProduct>("Thông tin sản phẩm", parameters, options);
             var result = await dialog.Result;
+        }
+        private void NavigateToProductDetail(int productId)
+        {
+            NavigationManager.NavigateTo($"/product/{productId}");
         }
     }
 }

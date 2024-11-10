@@ -31,9 +31,11 @@ namespace LaptopStore.Server.Controllers.v1.Catalog
 
         [Authorize(Policy = Permissions.Brands.Create)]
         [HttpPost]
+        [Authorize(Policy = Permissions.Brands.Create)]
+        [HttpPost]
         public async Task<IActionResult> Post(AddEditBrandCommand command)
         {
-            return Ok(await _mediator.Send(command));
+            return Ok(await _mediator.Send(command));  // This should save the Brand with ProductLines
         }
 
         [Authorize(Policy = Permissions.Brands.Delete)]

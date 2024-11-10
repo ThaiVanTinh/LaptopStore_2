@@ -4,21 +4,19 @@
     <FluentValidationValidator @ref="_fluentValidationValidator" />
     <MudDialog>
         <TitleContent>
-            @{
-                if (AddEditBrandModel.Id == 0)
-                {
-                    <MudText Typo="Typo.h6">
-                        <MudIcon Icon="@Icons.Material.Filled.Add" Class="mr-3 mb-n1" />
-                        @_localizer["Add Brand"]
-                    </MudText>
-                }
-                else
-                {
-                    <MudText Typo="Typo.h6">
-                        <MudIcon Icon="@Icons.Material.Filled.Update" Class="mr-3 mb-n1" />
-                        @_localizer["Update Brand"]
-                    </MudText>
-                }
+            @if (AddEditBrandModel.Id == 0)
+            {
+                <MudText Typo="Typo.h6">
+                    <MudIcon Icon="@Icons.Material.Filled.Add" Class="mr-3 mb-n1" />
+                    @_localizer["Add Brand"]
+                </MudText>
+            }
+            else
+            {
+                <MudText Typo="Typo.h6">
+                    <MudIcon Icon="@Icons.Material.Filled.Update" Class="mr-3 mb-n1" />
+                    @_localizer["Update Brand"]
+                </MudText>
             }
         </TitleContent>
         <DialogContent>
@@ -32,9 +30,27 @@
                 <MudItem xs="12" md="6">
                     <MudTextField T="string" For="@(() => AddEditBrandModel.Name)" @bind-Value="AddEditBrandModel.Name" Label="@_localizer["Name"]" />
                 </MudItem>
-                <MudItem xs="12" md="6">
-                    <MudTextField T="string" For="@(() => AddEditBrandModel.ProductLine)" @bind-Value="AddEditBrandModel.ProductLine" Label="@_localizer["ProductLine"]" />
-                </MudItem> 
+
+                <!-- ProductLine Fields -->
+                <MudItem xs="12">
+                    <MudText Typo="Typo.subtitle1">@_localizer["ProductLine"]</MudText>
+                    @for (int i = 0; i < AddEditBrandModel.ProductLines.Count; i++)
+                    {
+                        <MudGrid>
+                            <MudItem xs="10">
+                                <MudTextField T="string" @bind-Value="AddEditBrandModel.ProductLines[i]" Label="@_localizer["ProductLine"]" />
+                            </MudItem>
+                            <MudItem xs="2">
+                                <MudButton Color="Color.Error" OnClick="(() => RemoveProductLine(i))">
+                                    <MudIcon Icon="@Icons.Material.Filled.Remove" />
+                                </MudButton>
+                            </MudItem>
+                        </MudGrid>
+                    }
+                    <MudButton Color="Color.Primary" OnClick="AddProductLine">
+                        <MudIcon Icon="@Icons.Material.Filled.Add" /> @_localizer["Add ProductLine"]
+                    </MudButton>
+                </MudItem>
             </MudGrid>
         </DialogContent>
         <DialogActions>

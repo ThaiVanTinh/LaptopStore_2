@@ -21,14 +21,17 @@ namespace LaptopStore.Client.Pages.Shop
 
         protected override async Task OnInitializedAsync()
         {
+            if (productId <= 0) // Check for a valid product ID
+            {
+                Snackbar.Add("Product ID không hợp lệ.", Severity.Error);
+                NavigationManager.NavigateTo("/not-found");
+                return;
+            }
+
             try
             {
+                Console.WriteLine($"Product ID: {productId}");  // Log the product ID to verify
                 await LoadProductDetails();
-                HubConnection = HubConnection.TryInitialize(NavigationManager);
-                if (HubConnection.State == HubConnectionState.Disconnected)
-                {
-                    await HubConnection.StartAsync();
-                }
             }
             catch (Exception ex)
             {
@@ -38,29 +41,19 @@ namespace LaptopStore.Client.Pages.Shop
 
         private async Task LoadProductDetails()
         {
-            try
+            var result = await ProductManager.GetProductByIdAsync(productId);
+            if (result.Succeeded && result.Data != null)
             {
-                var result = await ProductManager.GetProductByIdAsync(productId);
-                if (result.Succeeded && result.Data != null)
-                {
-                    Product = result.Data;
-                    Snackbar.Add("Dữ liệu sản phẩm đã tải thành công!", Severity.Success);
-                    await LoadImageAsync(); // Gọi để tải ảnh nếu cần thiết
-                    StateHasChanged(); // Cập nhật giao diện sau khi có dữ liệu
-                }
-                else
-                {
-                    Snackbar.Add("Không thể tải dữ liệu sản phẩm hoặc sản phẩm không tồn tại.", Severity.Error);
-                    NavigationManager.NavigateTo("/not-found");
-                }
+                // Map product data
+                Product = result.Data;
+                Snackbar.Add("Dữ liệu sản phẩm đã tải thành công!", Severity.Success);
+                StateHasChanged();
             }
-            catch (NotImplementedException ex)
+            else
             {
-                Snackbar.Add($"Chức năng chưa được triển khai: {ex.Message}", Severity.Error);
-            }
-            catch (Exception ex)
-            {
-                Snackbar.Add($"Đã xảy ra lỗi: {ex.Message}", Severity.Error);
+                // Handle errors and add logging
+                Snackbar.Add("Không thể tải dữ liệu sản phẩm hoặc sản phẩm không tồn tại.", Severity.Error);
+                NavigationManager.NavigateTo("/not-found");
             }
         }
 
@@ -69,13 +62,9 @@ namespace LaptopStore.Client.Pages.Shop
             try
             {
                 var data = await ProductManager.GetProductImageAsync(productId);
-                if (data.Succeeded)
+                if (data.Succeeded && !string.IsNullOrEmpty(data.Data))
                 {
-                    var imageData = data.Data;
-                    if (!string.IsNullOrEmpty(imageData))
-                    {
-                        Product.ImageDataURL = imageData;
-                    }
+                    Product.ImageDataURL = data.Data;
                 }
             }
             catch (NotImplementedException ex)

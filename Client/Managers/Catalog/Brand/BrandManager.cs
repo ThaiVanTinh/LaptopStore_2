@@ -43,5 +43,6 @@ namespace LaptopStore.Client.Infrastructure.Managers.Catalog.Brand
             var response = await _httpClient.PostAsJsonAsync(Routes.BrandsEndpoints.Save, request);
             return await response.ToResult<int>();
         }
+
     }
 }

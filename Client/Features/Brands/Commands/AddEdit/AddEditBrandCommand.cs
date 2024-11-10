@@ -8,16 +8,19 @@ using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Localization;
 using LaptopStore.Shared.Constants.Application;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace LaptopStore.Application.Features.Brands.Commands.AddEdit
 {
-    public partial class AddEditBrandCommand : IRequest<Result<int>>
+    public class AddEditBrandCommand : IRequest<Result<int>>
     {
         public int Id { get; set; }
         [Required]
         public string Name { get; set; }
-        public string ProductLine { get; set; }
+        public List<string> ProductLines { get; set; } = new List<string>();  // Ensure this exists
     }
+
 
     internal class AddEditBrandCommandHandler : IRequestHandler<AddEditBrandCommand, Result<int>>
     {
@@ -36,7 +39,12 @@ namespace LaptopStore.Application.Features.Brands.Commands.AddEdit
         {
             if (command.Id == 0)
             {
-                var brand = _mapper.Map<Brand>(command);
+                var brand = new Brand
+                {
+                    Name = command.Name,
+                    ProductLines = command.ProductLines.Select(line => new ProductLine { LineName = line }).ToList()
+                };
+
                 await _unitOfWork.Repository<Brand>().AddAsync(brand);
                 await _unitOfWork.CommitAndRemoveCache(cancellationToken, ApplicationConstants.Cache.GetAllBrandsCacheKey);
                 return await Result<int>.SuccessAsync(brand.Id, _localizer["Brand Saved"]);
@@ -46,8 +54,9 @@ namespace LaptopStore.Application.Features.Brands.Commands.AddEdit
                 var brand = await _unitOfWork.Repository<Brand>().GetByIdAsync(command.Id);
                 if (brand != null)
                 {
-                    brand.Name = command.Name ?? brand.Name;
-                    brand.ProductLine = command.ProductLine ?? brand.ProductLine;
+                    brand.Name = command.Name;
+                    brand.ProductLines = command.ProductLines.Select(line => new ProductLine { LineName = line }).ToList();
+
                     await _unitOfWork.Repository<Brand>().UpdateAsync(brand);
                     await _unitOfWork.CommitAndRemoveCache(cancellationToken, ApplicationConstants.Cache.GetAllBrandsCacheKey);
                     return await Result<int>.SuccessAsync(brand.Id, _localizer["Brand Updated"]);
@@ -58,5 +67,8 @@ namespace LaptopStore.Application.Features.Brands.Commands.AddEdit
                 }
             }
         }
+
+
     }
+
 }

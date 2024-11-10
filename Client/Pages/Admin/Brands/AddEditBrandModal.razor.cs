@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Blazored.FluentValidation;
 using LaptopStore.Application.Features.Brands.Commands.AddEdit;
 using LaptopStore.Client.Infrastructure.Managers.Catalog.Brand;
+using System.Collections.Generic;
 
 namespace LaptopStore.Client.Pages.Admin.Brands
 {
@@ -21,7 +22,7 @@ namespace LaptopStore.Client.Pages.Admin.Brands
         private FluentValidationValidator _fluentValidationValidator;
         private bool Validated => _fluentValidationValidator.Validate(options => { options.IncludeAllRuleSets(); });
 
-        public void Cancel()
+        private void Cancel()
         {
             MudDialog.Cancel();
         }
@@ -41,8 +42,8 @@ namespace LaptopStore.Client.Pages.Admin.Brands
                     _snackBar.Add(message, Severity.Error);
                 }
             }
-            await HubConnection.SendAsync(ApplicationConstants.SignalR.SendUpdateDashboard);
         }
+
 
         protected override async Task OnInitializedAsync()
         {
@@ -53,6 +54,21 @@ namespace LaptopStore.Client.Pages.Admin.Brands
                 await HubConnection.StartAsync();
             }
         }
+
+        private void AddProductLine()
+        {
+            AddEditBrandModel.ProductLines.Add(string.Empty);  // Thêm một dòng sản phẩm mới
+        }
+
+
+        private void RemoveProductLine(int index)
+        {
+            if (index >= 0 && index < AddEditBrandModel.ProductLines.Count)
+            {
+                AddEditBrandModel.ProductLines.RemoveAt(index);
+            }
+        }
+
 
         private async Task LoadDataAsync()
         {

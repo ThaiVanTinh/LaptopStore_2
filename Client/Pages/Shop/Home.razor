@@ -2,7 +2,6 @@
 @page "/home"
 @inject Microsoft.Extensions.Localization.IStringLocalizer<ListProducts> _localizer
 @using LaptopStore.Application.Features.Products.Queries.GetAllPaged;
-@inject NavigationManager NavigationManager
 
 
 <style>
@@ -446,6 +445,7 @@
                                 </MudButton>
 
 
+
                             </MudCardActions>
 
                         </MudCard>
@@ -510,8 +510,6 @@
 
     private string GetFilterPanelClass() =>
         isFilterPanelVisible ? "filter-panel-visible" : "filter-panel-hidden";
-    private void NavigateToProductDetail(int productId)
-    {
-        NavigationManager.NavigateTo($"/product/{productId}");
-    }
+
 }
+
