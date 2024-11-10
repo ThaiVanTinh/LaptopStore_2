@@ -44,40 +44,32 @@ else
             }
         </ToolBarContent>
         <HeaderContent>
-            <MudTh><MudTableSortLabel T="GetAllPagedProductsResponse" SortLabel="Id">@_localizer["Id"]</MudTableSortLabel></MudTh>
-            <MudTh><MudTableSortLabel T="GetAllPagedProductsResponse" SortLabel="Name">@_localizer["Name"]</MudTableSortLabel></MudTh>
-            <MudTh><MudTableSortLabel T="GetAllPagedProductsResponse" SortLabel="Price">@_localizer["Price"]</MudTableSortLabel></MudTh>
-            <MudTh><MudTableSortLabel T="GetAllPagedProductsResponse" SortLabel="Quantity">@_localizer["Quantity"]</MudTableSortLabel></MudTh>
-            <MudTh><MudTableSortLabel T="GetAllPagedProductsResponse" SortLabel="Brand">@_localizer["Brand"]</MudTableSortLabel></MudTh>
-            <MudTh><MudTableSortLabel T="GetAllPagedProductsResponse" SortLabel="Description">@_localizer["Description"]</MudTableSortLabel></MudTh>
-            <MudTh><MudTableSortLabel T="GetAllPagedProductsResponse" SortLabel="Barcode">@_localizer["Barcode"]</MudTableSortLabel></MudTh>
-            <MudTh><MudTableSortLabel T="GetAllPagedProductsResponse" SortLabel="Rate">@_localizer["Rate"]</MudTableSortLabel></MudTh>
-            <MudTh><MudTableSortLabel T="GetAllPagedProductsResponse" SortLabel="Featured">@_localizer["Featured"]</MudTableSortLabel></MudTh>
-            <MudTh><MudTableSortLabel T="GetAllPagedProductsResponse" SortLabel="Info">@_localizer["Info"]</MudTableSortLabel></MudTh>
-            <MudTh><MudTableSortLabel T="GetAllPagedProductsResponse" SortLabel="ImageDataURL">@_localizer["ImageDataURL"]</MudTableSortLabel></MudTh>
-            <MudTh Style="text-align:right">@_localizer["Actions"]</MudTh>
-        </HeaderContent>
+            <MudTh Style="min-width: 10px; width: 2%;"><MudTableSortLabel T="GetAllPagedProductsResponse" SortLabel="Id">@_localizer["Id"]</MudTableSortLabel></MudTh>
+            <MudTh Style="min-width: 150px; width: 10%;"><MudTableSortLabel T="GetAllPagedProductsResponse" SortLabel="ImageDataURL">@_localizer["ImageDataURL"]</MudTableSortLabel></MudTh>
+            <MudTh Style="min-width: 100px; width: 10%;"><MudTableSortLabel T="GetAllPagedProductsResponse" SortLabel="Name">@_localizer["Name"]</MudTableSortLabel></MudTh>
+            <MudTh Style="min-width: 300px; width: 30%;"><MudTableSortLabel T="GetAllPagedProductsResponse" SortLabel="Info">@_localizer["Info"]</MudTableSortLabel></MudTh>
+            <MudTh Style="min-width: 20px; width: 5%;"><MudTableSortLabel T="GetAllPagedProductsResponse" SortLabel="Quantity">@_localizer["Quantity"]</MudTableSortLabel></MudTh>
+            <MudTh Style="min-width: 80px; width: 10%;"><MudTableSortLabel T="GetAllPagedProductsResponse" SortLabel="Price">@_localizer["Price"]</MudTableSortLabel></MudTh>
+            <MudTh Style="min-width: 20px; width: 5%;"><MudTableSortLabel T="GetAllPagedProductsResponse" SortLabel="Barcode">@_localizer["Barcode"]</MudTableSortLabel></MudTh>
+            <MudTh Style="min-width: 5px; width: 2%;"><MudTableSortLabel T="GetAllPagedProductsResponse" SortLabel="Rate">@_localizer["Rate"]</MudTableSortLabel></MudTh>
+            <MudTh Style="min-width: 50px; width: 5%;"><MudTableSortLabel T="GetAllPagedProductsResponse" SortLabel="Featured">@_localizer["Featured"]</MudTableSortLabel></MudTh>
+            <MudTh Style="min-width: 80px; width: 10%; text-align:right">@_localizer["Actions"]</MudTh>
+    </HeaderContent>
+
         <RowTemplate>
-            <MudTd DataLabel="Id">@context.Id</MudTd>
-            <MudTd DataLabel="Name">
+            <MudTd DataLabel="Id" Style="width: 2%;">@context.Id</MudTd>
+            <MudTd DataLabel="Image" Style="width: 10%;">
+                <MudAvatar Image="@(context.ImageDataURL)" Square="true" Style="height: 100px; width: auto; max-height: 100px;">
+                </MudAvatar>
+            </MudTd>
+            <MudTd DataLabel="Name" Style="width: 10%;">
                 <MudHighlighter Text="@context.Name" HighlightedText="@_searchString" />
             </MudTd>
-            <MudTd DataLabel="Price">@context.Price</MudTd>
-            <MudTd DataLabel="Quantity">@context.Quantity</MudTd>
-            <MudTd DataLabel="Brand">
-                <MudHighlighter Text="@context.Brand" HighlightedText="@_searchString" />
-            </MudTd>
-            <MudTd DataLabel="Description">
-                <MudHighlighter Text="@context.Description" HighlightedText="@_searchString" />
-            </MudTd>
-            <MudTd DataLabel="Barcode">
-                <MudHighlighter Text="@context.Barcode" HighlightedText="@_searchString" />
-            </MudTd>
-            <MudTd DataLabel="Rate">@context.Rate</MudTd>
-            <MudTd DataLabel="Featured">@context.Featured</MudTd>
-            <MudTd DataLabel="Info">
+            <MudTd DataLabel="Info" Style="width: 30%;">
                 <MudText Typo="Typo.body2" Class="product-specs">
+                    Hãng sản xuất: @context.Brand <br />
                     Dòng sản phẩm: @context.ProductLine <br />
+                    Loại Laptop: @context.Description <br />
                     Màn hình: @context.Screen<br />
                     CPU: @context.CPU<br />
                     Card: @context.Card<br />
@@ -85,26 +77,31 @@ else
                     Khối lượng: @context.Weight
                 </MudText>
             </MudTd>
-            <MudTd DataLabel="Image">
-                <MudAvatar Image="@(context.ImageDataURL)" Square="true" Style="height: auto; width: auto; max-height: 100px;">
-                </MudAvatar>
+            <MudTd DataLabel="Quantity" Style="width: 5%;">@context.Quantity</MudTd>
+            <MudTd DataLabel="Price" Style="width: 10%;">@context.Price</MudTd>
+            <MudTd DataLabel="Barcode" Style="width: 5%;">
+                <MudHighlighter Text="@context.Barcode" HighlightedText="@_searchString" />
             </MudTd>
-            <MudTd DataLabel="Actions" Style="text-align: right">
+            <MudTd DataLabel="Rate" Style="width: 2%;">@context.Rate</MudTd>
+            <MudTd DataLabel="Featured" Style="width: 5%;">@context.Featured</MudTd>
+            
+            
+            <MudTd DataLabel="Actions" Style="width: 10%; text-align: right">
                 @if (_canEditProducts || _canDeleteProducts)
                 {
                     <MudMenu Label="@_localizer["Actions"]" Variant="Variant.Filled" DisableElevation="true" EndIcon="@Icons.Filled.KeyboardArrowDown" IconColor="Color.Secondary" Direction="Direction.Left" OffsetX="true">
                         @if (_canEditProducts)
-                            {
+                        {
                             <MudMenuItem @onclick="@(() => InvokeModal(@context.Id))">@_localizer["Edit"]</MudMenuItem>
-                            }
+                        }
                         @if (_canDeleteProducts)
-                            {
+                        {
                             <MudMenuItem @onclick="@(() => Delete(@context.Id))">@_localizer["Delete"]</MudMenuItem>
-                            }
+                        }
                     </MudMenu>
-                    }
-                    else
-                    {
+                }
+                else
+                {
                     <MudButton Variant="Variant.Filled"
                                DisableElevation="true"
                                StartIcon="@Icons.Material.Filled.DoNotTouch"

@@ -28,8 +28,8 @@ namespace LaptopStore.Client.Pages.Admin.Products
         [CascadingParameter] private MudDialogInstance MudDialog { get; set; }
 
         private FluentValidationValidator _fluentValidationValidator;
-        private bool Validated => _fluentValidationValidator.Validate(options => { options.IncludeAllRuleSets(); });
         private List<GetAllBrandsResponse> _brands = new();
+        private bool Validated => _fluentValidationValidator.Validate(options => { options.IncludeAllRuleSets(); });
 
         public void Cancel()
         {
