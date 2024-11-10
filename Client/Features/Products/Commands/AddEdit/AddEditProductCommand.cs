@@ -46,6 +46,9 @@ namespace LaptopStore.Application.Features.Products.Commands.AddEdit
         public bool Featured { get; set; }
         [Required]
         public int BrandId { get; set; }
+        public string ProductLine { get; set; }
+
+        public int Quantity { get; set; }
         public UploadRequest UploadRequest { get; set; }
     }
 
@@ -104,6 +107,10 @@ namespace LaptopStore.Application.Features.Products.Commands.AddEdit
                     product.Battery = command.Battery ?? product.Battery;
                     product.Weight = command.Weight ?? product.Weight;
                     product.Description = command.Description ?? product.Description;
+                    product.Quantity = (command.Quantity == 0) ? product.Quantity : command.Quantity; ;
+                    product.ProductLine = command.ProductLine ?? product.ProductLine;
+
+
                     if (uploadRequest != null)
                     {
                         product.ImageDataURL = _uploadService.UploadAsync(uploadRequest);

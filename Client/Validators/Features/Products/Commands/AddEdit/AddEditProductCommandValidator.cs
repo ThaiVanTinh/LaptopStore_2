@@ -32,6 +32,10 @@ namespace LaptopStore.Application.Validators.Features.Products.Commands.AddEdit
                 .Must(x => !string.IsNullOrWhiteSpace(x)).WithMessage(x => localizer["Description is required!"]);
             RuleFor(request => request.BrandId)
                 .GreaterThan(0).WithMessage(x => localizer["Brand is required!"]);
+            RuleFor(request => request.ProductLine)
+                .Must(x => !string.IsNullOrWhiteSpace(x)).WithMessage(x => localizer["ProductLine is required!"]);
+            RuleFor(request => request.Quantity)
+                .GreaterThan(0).WithMessage(x => localizer["Quantity is required!"]);
             RuleFor(request => request.Rate)
                 .InclusiveBetween(1, 5).WithMessage(x => localizer["Rate must be between 1 and 5"]);
 

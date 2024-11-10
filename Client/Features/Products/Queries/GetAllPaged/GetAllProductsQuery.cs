@@ -61,6 +61,8 @@ namespace LaptopStore.Application.Features.Products.Queries.GetAllPaged
                 Barcode = e.Barcode,
                 Brand = e.Brand.Name,
                 BrandId = e.BrandId,
+                ProductLine = e.ProductLine,
+                Quantity = e.Quantity,
                 ImageDataURL = e.ImageDataURL
             };
             var productFilterSpec = new ProductFilterSpecification(request.SearchString);

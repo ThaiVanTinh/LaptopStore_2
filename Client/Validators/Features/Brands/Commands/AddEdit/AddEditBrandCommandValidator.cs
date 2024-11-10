@@ -10,8 +10,7 @@ namespace LaptopStore.Application.Validators.Features.Brands.Commands.AddEdit
         {
             RuleFor(request => request.Name)
                 .Must(x => !string.IsNullOrWhiteSpace(x)).WithMessage(x => localizer["Name is required!"]);
-            RuleFor(request => request.ProductLine)
-                .Must(x => !string.IsNullOrWhiteSpace(x)).WithMessage(x => localizer["ProductLine is required!"]);
+            
         }
     }
 }

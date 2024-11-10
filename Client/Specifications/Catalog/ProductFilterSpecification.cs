@@ -15,7 +15,9 @@ namespace LaptopStore.Application.Specifications.Catalog
                 p.Brand.Name.Contains(searchString) || p.CPU.Contains(searchString) || 
                 p.Screen.Contains(searchString) || p.Card.Contains(searchString) || 
                 p.Ram.Contains(searchString) || p.Rom.Contains(searchString) || 
-                p.Battery.Contains(searchString) || p.Weight.Contains(searchString));
+                p.Battery.Contains(searchString) || p.Weight.Contains(searchString) ||
+                p.ProductLine.Contains(searchString) 
+                );
             }
             else
             {

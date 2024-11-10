@@ -63,6 +63,12 @@
                     <MudAutocomplete T="int" Label="@_localizer["Brand"]" For="@(() => AddEditProductModel.BrandId)" @bind-Value="AddEditProductModel.BrandId" ResetValueOnEmptyText="true" SearchFunc="@SearchBrands" Variant="Variant.Filled" ToStringFunc="@(i => _brands.FirstOrDefault(b => b.Id == i)?.Name ?? string.Empty)" OffsetY="true" />
                 </MudItem>
                 <MudItem xs="12" md="6">
+                    <MudTextField For="@(() => AddEditProductModel.ProductLine)" @bind-Value="AddEditProductModel.ProductLine" Label="@_localizer["ProductLine"]" />
+                </MudItem>
+                <MudItem xs="12" md="6">
+                    <MudTextField For="@(() => AddEditProductModel.Quantity)" @bind-Value="AddEditProductModel.Quantity" Label="@_localizer["Quantity"]" />
+                </MudItem>
+                <MudItem xs="12" md="6">
                     <MudTextField For="@(() => AddEditProductModel.Rate)" @bind-Value="AddEditProductModel.Rate" Label="@_localizer["Rate"]" />
                 </MudItem>
                 <MudItem xs="12" md="6">

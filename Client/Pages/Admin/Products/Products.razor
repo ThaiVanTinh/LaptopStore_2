@@ -47,6 +47,7 @@ else
             <MudTh><MudTableSortLabel T="GetAllPagedProductsResponse" SortLabel="Id">@_localizer["Id"]</MudTableSortLabel></MudTh>
             <MudTh><MudTableSortLabel T="GetAllPagedProductsResponse" SortLabel="Name">@_localizer["Name"]</MudTableSortLabel></MudTh>
             <MudTh><MudTableSortLabel T="GetAllPagedProductsResponse" SortLabel="Price">@_localizer["Price"]</MudTableSortLabel></MudTh>
+            <MudTh><MudTableSortLabel T="GetAllPagedProductsResponse" SortLabel="Quantity">@_localizer["Quantity"]</MudTableSortLabel></MudTh>
             <MudTh><MudTableSortLabel T="GetAllPagedProductsResponse" SortLabel="Brand">@_localizer["Brand"]</MudTableSortLabel></MudTh>
             <MudTh><MudTableSortLabel T="GetAllPagedProductsResponse" SortLabel="Description">@_localizer["Description"]</MudTableSortLabel></MudTh>
             <MudTh><MudTableSortLabel T="GetAllPagedProductsResponse" SortLabel="Barcode">@_localizer["Barcode"]</MudTableSortLabel></MudTh>
@@ -62,6 +63,7 @@ else
                 <MudHighlighter Text="@context.Name" HighlightedText="@_searchString" />
             </MudTd>
             <MudTd DataLabel="Price">@context.Price</MudTd>
+            <MudTd DataLabel="Quantity">@context.Quantity</MudTd>
             <MudTd DataLabel="Brand">
                 <MudHighlighter Text="@context.Brand" HighlightedText="@_searchString" />
             </MudTd>
@@ -75,6 +77,7 @@ else
             <MudTd DataLabel="Featured">@context.Featured</MudTd>
             <MudTd DataLabel="Info">
                 <MudText Typo="Typo.body2" Class="product-specs">
+                    Dòng sản phẩm: @context.ProductLine <br />
                     Màn hình: @context.Screen<br />
                     CPU: @context.CPU<br />
                     Card: @context.Card<br />

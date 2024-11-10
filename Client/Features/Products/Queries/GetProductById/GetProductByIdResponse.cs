@@ -16,6 +16,8 @@
         public decimal Rate { get; set; }
         public string Barcode { get; set; }
         public string Brand { get; set; }
+        public string ProductLine { get; set; }
+        public int Quantity { get; set; }
         public string ImageDataURL { get; set; }
     }
 }

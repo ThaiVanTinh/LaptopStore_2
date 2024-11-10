@@ -160,7 +160,9 @@ namespace LaptopStore.Client.Pages.Admin.Products
                         Rate = product.Rate,
                         BrandId = product.BrandId,
                         Barcode = product.Barcode,
-                        Featured = product.Featured
+                        Featured = product.Featured,
+                        ProductLine=product.ProductLine,
+                        Quantity=product.Quantity,
                     });
                 }
             }

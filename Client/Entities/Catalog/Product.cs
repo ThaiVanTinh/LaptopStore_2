@@ -23,6 +23,9 @@ namespace LaptopStore.Domain.Entities.Catalog
         public decimal Rate { get; set; }
         public bool Featured { get; set; }
         public int BrandId { get; set; }
+        public string ProductLine { get; set; }
+        public int Quantity { get; set; }
+
         public virtual Brand Brand { get; set; }
     }
 }

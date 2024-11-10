@@ -138,7 +138,6 @@ namespace LaptopStore.Client.Pages.Admin.Brands
                     {
                         Id = _brand.Id,
                         Name = _brand.Name,
-                        ProductLine = _brand.ProductLine
                     });
                 }
             }

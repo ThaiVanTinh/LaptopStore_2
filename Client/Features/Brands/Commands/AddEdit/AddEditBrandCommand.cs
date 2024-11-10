@@ -16,7 +16,6 @@ namespace LaptopStore.Application.Features.Brands.Commands.AddEdit
         public int Id { get; set; }
         [Required]
         public string Name { get; set; }
-        public string ProductLine { get; set; }
     }
 
     internal class AddEditBrandCommandHandler : IRequestHandler<AddEditBrandCommand, Result<int>>
@@ -47,7 +46,6 @@ namespace LaptopStore.Application.Features.Brands.Commands.AddEdit
                 if (brand != null)
                 {
                     brand.Name = command.Name ?? brand.Name;
-                    brand.ProductLine = command.ProductLine ?? brand.ProductLine;
                     await _unitOfWork.Repository<Brand>().UpdateAsync(brand);
                     await _unitOfWork.CommitAndRemoveCache(cancellationToken, ApplicationConstants.Cache.GetAllBrandsCacheKey);
                     return await Result<int>.SuccessAsync(brand.Id, _localizer["Brand Updated"]);

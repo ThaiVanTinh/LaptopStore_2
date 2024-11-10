@@ -49,7 +49,6 @@ namespace LaptopStore.Application.Features.Brands.Queries.Export
             {
                 { _localizer["Id"], item => item.Id },
                 { _localizer["Name"], item => item.Name },
-                { _localizer["ProductLine"], item => item.ProductLine }
             }, sheetName: _localizer["Brands"]);
 
             return await Result<string>.SuccessAsync(data: data);
