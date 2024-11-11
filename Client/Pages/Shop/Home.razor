@@ -280,7 +280,6 @@
 
 </style>
 
-<!-- Tìm kiếm chung cho cả hai bảng -->
 <div class="top-header">
     <div class="search-container">
         <MudTextField T="string" ValueChanged="@(s => OnSearch(s))" Placeholder="@_localizer["Search..."]"
@@ -422,7 +421,9 @@
                                     <MudText Typo="Typo.overline" Class="badge">Trả góp 0%</MudText>
                                     <MudText Typo="Typo.overline" Class="badge">Giá rẻ quá</MudText>
                                 </div>
-                                <img class="img-product" src="@(context.ImageDataURL)" Square="true" />
+                                <MudButton Style="padding: 0; border: none; background: none;" @onclick="() => InvokeModal(context.Id)">
+                                    <img class="img-product" src="@(context.ImageDataURL)" Square="true" />
+                                </MudButton>
                                 <MudText Typo="Typo.h6" Class="product-name">@context.Name</MudText>
 
                                 <div class="specs">
@@ -472,8 +473,9 @@
                                     <MudText Typo="Typo.overline" Class="badge">Trả góp 0%</MudText>
                                     <MudText Typo="Typo.overline" Class="badge">Giá rẻ quá</MudText>
                                 </div>
-                                <img class="img-product" src="@(context.ImageDataURL)" Square="true" />
-                                <MudText Typo="Typo.h6" Class="product-name">@context.Name</MudText>
+                                <MudButton Style="padding: 0; border: none; background: none;" @onclick="() => InvokeModal(context.Id)">
+                                    <img class="img-product" src="@(context.ImageDataURL)" Square="true" />
+                                </MudButton>                                <MudText Typo="Typo.h6" Class="product-name">@context.Name</MudText>
 
                                 <div class="specs">
                                     <MudText Typo="Typo.body2" Class="spec">@context.Ram.Split(' ').FirstOrDefault() GB</MudText>
@@ -491,7 +493,7 @@
                                     <MudIcon Icon="@Icons.Material.Filled.Star" Color="Color.Warning" />
                                     <MudText Typo="Typo.caption">@context.Rate</MudText>
                                 </div>
-                                <MudButton Variant="Variant.Filled" @onclick="@(() => InvokeModal(context.Id))" Color="Color.Primary" Class="button-small" Style="margin-right: 8px;">
+                                <MudButton Variant="Variant.Filled" OnClick="() => NavigateToProductDetail(context.Id)" Color="Color.Primary" Class="button-small" Style="margin-right: 8px;">
                                     Xem chi tiết
                                 </MudButton>
                             </MudCardActions>
@@ -504,14 +506,3 @@
     </MudItem>
 </MudGrid>
 
-@code {
-    private string GetProductGridContainerClass() =>
-        isFilterPanelVisible ? "product-grid-container with-filter" : "product-grid-container full-screen";
-
-    private string GetFilterPanelClass() =>
-        isFilterPanelVisible ? "filter-panel-visible" : "filter-panel-hidden";
-    private void NavigateToProductDetail(int productId)
-    {
-        NavigationManager.NavigateTo($"/product/{productId}");
-    }
-}

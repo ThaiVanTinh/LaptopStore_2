@@ -11,7 +11,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
-using System.Timers; // Add this line
+using System.Timers; 
 using LaptopStore.Application.Features.Products.Commands.AddEdit;
 using LaptopStore.Client.Infrastructure.Managers.Catalog.Product;
 using LaptopStore.Shared.Constants.Permission;
@@ -235,6 +235,15 @@ namespace LaptopStore.Client.Pages.Shop
 
             var dialog = _dialogService.Show<ViewProduct>("Thông tin sản phẩm", parameters, options);
             var result = await dialog.Result;
+        }
+        private string GetProductGridContainerClass() =>
+        isFilterPanelVisible ? "product-grid-container with-filter" : "product-grid-container full-screen";
+
+        private string GetFilterPanelClass() =>
+            isFilterPanelVisible ? "filter-panel-visible" : "filter-panel-hidden";
+        private void NavigateToProductDetail(int productId)
+        {
+            NavigationManager.NavigateTo($"/product/{productId}");
         }
     }
 }

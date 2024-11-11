@@ -28,6 +28,8 @@ namespace LaptopStore.Client.Pages.Shop
         private IEnumerable<GetAllPagedProductsResponse> _pagedData;
         private MudTable<GetAllPagedProductsResponse> _table;
 
+        private bool isFilterPanelVisible = false;
+
         private int _totalItems;
         private int _currentPage;
         private string _searchString = "";
@@ -79,18 +81,62 @@ namespace LaptopStore.Client.Pages.Shop
                 _snackBar.Add("Không tìm thấy sản phẩm nào.", Severity.Info);
             }
         }
+        private void ToggleFilterPanel()
+        {
+            isFilterPanelVisible = !isFilterPanelVisible;
+        }
 
+        private class BrandFilter
+        {
+            public string Name { get; set; }
+            public bool IsSelected { get; set; }
+            public string LogoPath { get; set; }
+        }
 
+        private class DescriptionFilter
+        {
+            public string Name { get; set; }
+            public bool IsSelected { get; set; }
+            public string DescriptionPath { get; set; }
+        }
+        private List<BrandFilter> _brands = new List<BrandFilter>
+{
+            new BrandFilter { Name = "Apple", LogoPath = "/images/brand/mac-icon.png" },
+            new BrandFilter { Name = "Lenovo", LogoPath = "/images/brand/lenovo-icon.png" },
+            new BrandFilter { Name = "Asus", LogoPath = "/images/brand/asus-icon.png" },
+            new BrandFilter { Name = "MSI", LogoPath = "/images/brand/msi-icon.png" },
+            new BrandFilter { Name = "HP", LogoPath = "/images/brand/hp-icon.png" },
+            new BrandFilter { Name = "Acer", LogoPath = "/images/brand/acer-icon.png" },
+            new BrandFilter { Name = "Samsung", LogoPath = "/images/brand/samsung-icon.png" },
+            new BrandFilter { Name = "Dell", LogoPath = "/images/brand/dell-icon.png" }
+        };
 
+        private List<DescriptionFilter> _descriptions = new List<DescriptionFilter>
+        {
+            new DescriptionFilter { Name = "Gaming",DescriptionPath="/images/description/Gaming-Lap.png" },
+            new DescriptionFilter { Name = "Office",DescriptionPath="/images/description/Office-Lap.png" },
+            new DescriptionFilter { Name = "Ultrabook",DescriptionPath="/images/description/Book-Lap.png" },
+            new DescriptionFilter { Name = "AI",DescriptionPath="/images/description/AI-Lap.png" },
+            new DescriptionFilter { Name = "Graphic",DescriptionPath="/images/description/Graphic-Lap.png" },
+        };
+
+        private string SelectedPriceRange = "all";
+        private int CustomPriceRangeStart;
+        private int CustomPriceRangeEnd;
+        private string SelectedRateRange = "all";
+
+        // Filter the product data based on selected filters
+        private void ApplyFilters()
+        {
+            if (_pagedData == null) return;
+
+            var selectedBrands = _brands.Where(b => b.IsSelected).Select(b => b.Name).ToList();
+            var selectedDescriptions = _descriptions.Where(d => d.IsSelected).Select(d => d.Name).ToList();
+        }
         private void OnSearch(string text)
         {
             _searchString = text;
             _table.ReloadServerData();
-        }
-        private Task NavigateToProductDetail(int productId)
-        {
-            Navigation.NavigateTo($"/productdetail/{productId}");
-            return Task.CompletedTask;
         }
         private async Task InvokeModal(int id = 0)
         {
@@ -119,7 +165,6 @@ namespace LaptopStore.Client.Pages.Shop
                 }
             }
 
-            // Thay đổi tiêu đề modal để chỉ hiển thị thông tin
             var options = new DialogOptions
             {
                 CloseButton = true,
@@ -128,16 +173,15 @@ namespace LaptopStore.Client.Pages.Shop
                 DisableBackdropClick = true
             };
 
-            // Chỉ hiển thị modal để xem sản phẩm, không cho chỉnh sửa
             var dialog = _dialogService.Show<ViewProduct>("Thông tin sản phẩm", parameters, options);
             var result = await dialog.Result;
+        }
+        private string GetFilterPanelClass() =>
+            isFilterPanelVisible ? "filter-panel-visible" : "filter-panel-hidden";
 
-            // Không cần xử lý kết quả vì chỉ xem
-            if (!result.Cancelled)
-            {
-                OnSearch(""); // Cập nhật danh sách nếu cần thiết
-            }
+        private void NavigateToProductDetail(int productId)
+        {
+            NavigationManager.NavigateTo($"/product/{productId}");
         }
     }
-
 }
