@@ -18,5 +18,9 @@ namespace LaptopStore.Infrastructure.Repositories
         {
             return await _repository.Entities.AnyAsync(b => b.BrandId == brandId);
         }
+        public async Task<Product> GetProductByIdAsync(int productId)
+        {
+            return await _repository.Entities.FirstOrDefaultAsync(p => p.Id == productId);
+        }
     }
 }

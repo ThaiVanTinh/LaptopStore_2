@@ -1,8 +1,6 @@
 ﻿using LaptopStore.Application.Features.Products.Queries.GetProductById;
-using LaptopStore.Client.Extensions;
 using LaptopStore.Client.Infrastructure.Managers.Catalog.Product;
 using Microsoft.AspNetCore.Components;
-using Microsoft.AspNetCore.SignalR.Client;
 using MudBlazor;
 using System;
 using System.Threading.Tasks;
@@ -17,75 +15,60 @@ namespace LaptopStore.Client.Pages.Shop
 
         [Parameter] public int productId { get; set; }
         public GetProductByIdResponse Product { get; set; } = new();
-        [CascadingParameter] private HubConnection HubConnection { get; set; }
 
-        protected override async Task OnInitializedAsync()
+        protected override async Task OnParametersSetAsync()
         {
-            try
+            Console.WriteLine("Đang tải sản phẩm với ID: " + productId); // Ghi log giá trị productId
+            if (productId > 0)
             {
-                await LoadProductDetails();
-                HubConnection = HubConnection.TryInitialize(NavigationManager);
-                if (HubConnection.State == HubConnectionState.Disconnected)
-                {
-                    await HubConnection.StartAsync();
-                }
+                await LoadProduct(productId);
             }
-            catch (Exception ex)
+            else
             {
-                Snackbar.Add($"Đã xảy ra lỗi khi khởi tạo: {ex.Message}", Severity.Error);
+                Snackbar.Add("ID sản phẩm không hợp lệ.", Severity.Error);
+                NavigationManager.NavigateTo("/not-found");
             }
         }
 
-        private async Task LoadProductDetails()
+
+        private async Task LoadProduct(int id)
         {
             try
             {
-                var result = await ProductManager.GetProductByIdAsync(productId);
+                Console.WriteLine("Bắt đầu gọi ProductManager.GetProductByIdAsync với ID: " + id);
+
+                var result = await ProductManager.GetProductByIdAsync(id);
+
+                // Kiểm tra nếu `result` không thành công hoặc `Data` là null
+                if (result == null)
+                {
+                    Console.WriteLine("Kết quả trả về từ ProductManager.GetProductByIdAsync là null.");
+                    Snackbar.Add("Không thể kết nối tới dịch vụ lấy dữ liệu sản phẩm.", Severity.Error);
+                    return;
+                }
+
                 if (result.Succeeded && result.Data != null)
                 {
                     Product = result.Data;
+                    Console.WriteLine($"Dữ liệu sản phẩm đã tải thành công: Tên sản phẩm - {Product.Name}, Giá - {Product.Price}");
                     Snackbar.Add("Dữ liệu sản phẩm đã tải thành công!", Severity.Success);
-                    await LoadImageAsync(); // Gọi để tải ảnh nếu cần thiết
-                    StateHasChanged(); // Cập nhật giao diện sau khi có dữ liệu
+
+                    // Cập nhật giao diện để hiển thị dữ liệu
+                    StateHasChanged();
                 }
                 else
                 {
+                    Console.WriteLine("Không thể tải dữ liệu sản phẩm hoặc sản phẩm không tồn tại.");
                     Snackbar.Add("Không thể tải dữ liệu sản phẩm hoặc sản phẩm không tồn tại.", Severity.Error);
                     NavigationManager.NavigateTo("/not-found");
                 }
             }
-            catch (NotImplementedException ex)
-            {
-                Snackbar.Add($"Chức năng chưa được triển khai: {ex.Message}", Severity.Error);
-            }
             catch (Exception ex)
             {
-                Snackbar.Add($"Đã xảy ra lỗi: {ex.Message}", Severity.Error);
+                Console.WriteLine("Đã xảy ra lỗi khi tải dữ liệu sản phẩm: " + ex.Message);
+                Snackbar.Add($"Đã xảy ra lỗi khi tải dữ liệu sản phẩm: {ex.Message}", Severity.Error);
             }
         }
 
-        private async Task LoadImageAsync()
-        {
-            try
-            {
-                var data = await ProductManager.GetProductImageAsync(productId);
-                if (data.Succeeded)
-                {
-                    var imageData = data.Data;
-                    if (!string.IsNullOrEmpty(imageData))
-                    {
-                        Product.ImageDataURL = imageData;
-                    }
-                }
-            }
-            catch (NotImplementedException ex)
-            {
-                Snackbar.Add($"Chức năng tải ảnh chưa được triển khai: {ex.Message}", Severity.Error);
-            }
-            catch (Exception ex)
-            {
-                Snackbar.Add($"Đã xảy ra lỗi khi tải ảnh: {ex.Message}", Severity.Error);
-            }
-        }
     }
 }

@@ -1,5 +1,8 @@
-using LaptopStore.Client.Extensions;
+﻿using LaptopStore.Client.Extensions;
 using LaptopStore.Client.Infrastructure.Managers.Preferences;
+using LaptopStore.Application.Interfaces.Repositories;
+using LaptopStore.Infrastructure.Repositories;
+using LaptopStore.Client.Infrastructure.Managers.Catalog.Product;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using System.Globalization;
@@ -14,12 +17,17 @@ namespace LaptopStore.Client
     {
         public static async Task Main(string[] args)
         {
-            var builder = WebAssemblyHostBuilder
-                          .CreateDefault(args)
-                          .AddRootComponents()
-                          .AddClientServices();
+            var builder = WebAssemblyHostBuilder.CreateDefault(args)
+                                                .AddRootComponents()
+                                                .AddClientServices();
+
+            // Đăng ký các dịch vụ vào builder.Services sau khi builder được khởi tạo
+            builder.Services.AddScoped<IProductRepository, ProductRepository>();
+            builder.Services.AddScoped<IProductManager, ProductManager>();
+
             var host = builder.Build();
             var storageService = host.Services.GetRequiredService<ClientPreferenceManager>();
+
             if (storageService != null)
             {
                 CultureInfo culture;
@@ -28,10 +36,12 @@ namespace LaptopStore.Client
                     culture = new CultureInfo(preference.LanguageCode);
                 else
                     culture = new CultureInfo(LocalizationConstants.SupportedLanguages.FirstOrDefault()?.Code ?? "en-US");
+
                 CultureInfo.DefaultThreadCurrentCulture = culture;
                 CultureInfo.DefaultThreadCurrentUICulture = culture;
             }
-            await builder.Build().RunAsync();
+
+            await host.RunAsync();
         }
     }
 }
