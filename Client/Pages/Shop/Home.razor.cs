@@ -154,14 +154,17 @@ namespace LaptopStore.Client.Pages.Shop
             var selectedDescriptions = _descriptions.Where(d => d.IsSelected).Select(d => d.Name).ToList();
 
             _featuredProducts = _pagedData.Where(p =>
+                p.Featured == true && // Chỉ lấy sản phẩm có Feature = true
                 (selectedBrands.Count == 0 || selectedBrands.Contains(p.Brand)) &&
                 (selectedDescriptions.Count == 0 || selectedDescriptions.Contains(p.Description)) &&
-                (SelectedRateRange == "all" || (SelectedRateRange == "4andAbove" && p.Rate == 4) ||
-                 (SelectedRateRange == "3andAbove" && p.Rate == 3) ||
-                 (SelectedRateRange == "2andAbove" && p.Rate == 2) ||
-                 (SelectedRateRange == "1andAbove" && p.Rate == 1))
+                (SelectedRateRange == "all" ||
+                 (SelectedRateRange == "4andAbove" && p.Rate >= 4) ||
+                 (SelectedRateRange == "3andAbove" && p.Rate >= 3) ||
+                 (SelectedRateRange == "2andAbove" && p.Rate >= 2) ||
+                 (SelectedRateRange == "1andAbove" && p.Rate >= 1))
             ).ToList();
 
+            // Lọc _RatedProducts chỉ lấy các sản phẩm có Rate >= 4
             _RatedProducts = _pagedData.Where(p => p.Rate >= 4).ToList();
         }
 
