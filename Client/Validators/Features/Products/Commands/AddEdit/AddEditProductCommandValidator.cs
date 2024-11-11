@@ -9,36 +9,49 @@ namespace LaptopStore.Application.Validators.Features.Products.Commands.AddEdit
         public AddEditProductCommandValidator(IStringLocalizer<AddEditProductCommandValidator> localizer)
         {
             RuleFor(request => request.Name)
-                .Must(x => !string.IsNullOrWhiteSpace(x)).WithMessage(x => localizer["Name is required!"]);
-            RuleFor(request => request.Price)
-                .GreaterThan(0).WithMessage(x => localizer["Price is required!"]);
-            RuleFor(request => request.Barcode)
-                .Must(x => !string.IsNullOrWhiteSpace(x)).WithMessage(x => localizer["Barcode is required!"]);
-            RuleFor(request => request.CPU)
-                .Must(x => !string.IsNullOrWhiteSpace(x)).WithMessage(x => localizer["CPU is required!"]);
-            RuleFor(request => request.Screen)
-                .Must(x => !string.IsNullOrWhiteSpace(x)).WithMessage(x => localizer["Screen is required!"]);
-            RuleFor(request => request.Card)
-                .Must(x => !string.IsNullOrWhiteSpace(x)).WithMessage(x => localizer["Card is required!"]);
-            RuleFor(request => request.Ram)
-                .Must(x => !string.IsNullOrWhiteSpace(x)).WithMessage(x => localizer["Ram is required!"]);
-            RuleFor(request => request.Rom)
-                .Must(x => !string.IsNullOrWhiteSpace(x)).WithMessage(x => localizer["Rom is required!"]);
-            RuleFor(request => request.Battery)
-                .Must(x => !string.IsNullOrWhiteSpace(x)).WithMessage(x => localizer["Battery is required!"]);
-            RuleFor(request => request.Weight)
-               .Must(x => !string.IsNullOrWhiteSpace(x)).WithMessage(x => localizer["Weight is required!"]);
-            RuleFor(request => request.Description)
-                .Must(x => !string.IsNullOrWhiteSpace(x)).WithMessage(x => localizer["Description is required!"]);
-            RuleFor(request => request.BrandId)
-                .GreaterThan(0).WithMessage(x => localizer["Brand is required!"]);
-            RuleFor(request => request.ProductLine)
-                .Must(x => !string.IsNullOrWhiteSpace(x)).WithMessage(x => localizer["ProductLine is required!"]);
-            RuleFor(request => request.Quantity)
-                .GreaterThan(0).WithMessage(x => localizer["Quantity is required!"]);
-            RuleFor(request => request.Rate)
-                .InclusiveBetween(1, 5).WithMessage(x => localizer["Rate must be between 1 and 5"]);
+                .NotEmpty().WithMessage(localizer["Name is required!"]);
 
+            RuleFor(request => request.Price)
+                .GreaterThan(0).WithMessage(localizer["Price must be greater than 0!"]);
+
+            RuleFor(request => request.Barcode)
+                .NotEmpty().WithMessage(localizer["Barcode is required!"]);
+
+            RuleFor(request => request.CPU)
+                .NotEmpty().WithMessage(localizer["CPU is required!"]);
+
+            RuleFor(request => request.Screen)
+                .NotEmpty().WithMessage(localizer["Screen is required!"]);
+
+            RuleFor(request => request.Card)
+                .NotEmpty().WithMessage(localizer["Card is required!"]);
+
+            RuleFor(request => request.Ram)
+                .NotEmpty().WithMessage(localizer["Ram is required!"]);
+
+            RuleFor(request => request.Rom)
+                .NotEmpty().WithMessage(localizer["Rom is required!"]);
+
+            RuleFor(request => request.Battery)
+                .NotEmpty().WithMessage(localizer["Battery is required!"]);
+
+            RuleFor(request => request.Weight)
+                .NotEmpty().WithMessage(localizer["Weight is required!"]);
+
+            RuleFor(request => request.Description)
+                .NotEmpty().WithMessage(localizer["Description is required!"]);
+
+            RuleFor(request => request.BrandId)
+                .GreaterThan(0).WithMessage(localizer["Brand selection is required!"]);
+
+            RuleFor(request => request.ProductLine)
+                .NotEmpty().WithMessage(localizer["ProductLine is required!"]);
+
+            RuleFor(request => request.Quantity)
+                .GreaterThan(0).WithMessage(localizer["Quantity must be greater than 0!"]);
+
+            RuleFor(request => request.Rate)
+                .InclusiveBetween(1, 5).WithMessage(localizer["Rate must be between 1 and 5!"]);
         }
     }
 }
