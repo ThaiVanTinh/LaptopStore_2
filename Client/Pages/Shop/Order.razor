@@ -1,0 +1,170 @@
+﻿@page "/order"
+@inject Microsoft.Extensions.Localization.IStringLocalizer<Order> _localizer
+
+<MudContainer MaxWidth="MaxWidth.Small" Class="pa-4">
+    <MudText Typo="Typo.h6">Thông tin địa chỉ</MudText>
+
+    <MudGrid>
+        <MudItem xs="6">
+            <MudTextField @bind-Value="FirstName" Label="Họ" Placeholder="Nguyễn" Required="true" RequiredError="Họ là bắt buộc" />
+        </MudItem>
+        <MudItem xs="6">
+            <MudTextField @bind-Value="LastName" Label="Tên" Placeholder="An" Required="true" RequiredError="Tên là bắt buộc" />
+        </MudItem>
+    </MudGrid>
+
+    <MudTextField @bind-Value="PhoneNumber" Label="Số điện thoại" Placeholder="Số điện thoại" Required="true" RequiredError="Số điện thoại là bắt buộc" />
+
+    <MudTextField @bind-Value="Street" Label="Số nhà, tên đường" Placeholder="Nhập số nhà, tên đường" />
+
+    <MudText Typo="Typo.body1" Class="mt-4">Vui lòng chọn địa chỉ</MudText>
+
+    <MudGrid Spacing="2">
+        <MudItem xs="4">
+            <div>
+                <select id="city" @onchange="OnCitySelect">
+                    <option value="">Chọn tỉnh thành</option>
+                    @foreach (var city in Cities)
+                    {
+                        <option value="@city.Name">@city.Name</option>
+                    }
+                </select>
+            </div>
+        </MudItem>
+        <MudItem xs="4">
+            <div>
+                <select id="district" @onchange="OnDistrictSelect">
+                    <option value="">Chọn quận huyện</option>
+                    @foreach (var district in Districts)
+                    {
+                        <option value="@district.Name">@district.Name</option>
+                    }
+                </select>
+            </div>
+        </MudItem>
+        <MudItem xs="4">
+            <div>
+                <select id="ward" @onchange="OnWardSelect">
+                    <option value="">Chọn phường xã</option>
+                    @foreach (var ward in Wards)
+                    {
+                        <option value="@ward.Name">@ward.Name</option>
+                    }
+                </select>
+            </div>
+        </MudItem>
+    </MudGrid>
+    <h3>Phương thức thanh toán</h3>
+<MudPaper Class="payment-methods" Elevation="2" Outlined="true">
+
+        <MudRadioGroup T="string" @bind-SelectedValue="SelectedPaymentMethod" Orientation="Orientation.Vertical">
+            <!-- VNPAY Payment Option -->
+            <MudRadio T="string" Value="VNPAY" Color="Color.Primary">
+                <img class="payment-icon" src="/images/pay/vnpay.png"/>
+                Thanh toán online qua cổng VNPAY <br />
+            </MudRadio>
+
+            <!-- COD Payment Option -->
+            <MudRadio T="string" Value="COD" Color="Color.Primary">
+                <img class="payment-icon" src="/images/pay/cod.png" />
+                Thanh toán khi giao hàng (COD)
+            </MudRadio>
+
+            <!-- Banking Transfer Option -->
+            <MudRadio T="string" Value="Chuyển khoản ngân hàng" Color="Color.Primary">
+                <img class="payment-icon" src="/images/pay/mobile-banking.png" />
+                Chuyển Khoản ngân hàng <br />
+            </MudRadio>
+
+            <!-- Credit Card Payment Option -->
+            <MudRadio T="string" Value="Thẻ Nội địa" Color="Color.Primary">
+                <img class="payment-icon" src="/images/pay/credit-card.png" />
+                Thanh toán bằng thẻ nội địa
+            </MudRadio>
+        </MudRadioGroup>
+</MudPaper>
+</MudContainer>
+<style>
+    .pay-container {
+        display: flex;
+        justify-content: space-between;
+        width: 90%;
+        margin: 30px auto;
+        gap: 20px;
+    }
+
+    .payment {
+        background-color: #ffffff;
+        width: 60%;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+        .payment h3 {
+            margin-bottom: 20px;
+            color: #333;
+            font-size: 18px;
+            text-align: left;
+        }
+
+    .shipping-info .input-group {
+        margin-bottom: 20px;
+    }
+
+        .shipping-info .input-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #333;
+            font-weight: bold;
+        }
+
+        .shipping-info .input-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+    .delivery-options {
+        margin-bottom: 20px;
+    }
+
+        .delivery-options label {
+            display: block;
+            margin-bottom: 10px;
+            font-size: 14px;
+            color: #333;
+            cursor: pointer;
+        }
+
+        .delivery-options input {
+            margin-right: 10px;
+        }
+
+    .delivery-info {
+        font-size: 14px;
+        color: #666;
+        margin-bottom: 20px;
+    }
+
+    .payment-methods label {
+        display: block;
+        margin-bottom: 20px;
+        font-size: 14px;
+        color: #333;
+        cursor: pointer;
+    }
+
+    .payment-methods input {
+        margin-right: 10px;
+    }
+
+    .payment-icon {
+        width: 50px;
+        height: auto;
+        vertical-align: middle;
+        margin-right: 10px;
+    }
+</style>
