@@ -72,7 +72,6 @@ namespace LaptopStore.Client.Pages.Shop
                 }
             }
         }
-
         public class CartItem
         {
             public int ProductId { get; set; }
