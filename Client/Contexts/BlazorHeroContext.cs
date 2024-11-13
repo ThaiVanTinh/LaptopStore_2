@@ -25,7 +25,6 @@ namespace LaptopStore.Infrastructure.Contexts
         public DbSet<Product> Products { get; set; }
         public DbSet<Brand> Brands { get; set; }
 
-        public DbSet<Cart> Carts { get; set; }
 
         public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = new())
         {

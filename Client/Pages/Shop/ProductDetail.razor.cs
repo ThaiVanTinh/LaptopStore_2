@@ -1,9 +1,16 @@
 ﻿using LaptopStore.Application.Features.Products.Queries.GetProductById;
 using LaptopStore.Client.Infrastructure.Managers.Catalog.Product;
 using Microsoft.AspNetCore.Components;
+using Microsoft.JSInterop;
 using MudBlazor;
 using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Text.Json;
 using System.Threading.Tasks;
+using static LaptopStore.Client.Pages.Shop.Cart;
+
 
 namespace LaptopStore.Client.Pages.Shop
 {
@@ -68,6 +75,41 @@ namespace LaptopStore.Client.Pages.Shop
                 Console.WriteLine("Đã xảy ra lỗi khi tải dữ liệu sản phẩm: " + ex.Message);
                 Snackbar.Add($"Đã xảy ra lỗi khi tải dữ liệu sản phẩm: {ex.Message}", Severity.Error);
             }
+        }
+
+        private async Task AddToCart()
+        {
+            var cartItem = new CartItem
+            {
+                ProductId = Product.Id,
+                ProductName = Product.Name,
+                ProductPrice = Product.Price,
+                ProductImage = Product.ImageDataURL,
+                Quantity = 1
+            };
+
+            // Lấy giỏ hàng từ localStorage
+            var existingCartJson = await JS.InvokeAsync<string>("localStorage.getItem", "cartItems");
+            var cartItems = existingCartJson != null ? JsonSerializer.Deserialize<List<CartItem>>(existingCartJson) : new List<CartItem>();
+
+            // Kiểm tra xem sản phẩm đã có trong giỏ hàng chưa
+            var existingItem = cartItems.FirstOrDefault(i => i.ProductId == cartItem.ProductId);
+
+            if (existingItem != null)
+            {
+                // Nếu sản phẩm đã có, tăng số lượng lên
+                existingItem.Quantity += cartItem.Quantity;
+            }
+            else
+            {
+                // Nếu sản phẩm chưa có, thêm sản phẩm vào giỏ hàng
+                cartItems.Add(cartItem);
+            }
+
+            // Lưu giỏ hàng vào localStorage
+            await JS.InvokeVoidAsync("localStorage.setItem", "cartItems", JsonSerializer.Serialize(cartItems));
+
+            Snackbar.Add("Sản phẩm đã được thêm vào giỏ hàng!", Severity.Success);
         }
 
     }
