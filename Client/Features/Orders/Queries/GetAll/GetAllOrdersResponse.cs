@@ -1,0 +1,33 @@
+﻿using LaptopStore.Domain.Contracts;
+using LaptopStore.Domain.Entities.Catalog;
+using System.Collections.Generic;
+
+namespace LaptopStore.Application.Features.Orders.Queries.GetAll
+{
+    public class GetAllOrdersResponse
+    {
+        public int Id { get; set; }
+        public string UserId { get; set; }
+        public string UserName { get; set; }
+        public string UserPhone { get; set; }
+        public string UserAddress { get; set; }
+        public int TotalPrice { get; set; }
+        public string MethodPayment { get; set; }
+        public string StatusOrder { get; set; }
+        public bool IsPayment { get; set; }
+        public ICollection<CartItem> OrderItem { get; set; }
+
+    }
+
+    public class CartItemResponse
+    {
+        public int ProductId { get; set; }
+        public string ProductName { get; set; }
+        public decimal ProductPrice { get; set; }
+        public string ProductImage { get; set; } = string.Empty;
+        public int Quantity { get; set; }
+        public int OrderId { get; set; }
+        public Order Order { get; set; }
+
+    }
+}

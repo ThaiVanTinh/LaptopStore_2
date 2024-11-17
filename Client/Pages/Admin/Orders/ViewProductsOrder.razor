@@ -1,0 +1,24 @@
+﻿<MudDialog>
+    <TitleContent>
+        Order Products
+    </TitleContent>
+    <DialogContent>
+        <MudTable Items="OrderItems" Hover="true" Bordered="true" Striped="true">
+            <HeaderContent>
+                <MudTh>Product Name</MudTh>
+                <MudTh>Quantity</MudTh>
+                <MudTh>Price</MudTh>
+                <MudTh>Total</MudTh>
+            </HeaderContent>
+            <RowTemplate>
+                <MudTd>@context.ProductName</MudTd>
+                <MudTd>@context.Quantity</MudTd>
+                <MudTd>@context.ProductPrice</MudTd>
+                <MudTd>@(context.Quantity * context.ProductPrice)</MudTd>
+            </RowTemplate>
+        </MudTable>
+    </DialogContent>
+    <DialogActions>
+        <MudButton Variant="Variant.Outlined" OnClick="CloseDialog">Close</MudButton>
+    </DialogActions>
+</MudDialog>
