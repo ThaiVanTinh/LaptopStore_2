@@ -11,7 +11,6 @@ using System.Threading.Tasks;
 using LaptopStore.Client.Infrastructure.Settings;
 using LaptopStore.Shared.Constants.Localization;
 using LaptopStore.Application.Interfaces.Common;
-using LaptopStore.Client.Infrastructure.Managers.Catalog.Order;
 
 namespace LaptopStore.Client
 {
@@ -26,7 +25,7 @@ namespace LaptopStore.Client
             // Đăng ký các dịch vụ vào builder.Services sau khi builder được khởi tạo
             builder.Services.AddScoped<IProductRepository, ProductRepository>();
             builder.Services.AddScoped<IProductManager, ProductManager>();
-            builder.Services.AddScoped<IOrderManager, OrderManager>();
+            builder.Services.AddScoped<ProductManager>();
 
             var host = builder.Build();
             var storageService = host.Services.GetRequiredService<ClientPreferenceManager>();

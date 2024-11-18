@@ -31,6 +31,7 @@ namespace LaptopStore.Shared.Constants.Permission
             public const string View = "Permissions.Orders.View";
             public const string Create = "Permissions.Orders.Create";
             public const string Edit = "Permissions.Orders.Edit";
+            public const string Export = "Permissions.Orders.Export";
             public const string Delete = "Permissions.Orders.Delete";
             public const string Search = "Permissions.Orders.Search";
         }

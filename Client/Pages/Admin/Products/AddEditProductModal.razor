@@ -73,7 +73,10 @@
                                     <MudTextField Disabled For="@(() => AddEditProductModel.Barcode)" @bind-Value="AddEditProductModel.Barcode" Label="@_localizer["Barcode"]" />
                                 </MudItem>
                             }                            
-                            <MudTextField For="@(() => AddEditProductModel.Featured)" @bind-Value="AddEditProductModel.Featured" Label="@_localizer["Featured"]" />
+                            <MudSelect @bind-Value="AddEditProductModel.Featured" Label="@_localizer["Featured"]">
+                                <MudSelectItem Value="true">Yes</MudSelectItem>
+                                <MudSelectItem Value="false">No</MudSelectItem>
+                            </MudSelect>
                         </MudItem>
 
                         <!-- Detailed Information Section -->

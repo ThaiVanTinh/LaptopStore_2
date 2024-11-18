@@ -45,10 +45,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="Shared\Components\BlazorHeroLogo.razor" />
-  </ItemGroup>
-
-  <ItemGroup>
        <ProjectReference Include="..\Shared\Shared.csproj" />
   </ItemGroup>
 
