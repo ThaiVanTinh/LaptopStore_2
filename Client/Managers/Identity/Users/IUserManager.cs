@@ -1,6 +1,5 @@
 ﻿using LaptopStore.Application.Requests.Identity;
 using LaptopStore.Application.Responses.Identity;
-using LaptopStore.Shared.Models;
 using LaptopStore.Shared.Wrapper;
 using System.Collections.Generic;
 using System.Threading.Tasks;

@@ -24,7 +24,7 @@
         public static class Cache
         {
             public const string GetAllBrandsCacheKey = "all-brands";
-            public const string GetAllOrdersCacheKey = "all-carts";
+            public const string GetAllOrdersCacheKey = "all-orders";
         }
 
         public static class MimeTypes

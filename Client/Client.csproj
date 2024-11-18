@@ -22,7 +22,6 @@
     <PackageReference Include="MimeKit" Version="2.13.0" />
     <PackageReference Include="MudBlazor" Version="5.0.14" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
-    <PackageReference Include="ServiceStack.Common" Version="8.4.0" />
     <PackageReference Include="Toolbelt.Blazor.HttpClientInterceptor" Version="9.2.1" />
     <PackageReference Include="System.Linq.Dynamic.Core" Version="1.2.10" />
   </ItemGroup>
@@ -46,16 +45,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Remove="Shared\Components\BlazorHeroLogo.razor" />
     <None Include="Shared\Components\BlazorHeroLogo.razor" />
   </ItemGroup>
 
   <ItemGroup>
        <ProjectReference Include="..\Shared\Shared.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Features\Orders\Queries\Export\" />
   </ItemGroup>
 
 </Project>

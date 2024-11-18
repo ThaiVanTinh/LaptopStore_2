@@ -10,9 +10,8 @@ namespace LaptopStore.Server.Services
     {
         public CurrentUserService(IHttpContextAccessor httpContextAccessor)
         {
-            var user = httpContextAccessor.HttpContext?.User;
-            UserId = user?.FindFirstValue(ClaimTypes.NameIdentifier);
-            Claims = user?.Claims.Select(item => new KeyValuePair<string, string>(item.Type, item.Value)).ToList() ?? new List<KeyValuePair<string, string>>(); 
+            UserId = httpContextAccessor.HttpContext?.User?.FindFirstValue(ClaimTypes.NameIdentifier);
+            Claims = httpContextAccessor.HttpContext?.User?.Claims.AsEnumerable().Select(item => new KeyValuePair<string, string>(item.Type, item.Value)).ToList();
         }
 
         public string UserId { get; }

@@ -28,7 +28,6 @@ namespace LaptopStore.Infrastructure.Extensions
                 .AddTransient(typeof(IRepositoryAsync<,>), typeof(RepositoryAsync<,>))
                 .AddTransient<IProductRepository, ProductRepository>()
                 .AddTransient<IBrandRepository, BrandRepository>()
-                .AddTransient<IOrderRepository, OrderRepository>()
                 .AddTransient(typeof(IUnitOfWork<>), typeof(UnitOfWork<>));
         }
 

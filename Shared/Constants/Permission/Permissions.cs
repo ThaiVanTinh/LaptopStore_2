@@ -28,11 +28,11 @@ namespace LaptopStore.Shared.Constants.Permission
 
         public static class Orders
         {
-            public const string View = "Permissions.Carts.View";
-            public const string Create = "Permissions.Carts.Create";
-            public const string Edit = "Permissions.Carts.Edit";
-            public const string Delete = "Permissions.Carts.Delete";
-            public const string Search = "Permissions.Carts.Search";
+            public const string View = "Permissions.Orders.View";
+            public const string Create = "Permissions.Orders.Create";
+            public const string Edit = "Permissions.Orders.Edit";
+            public const string Delete = "Permissions.Orders.Delete";
+            public const string Search = "Permissions.Orders.Search";
         }
 
         public static class Users

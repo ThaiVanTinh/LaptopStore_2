@@ -10,6 +10,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using LaptopStore.Client.Infrastructure.Settings;
 using LaptopStore.Shared.Constants.Localization;
+using LaptopStore.Application.Interfaces.Common;
 using LaptopStore.Client.Infrastructure.Managers.Catalog.Order;
 
 namespace LaptopStore.Client

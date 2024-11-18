@@ -1,5 +1,4 @@
 ﻿using System;
-using System.ComponentModel.DataAnnotations;
 
 namespace LaptopStore.Shared.Models
 {
@@ -9,6 +8,7 @@ namespace LaptopStore.Shared.Models
 
         public string LastName { get; set; }
         public string CreatedBy { get; set; }
+
         public DateTime CreatedOn { get; set; }
 
         public string LastModifiedBy { get; set; }

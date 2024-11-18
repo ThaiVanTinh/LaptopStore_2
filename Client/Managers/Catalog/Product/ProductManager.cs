@@ -3,7 +3,11 @@ using LaptopStore.Application.Features.Products.Queries.GetAllPaged;
 using LaptopStore.Application.Features.Products.Queries.GetProductById;
 using LaptopStore.Application.Requests.Catalog;
 using LaptopStore.Client.Infrastructure.Extensions;
+using LaptopStore.Domain.Entities.Catalog;
+using LaptopStore.Infrastructure.Contexts;
 using LaptopStore.Shared.Wrapper;
+using Microsoft.EntityFrameworkCore;
+using System;
 using System.Net.Http;
 using System.Net.Http.Json;
 using System.Threading.Tasks;
@@ -17,6 +21,12 @@ namespace LaptopStore.Client.Infrastructure.Managers.Catalog.Product
         public ProductManager(HttpClient httpClient)
         {
             _httpClient = httpClient;
+        }
+        private readonly BlazorHeroContext _dbContext;
+
+        public ProductManager(BlazorHeroContext dbContext)
+        {
+            _dbContext = dbContext;
         }
 
         public async Task<IResult<GetProductByIdResponse>> GetProductByIdAsync(int productId)

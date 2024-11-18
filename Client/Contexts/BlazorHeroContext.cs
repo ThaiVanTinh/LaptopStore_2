@@ -24,10 +24,9 @@ namespace LaptopStore.Infrastructure.Contexts
 
         public DbSet<Product> Products { get; set; }
         public DbSet<Brand> Brands { get; set; }
-        public DbSet<CartItem> CartItem { get; set; }
         public DbSet<Order> Orders { get; set; }
-
-
+        public DbSet<CartItem> CartItems { get; set; }
+   
         public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = new())
         {
             foreach (var entry in ChangeTracker.Entries<IAuditableEntity>().ToList())
@@ -64,7 +63,14 @@ namespace LaptopStore.Infrastructure.Contexts
                 property.SetColumnType("decimal(18,2)");
             }
             base.OnModelCreating(builder);
-            
+
+            builder.Entity<Order>()
+                     .HasMany(o => o.OrderItem)
+                     .WithOne(oi => oi.Order)
+                     .HasForeignKey(oi => oi.OrderId)
+                     .IsRequired() // Đảm bảo không null
+                     .OnDelete(DeleteBehavior.Cascade);
+
             builder.Entity<BlazorHeroUser>(entity =>
             {
                 entity.ToTable(name: "Users", "Identity");
