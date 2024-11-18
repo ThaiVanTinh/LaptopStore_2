@@ -48,4 +48,13 @@
        <ProjectReference Include="..\Shared\Shared.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Pages\Admin\Layout\" />
+    <Folder Include="wwwroot\images\icon\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\css\home.css" />
+  </ItemGroup>
+
 </Project>

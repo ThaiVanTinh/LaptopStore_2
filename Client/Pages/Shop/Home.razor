@@ -1,291 +1,14 @@
 ﻿@page "/"
 @page "/home"
+@using LaptopStore.Client.Pages.Shop.Layout;
+@layout ShopLayout
 @inject Microsoft.Extensions.Localization.IStringLocalizer<ListProducts> _localizer
 @using LaptopStore.Application.Features.Products.Queries.GetAllPaged;
 @inject NavigationManager NavigationManager
-
-
-<style>
-    .search-container {
-        display: flex;
-        align-items: center;
-        margin-bottom: 10px;
-    }
-
-    .main-container {
-        display: flex;
-    }
-
-    .filter-panel-container {
-        width: 260px;
-        padding: 16px;
-        background-color: #f5f5f5;
-        transition: transform 0.3s ease;
-    }
-
-    .filter-panel-hidden {
-        display: none; /* Hide the filter panel */
-    }
-
-    .product-section {
-        flex-grow: 1;
-        padding-left: 16px; /* Spacing between filter and products */
-        transition: margin-left 0.3s ease;
-    }
-
-    .menu-bar {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-        padding: 8px 0;
-        overflow-x: auto;
-        white-space: nowrap;
-    }
-
-    .filter-chip {
-        display: flex;
-        align-items: center;
-        gap: 4px;
-        background-color: transparent;
-        border: none;
-        cursor: pointer;
-        padding: 8px 12px;
-    }
-
-        .filter-chip:hover {
-            border: 1px solid transparent;
-            border-color: #1e88e5;
-        }
-
-    .filter-text {
-        color: #333;
-        font-size: 14px;
-    }
-
-    .brand-chip {
-        border: 1px solid #e0e0e0;
-        background-color: #f2f4f7;
-        border-radius: 12px;
-        padding: 8px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 120px;
-        height: 120px;
-        box-shadow: 0 2px 4px #fff;
-        flex-shrink: 0;
-    }
-
-        .brand-chip:hover {
-            box-shadow: 0 4px 8px #fff;
-            border: 1px solid transparent;
-            border-color: #1e88e5;
-        }
-
-    .logo-brand {
-        width: 100px;
-        height: auto;
-    }
-
-    .logo-decription {
-        width: 100px;
-        height: auto;
-    }
-
-    .Price {
-        color: red;
-        font: bolder;
-        text-align: center;
-        font-size: 20px;
-    }
-
-    .nav-button {
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        background-color: rgba(255, 255, 255, 0.8);
-        border: none;
-        border-radius: 50%;
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 16px; /* Giảm kích thước font */
-        width: 35px; /* Giảm kích thước nút */
-        height: 35px; /* Giảm kích thước nút */
-        z-index: 1;
-    }
-
-        .nav-button img {
-            transition: transform 0.3s ease; /* Thêm hiệu ứng mượt khi chuyển đổi */
-        }
-
-        .nav-button:hover img {
-            transform: scale(1.1); /* Phóng to ảnh bên trong nút khi hover */
-        }
-
-        .nav-button.left {
-            left: 5px;
-        }
-
-        .nav-button.right {
-            right: 5px;
-        }
-
-    .banner-container {
-        position: relative;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 100%;
-        height: auto;
-        overflow: hidden;
-    }
-
-    .banner {
-        display: flex;
-        align-items: center;
-        justify-content: space-around;
-        width: 100%;
-        height: 100%;
-    }
-
-        .banner img {
-            width: 49%; /* Đặt mỗi ảnh chiếm 49% chiều rộng */
-            height: auto;
-        }
-
-    /*Product css*/
-    .product-grid {
-        padding: 8px;
-    }
-
-    .product-card {
-        padding: 16px;
-        border: 1px solid #e0e0e0;
-        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-        position: relative;
-        border-radius: 12px;
-        overflow: hidden;
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-    }
-
-        .product-card:hover {
-            box-shadow: 0 10px 10px rgba(0, 0, 0, 0.555);
-            transition: box-shadow 0.3s ease-in-out;
-            transform: scale(1.02);
-        }
-    .img-product {
-        width: 100%;
-        height: 300px;
-        object-fit: contain;
-        border-radius: 10px;
-    }
-
-        .img-product:hover {
-            transform: scale(1.02);
-        }
-    .badge-container {
-        position: absolute;
-        top: 8px;
-        left: 8px;
-        z-index: 2; /* Ensure badges appear above the image */
-        display: flex;
-        flex-direction: column;
-        gap: 4px;
-    }
-
-        .badge-container .badge {
-            background-color: #ffe2e2;
-            color: #e91e63;
-            font-size: 12px;
-            padding: 4px 6px;
-            border-radius: 4px;
-            text-align: center;
-        }
-
-    .product-name {
-        font-weight: 600;
-        font-size: 16px;
-        height: 48px;
-        margin: 8px 0;
-    }
-
-    .specs {
-        display: flex;
-        gap: 12px;
-        margin: 8px 0;
-    }
-
-        .specs .spec {
-            background-color: #f2f2f2;
-            padding: 4px 8px;
-            border-radius: 4px;
-            font-size: 12px;
-            color: #333;
-        }
-
-    .price {
-        color: #ff4d4f;
-        font-weight: bold;
-        font-size: 1.4em;
-        margin-top: 8px;
-    }
-
-    .original-price {
-        color: #b0b0b0;
-        text-decoration: line-through;
-        font-size: 0.9em;
-        margin-bottom: 4px;
-    }
-
-    .product-specs {
-        font-size: 14px;
-        color: #666;
-        margin-top: 8px;
-        margin-bottom:50px;
-    }
-
-    .product-rating {
-        font-size: 14px;
-        color: #ff9800;
-        display: flex;
-        align-items: center;
-        margin-top: 8px;
-    }
-
-        .product-rating svg {
-            margin-right: 5px;
-        }
-
-    .action-buttons {
-        position: absolute;
-        bottom: 16px;
-        width: 100%;
-        display: flex;
-        justify-content: space-around;
-        padding: 8px;
-        box-sizing: border-box;
-    }
-
-    .button-small {
-        padding: 4px 8px;
-        font-size: 0.85em; /* Giảm font size để làm nút nhỏ lại */
-        min-width: 80px; /* Tùy chọn: Đặt min-width nhỏ hơn */
-    }
-
-
-</style>
+<link href="css/home.css" rel="stylesheet">
 
 <div class="top-header">
-    <div class="search-container">
-        <MudTextField T="string" ValueChanged="@(s => OnSearch(s))" Placeholder="@_localizer["Search..."]"
-                      Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Search"
-                      IconSize="Size.Medium" Class="mt-0" />
-    </div>
+   
 </div>
 
 <div class="banner-container">
@@ -301,7 +24,54 @@
     <!-- Nút điều hướng bên phải -->
     <img class="nav-button right" src="/images/dieuhuong/is-greater-than.png" @onclick="ShowNextImage" />
 </div>
+<br />
+<MudGrid>
+    <div class="featured-products-section">
 
+        <div class="featured-header">
+            <img src="/images/banner/featureproduct.gif" alt="Alternate Text" />
+        </div>
+
+        <div class="product-slider-container">
+            <!-- Nút điều hướng bên trái -->
+            <MudIconButton Icon="Icons.Material.Filled.ArrowBackIos" Class="slider-control left-control" OnClick="ShowPreviousFeaturedProducts" />
+
+            <!-- Danh sách sản phẩm -->
+            <div class="product-list-container">
+                @foreach (var product in GetCurrentFeaturedProducts())
+                {
+                    <MudCard Class="single-product-card">
+                        <MudCardContent>
+                            <!-- Huy hiệu -->
+                            <div class="badge-container">
+                                <MudText Typo="Typo.overline" Class="badge">Trả góp 0%</MudText>
+                                <MudText Typo="Typo.overline" Class="badge">Giá rẻ quá</MudText>
+                            </div>
+
+                            <!-- Ảnh sản phẩm -->
+                            <img src="@product.ImageDataURL" alt="@product.Name" class="product-thumbnail" />
+
+                            <!-- Thông tin sản phẩm -->
+                            <MudText Typo="Typo.h6" Align="Align.Center">@product.Name</MudText>
+                            <div class="product-price-container">
+                                <MudText Typo="Typo.h6" Class="main-price">@product.Price.ToString("N0") đ</MudText>
+                                <MudText Typo="Typo.caption" Class="old-price">@((product.Price * 1.1).ToString("N0")) đ</MudText>
+                            </div>
+                            <MudRating Value="@product.Rate" MaxValue="5" ReadOnly="true" Class="rate-button" />
+
+                            <!-- Nút yêu thích -->
+                            <MudIconButton Icon="Icons.Material.Filled.FavoriteBorder" Color="Color.Primary" />
+                        </MudCardContent>
+                    </MudCard>
+                }
+            </div>
+
+            <!-- Nút điều hướng bên phải -->
+            <MudIconButton Icon="Icons.Material.Filled.ArrowForwardIos" Class="slider-control right-control" OnClick="ShowNextFeaturedProducts" />
+        </div>
+    </div>
+</MudGrid>
+<br />
 <!-- Menu các thương hiệu -->
 <div class="menu-bar">
     <!-- Filter panel -->
@@ -336,6 +106,8 @@
         <img Class="logo-brand" src="/images/brand/samsung-icon.png" href="#" />
     </MudChip>
 </div>
+
+
 <MudGrid>
     <!-- Filter Panel on the Left Side -->
     <MudItem xs="12" md="3" Class="@GetFilterPanelClass()">
@@ -414,8 +186,8 @@
             <MudGrid GutterSpacing="3" Class="product-grid">
                 @foreach (var context in _featuredProducts)
                 {
-                    <MudItem xs="12" sm="6" md="4" lg="4">
-                        <MudCard Class="product-card" Style="position: relative; padding: 16px; margin-bottom: 16px; height: 100%; border-radius: 12px;">
+                    <MudItem xs="10" sm="4" md="3" lg="3">
+                        <MudCard Class="product-card">
                             <MudCardContent>
                                 <div class="badge-container">
                                     <MudText Typo="Typo.overline" Class="badge">Trả góp 0%</MudText>
@@ -430,29 +202,21 @@
                                     <MudText Typo="Typo.body2" Class="spec">@context.Ram.Split(' ').FirstOrDefault() GB</MudText>
                                     <MudText Typo="Typo.body2" Class="spec">@context.Rom.Split(' ').FirstOrDefault() GB</MudText>
                                 </div>
-
-                                <MudText Typo="Typo.h6" Color="Color.Error" Class="price">@context.Price.ToString("N0") đ</MudText>
-                                <MudText Typo="Typo.caption" Class="original-price">@((context.Price * 1.14).ToString("N0")) đ -14%</MudText>
-
+                                <div class="price-container">
+                                    <MudText Typo="Typo.h6" Class="price">@context.Price.ToString("N0") đ</MudText>
+                                    <MudText Typo="Typo.caption" Class="original-price">@((context.Price * 1.14).ToString("N0")) đ -14%</MudText>
+                                </div>
+                                <MudRating Value="@context.Rate" MaxValue="5" ReadOnly="true" Class="rate" />
                             </MudCardContent>
 
-                            <!-- Fixed Position for Buttons at the Bottom -->
-                            <MudCardActions Class="action-buttons">
-                                <div class="product-rating">
-                                    <MudIcon Icon="@Icons.Material.Filled.Star" Color="Color.Warning" />
-                                    <MudText Typo="Typo.caption">@context.Rate</MudText>
-                                </div>
-                                <MudButton Variant="Variant.Filled" OnClick="() => NavigateToProductDetail(context.Id)" Color="Color.Primary" Class="button-small" Style="margin-right: 8px;">
-                                    Xem chi tiết
-                                </MudButton>
-
-
-                            </MudCardActions>
-
+                            <MudButton Variant="Variant.Filled" OnClick="() => NavigateToProductDetail(context.Id)" Color="Color.Primary" Class="action-button">
+                                Xem chi tiết
+                            </MudButton>
                         </MudCard>
                     </MudItem>
                 }
             </MudGrid>
+
         }
         <br />
         <!-- High Rate Products Section -->
@@ -466,8 +230,8 @@
             <MudGrid GutterSpacing="3" Class="product-grid">
                 @foreach (var context in _RatedProducts)
                 {
-                    <MudItem xs="12" sm="6" md="4" lg="4">
-                        <MudCard Class="product-card" Style="position: relative; padding: 16px; margin-bottom: 16px; height: 100%; border-radius: 12px;">
+                    <MudItem xs="10" sm="4" md="3" lg="3">
+                        <MudCard Class="product-card">
                             <MudCardContent>
                                 <div class="badge-container">
                                     <MudText Typo="Typo.overline" Class="badge">Trả góp 0%</MudText>
@@ -475,29 +239,23 @@
                                 </div>
                                 <MudButton Style="padding: 0; border: none; background: none;" @onclick="() => InvokeModal(context.Id)">
                                     <img class="img-product" src="@(context.ImageDataURL)" Square="true" />
-                                </MudButton>                                <MudText Typo="Typo.h6" Class="product-name">@context.Name</MudText>
+                                </MudButton>
+                                <MudText Typo="Typo.h6" Class="product-name">@context.Name</MudText>
 
                                 <div class="specs">
                                     <MudText Typo="Typo.body2" Class="spec">@context.Ram.Split(' ').FirstOrDefault() GB</MudText>
                                     <MudText Typo="Typo.body2" Class="spec">@context.Rom.Split(' ').FirstOrDefault() GB</MudText>
                                 </div>
-
-                                <MudText Typo="Typo.h6" Color="Color.Error" Class="price">@context.Price.ToString("N0") đ</MudText>
-                                <MudText Typo="Typo.caption" Class="original-price">@((context.Price * 1.14).ToString("N0")) đ -14%</MudText>
-
+                                <div class="price-container">
+                                    <MudText Typo="Typo.h6" Class="price">@context.Price.ToString("N0") đ</MudText>
+                                    <MudText Typo="Typo.caption" Class="original-price">@((context.Price * 1.14).ToString("N0")) đ -14%</MudText>
+                                </div>
+                                <MudRating Value="@context.Rate" MaxValue="5" ReadOnly="true" Class="rate" />
                             </MudCardContent>
 
-                            <!-- Fixed Position for Buttons at the Bottom -->
-                            <MudCardActions Class="action-buttons">
-                                <div class="product-rating">
-                                    <MudIcon Icon="@Icons.Material.Filled.Star" Color="Color.Warning" />
-                                    <MudText Typo="Typo.caption">@context.Rate</MudText>
-                                </div>
-                                <MudButton Variant="Variant.Filled" OnClick="() => NavigateToProductDetail(context.Id)" Color="Color.Primary" Class="button-small" Style="margin-right: 8px;">
-                                    Xem chi tiết
-                                </MudButton>
-                            </MudCardActions>
-
+                            <MudButton Variant="Variant.Filled" OnClick="() => NavigateToProductDetail(context.Id)" Color="Color.Primary" Class="action-button">
+                                Xem chi tiết
+                            </MudButton>
                         </MudCard>
                     </MudItem>
                 }

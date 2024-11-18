@@ -1,0 +1,113 @@
+﻿@using Microsoft.Extensions.Localization
+
+<MudPaper Class="header" Elevation="0" >
+    <MudGrid Justify="Justify.SpaceBetween" AlignItems="Align.Center">
+        <!-- Logo -->
+        <MudItem xs="2">
+            <img src="../images/icon/logo.png" alt="Store Image" class="logo-img"/>
+        </MudItem>
+
+        <!-- Menu Buttons -->
+        <MudItem xs="4">
+            <MudGrid Justify="Justify.FlexStart" AlignItems="Align.Center" Spacing="1">
+                <MudItem>
+                    <MudButton Variant="Variant.Text" Color="Color.Primary" Class="menu-button">
+                        <MudNavLink Href="/products" Color="Color.Inherit">@localizer["Tất cả sản phẩm"]</MudNavLink>
+                    </MudButton>
+                </MudItem>
+                <MudItem>
+                    <MudButton Variant="Variant.Text" Color="Color.Primary" Class="menu-button">
+                        <MudNavLink Href="/contact" Color="Color.Inherit">@localizer["Contact"]</MudNavLink>
+                    </MudButton>
+                </MudItem>
+            </MudGrid>
+        </MudItem>
+
+        <!-- Search Bar -->
+        <MudItem xs="3">
+            <div class="search-container">
+                <MudTextField T="string" ValueChanged="@(s => OnSearch(s))" Placeholder="Bạn muốn tìm gì?"
+                              Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Search"
+                              IconSize="Size.Medium" Class="mt-0" />
+            </div>
+        </MudItem>
+
+        <!-- Contact Icons -->
+        <MudItem xs="3">
+            <MudGrid Justify="Justify.FlexEnd" AlignItems="Align.Center" Spacing="1">
+                <MudItem>
+                    <MudText Typo="Typo.body1" Class="contact-info" >
+                        <MudNavLink Href="/contact" Color="Color.Inherit">@localizer["Liên hệ"]</MudNavLink>
+                    </MudText>
+                </MudItem>
+                <MudItem>
+                    <MudText Typo="Typo.body1" Class="contact-info" >
+                        <MudNavLink Href="/contact" Color="Color.Inherit">@localizer["Cửa hàng gần bạn"]</MudNavLink>
+                    </MudText>
+                </MudItem>
+                <MudItem>
+                    <MudButton Variant="Variant.Text" Color="Color.Primary" Class="menu-button">
+                        <MudNavLink Href="/cart" Color="Color.Inherit">@localizer["Giỏ hàng"]</MudNavLink>
+                    </MudButton>
+                </MudItem>
+                <MudItem>
+                    <MudButton Variant="Variant.Text" Color="Color.Primary" Class="menu-button">
+                        <MudIcon Icon="Icons.Material.Filled.AccountCircle" /> Đăng nhập
+                    </MudButton>
+                </MudItem>
+            </MudGrid>
+        </MudItem>
+    </MudGrid>
+</MudPaper>
+<style>
+    .header {
+        background-color: deepskyblue;
+        padding: 8px 16px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        back
+    }
+
+    .menu-button {
+        color: white;
+        font-weight: bold;
+        text-transform: none;
+    }
+
+    .logo-img {
+        width: 200px;
+        height:auto;
+    }
+
+    .contact-info {
+        font-size: 0.9rem;
+        color: red;
+        line-height: 1.2rem;
+        text-align: center;
+    }
+
+</style>
+@code {
+    [Inject] private IStringLocalizer<Header> localizer { get; set; }
+
+    private string _searchString = ""; // Biến này cần được khai báo
+
+    private async Task OnSearch(string text)
+    {
+        _searchString = text;
+        await LoadData(0, 10, new TableState());
+        ApplyFilters();
+    }
+
+    private async Task LoadData(int page, int pageSize, TableState state)
+    {
+        // Thay bằng logic thực tế nếu cần
+        await Task.CompletedTask;
+    }
+
+    private void ApplyFilters()
+    {
+        // Thay bằng logic thực tế nếu cần
+    }
+}

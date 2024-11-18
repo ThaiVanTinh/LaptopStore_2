@@ -1,0 +1,17 @@
+﻿@inherits LayoutComponentBase
+@using LaptopStore.Client.Pages.Shop.Layout;
+
+<MudContainer MaxWidth="MaxWidth.ExtraLarge">
+    <MudPaper Elevation="1" Style="padding: 16px; margin-bottom: 16px;">
+        <!-- Gọi Header component tại đây -->
+        <Header />
+    </MudPaper>
+    <MudPaper Elevation="0" Style="padding: 16px;">
+        <!-- Đây là nơi hiển thị nội dung của trang -->
+        @Body
+    </MudPaper>
+    <MudPaper Elevation="1" Style="padding: 16px; margin-bottom: 16px;">
+        <!-- Gọi Header component tại đây -->
+        <Footer />
+    </MudPaper>
+</MudContainer>
