@@ -17,14 +17,20 @@
     <MudNavLink Href="/account" Icon="@Icons.Material.Outlined.SupervisorAccount">
         @_localizer["Account"]
     </MudNavLink>
+    @if (_canViewOrderPlaced)
+    {
+        <MudNavLink Href="/orderplaced" Icon="@Icons.Material.Outlined.ShoppingCart">
+            @_localizer["OrderPlaced"]
+        </MudNavLink>
+    }
     @if (_canViewUsers)
     {
         <MudListSubheader Class="mt-2 mb-n2">@_localizer["Administrator"]</MudListSubheader>
-       
+
         <MudNavLink Href="/admin/users" Icon="@Icons.Material.Outlined.Person">
             @_localizer["Users"]
         </MudNavLink>
-        
+
     }
     @if (_canViewProducts || _canViewBrands || _canViewOrders)
     {
@@ -59,7 +65,7 @@
     private bool _canViewProducts;
     private bool _canViewBrands;
     private bool _canViewOrders;
-
+    private bool _canViewOrderPlaced;
 
     protected override async Task OnParametersSetAsync()
     {
@@ -70,5 +76,12 @@
         _canViewProducts = (await _authorizationService.AuthorizeAsync(_authenticationStateProviderUser, Permissions.Products.View)).Succeeded;
         _canViewBrands = (await _authorizationService.AuthorizeAsync(_authenticationStateProviderUser, Permissions.Brands.View)).Succeeded;
         _canViewOrders = (await _authorizationService.AuthorizeAsync(_authenticationStateProviderUser, Permissions.Orders.View)).Succeeded;
+
+        // Kiểm tra nếu UserId là của Admin thì không hiển thị OrderPlaced
+        var userId = _authenticationStateProviderUser.FindFirstValue(ClaimTypes.NameIdentifier);
+        var userRole = _authenticationStateProviderUser.FindFirstValue(ClaimTypes.Role);
+
+        // Kiểm tra quyền dựa trên Role
+        _canViewOrderPlaced = userRole != "Admin";
     }
 }

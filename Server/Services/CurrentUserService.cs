@@ -12,7 +12,7 @@ namespace LaptopStore.Server.Services
         {
             var user = httpContextAccessor.HttpContext?.User;
             UserId = user?.FindFirstValue(ClaimTypes.NameIdentifier);
-            Claims = user?.Claims.Select(item => new KeyValuePair<string, string>(item.Type, item.Value)).ToList() ?? new List<KeyValuePair<string, string>>(); // Lấy Claims của người dùng
+            Claims = user?.Claims.Select(item => new KeyValuePair<string, string>(item.Type, item.Value)).ToList() ?? new List<KeyValuePair<string, string>>(); 
         }
 
         public string UserId { get; }
