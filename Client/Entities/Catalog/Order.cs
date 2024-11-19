@@ -15,15 +15,15 @@ namespace LaptopStore.Domain.Entities.Catalog
         public string MethodPayment { get; set; }
         public string StatusOrder { get; set; }
         public bool IsPayment { get; set; }
-        public List<CartItem> OrderItem { get; set; }
+        public List<OrderItem> OrderItem { get; set; }
     
     }
 
-    public class CartItem : AuditableEntity<int>
+    public class OrderItem : AuditableEntity<int>
     {
         public int ProductId { get; set; }
         public string ProductName { get; set; }
-        public decimal ProductPrice { get; set; }
+        public int ProductPrice { get; set; }
         public string ProductImage { get; set; }
         public int Quantity { get; set; }
         public int OrderId { get; set; }

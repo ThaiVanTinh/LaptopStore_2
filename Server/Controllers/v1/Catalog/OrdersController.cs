@@ -31,14 +31,14 @@ namespace LaptopStore.Server.Controllers.v1.Catalog
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById(int id)
         {
-            var brand = await _mediator.Send(new GetOrderByIdQuery { Id = id });
-            return Ok(brand);
+            var order = await _mediator.Send(new GetOrderByIdQuery { Id = id });
+            return Ok(order);
         }
 
         [Authorize(Policy = Permissions.Orders.Create)]
         [HttpPost("add-edit")]
         public async Task<IActionResult> Post(AddEditOrderCommand command)
-        {
+        {    
             return Ok(await _mediator.Send(command));
         }
 
@@ -56,7 +56,7 @@ namespace LaptopStore.Server.Controllers.v1.Catalog
                 MethodPayment = command.MethodPayment,
                 StatusOrder = command.StatusOrder,
                 IsPayment = command.IsPayment,
-                OrderItem = command.OrderItem.Select(item => new CartItem
+                OrderItem = command.OrderItem.Select(item => new OrderItem
                 {
                     ProductId = item.ProductId,
                     ProductName = item.ProductName,

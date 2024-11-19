@@ -16,15 +16,16 @@ namespace LaptopStore.Application.Features.Orders.Queries.GetById
         public string MethodPayment { get; set; }
         public string StatusOrder { get; set; }
         public bool IsPayment { get; set; }
-        public List<CartItemByIdResponse> OrderItem { get; set; }
+        public List<GetOrderItemByIdResponse> OrderItem { get; set; }
 
     }
 
-    public class CartItemByIdResponse
+    public class GetOrderItemByIdResponse
     {
+        public int Id { get; set; }
         public int ProductId { get; set; }
         public string ProductName { get; set; }
-        public decimal ProductPrice { get; set; }
+        public int ProductPrice { get; set; }
         public string ProductImage { get; set; }
         public int Quantity { get; set; }
         public int QuantityOrdered { get; set; }

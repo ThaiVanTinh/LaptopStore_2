@@ -69,7 +69,7 @@ namespace LaptopStore.Client.Pages.Shop
         }
         private async Task AddToCart()
         {
-            var cartItem = new CartItem
+            var cartItem = new OrderItem
             {
                 ProductId = Product.Id,
                 ProductName = Product.Name,
@@ -80,7 +80,7 @@ namespace LaptopStore.Client.Pages.Shop
 
             // Lấy giỏ hàng từ localStorage
             var existingCartJson = await JSRuntime.InvokeAsync<string>("localStorage.getItem", "cartItems");
-            var cartItems = existingCartJson != null ? JsonSerializer.Deserialize<List<CartItem>>(existingCartJson) : new List<CartItem>();
+            var cartItems = existingCartJson != null ? JsonSerializer.Deserialize<List<OrderItem>>(existingCartJson) : new List<OrderItem>();
 
             // Kiểm tra xem sản phẩm đã có trong giỏ hàng chưa
             var existingItem = cartItems.FirstOrDefault(i => i.ProductId == cartItem.ProductId);

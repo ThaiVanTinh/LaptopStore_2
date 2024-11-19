@@ -43,10 +43,8 @@
                     </div>
                 </MudItem>
 
-                <!-- Right section for General Information and Detailed Information -->
                 <MudItem xs="12" md="8">
                     <MudGrid>
-                        <!-- General Information Section -->
                         <MudItem xs="6">
                             <MudText Typo="Typo.subtitle1">@_localizer["Thông tin chung"]</MudText>
                             @if (AddEditProductModel.Id != 0)
@@ -79,7 +77,6 @@
                             </MudSelect>
                         </MudItem>
 
-                        <!-- Detailed Information Section -->
                         <MudItem xs="6">
                             <MudText Typo="Typo.subtitle1">@_localizer["Thông tin chi tiết"]</MudText>
                             <MudTextField For="@(() => AddEditProductModel.ProductLine)" @bind-Value="AddEditProductModel.ProductLine" Label="@_localizer["ProductLine"]" />

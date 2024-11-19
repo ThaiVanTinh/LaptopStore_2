@@ -26,7 +26,7 @@ namespace LaptopStore.Client.Pages.Shop
         [Inject] private IOrderManager OrderManager { get; set; }
         [Inject] private IJSRuntime JS { get; set; }
 
-        private List<CartItem> cartItems = new();
+        private List<OrderItem> orderItems = new();
 
         private string firstName;
         private string lastName;
@@ -94,7 +94,7 @@ namespace LaptopStore.Client.Pages.Shop
             if (!string.IsNullOrEmpty(cartJson))
             {
                 // Deserialize dữ liệu cartItems từ JSON
-                cartItems = JsonSerializer.Deserialize<List<CartItem>>(cartJson);
+                orderItems = JsonSerializer.Deserialize<List<OrderItem>>(cartJson);
             }
 
             try
@@ -185,11 +185,11 @@ namespace LaptopStore.Client.Pages.Shop
         }
         private decimal GetTotalPrice()
         {
-            return cartItems.Sum(item => item.ProductPrice * item.Quantity);
+            return orderItems.Sum(item => item.ProductPrice * item.Quantity);
         }
         private async Task Checkout()
         {
-            if (cartItems == null || !cartItems.Any())
+            if (orderItems == null || !orderItems.Any())
             {
                 await JS.InvokeVoidAsync("alert", "Giỏ hàng của bạn đang trống!");
                 return;
@@ -224,7 +224,7 @@ namespace LaptopStore.Client.Pages.Shop
                 MethodPayment = SelectedPaymentMethod,
                 StatusOrder = "Đang xử lý",
                 IsPayment = SelectedPaymentMethod != "COD", 
-                OrderItem = cartItems.Select(item => new Domain.Entities.Catalog.CartItem
+                OrderItem = orderItems.Select(item => new OrderItem
                 {
                     ProductId = item.ProductId,
                     ProductName = item.ProductName,

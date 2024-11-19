@@ -1,4 +1,4 @@
-﻿using LaptopStore.Application.Features.Orders.Queries.GetAll; // Đổi dòng này
+﻿using LaptopStore.Application.Features.Orders.Queries.GetAll;
 using LaptopStore.Client.Extensions;
 using LaptopStore.Shared.Constants.Application;
 using Microsoft.AspNetCore.Components;
@@ -111,7 +111,7 @@ namespace LaptopStore.Client.Pages.Admin.Orders
                     parameters.Add(nameof(AddEditOrderModal.AddEditOrderModel), new AddEditOrderCommand
                     {
                         Id = _order.Id,
-                        UserId = _order.UserId, 
+                        UserId = _order.UserId,
                     });
                 }
             }
@@ -143,13 +143,12 @@ namespace LaptopStore.Client.Pages.Admin.Orders
         private async Task ViewProducts(int orderId)
         {
             var parameters = new DialogParameters
-    {
-        { "OrderId", orderId } // Truyền OrderId vào Dialog
-    };
+            {
+                { "OrderId", orderId }
+            };
 
             var options = new DialogOptions { CloseButton = true, MaxWidth = MaxWidth.Medium, FullWidth = true };
-            _dialogService.Show<ViewProductsOrder>("Order Products", parameters, options);
+            _dialogService.Show<OrderItems>("Order Products", parameters, options);
         }
-
     }
 }

@@ -13,18 +13,18 @@ namespace LaptopStore.Application.Mappings
         {
             CreateMap<AddEditOrderCommand, Order>().ReverseMap();
 
+            CreateMap<GetOrderByIdResponse, AddEditOrderCommand>().ReverseMap();
+
             CreateMap<Order, GetAllOrdersResponse>()
                 .ForMember(dest => dest.OrderItem, opt => opt.MapFrom(src => src.OrderItem));
 
-            CreateMap<CartItem, CartItemResponse>();
-
-            CreateMap<CartItemResponse, CartItem>();
+            CreateMap<OrderItem, GetAllOrderItemsResponse>().ReverseMap();
 
             CreateMap<Order, GetOrderByIdResponse>()
                 .ForMember(dest => dest.OrderItem, opt => opt.MapFrom(src => src.OrderItem));
 
-            CreateMap<CartItem, CartItemByIdResponse>();
-                
+            CreateMap<OrderItem, GetOrderItemByIdResponse>().ReverseMap();
+
         }
     }
 }

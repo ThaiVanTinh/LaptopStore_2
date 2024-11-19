@@ -2,10 +2,10 @@
 using LaptopStore.Application.Features.Orders.Commands.AddEdit;
 using LaptopStore.Application.Interfaces.Repositories;
 using LaptopStore.Application.Interfaces.Services;
-using LaptopStore.Application.Requests.Catalog;
 using LaptopStore.Client.Extensions;
 using LaptopStore.Client.Infrastructure.Managers.Catalog.Order;
 using LaptopStore.Client.Infrastructure.Managers.Catalog.Product;
+using LaptopStore.Domain.Entities.Catalog;
 using LaptopStore.Shared.Constants.Application;
 using Microsoft.AspNetCore.Components;
 using Microsoft.Extensions.Localization;
@@ -25,14 +25,14 @@ namespace LaptopStore.Client.Pages.Shop
         [Inject] private IOrderManager OrderManager { get; set; }
         [Inject] private NavigationManager NavigationManager { get; set; }
 
-        private List<CartItem> cartItems = new();
+        private List<OrderItem> cartItems = new();
 
         protected override async Task OnInitializedAsync()
         {
             var cartJson = await JS.InvokeAsync<string>("localStorage.getItem", "cartItems");
             if (!string.IsNullOrEmpty(cartJson))
             {
-                cartItems = JsonSerializer.Deserialize<List<CartItem>>(cartJson);
+                cartItems = JsonSerializer.Deserialize<List<OrderItem>>(cartJson);
 
                 // Tải hình ảnh cho từng sản phẩm
                 foreach (var item in cartItems)
@@ -42,9 +42,9 @@ namespace LaptopStore.Client.Pages.Shop
             }
         }
 
-        private bool IsQuantityLessThanOrEqualToOne(CartItem item) => item.Quantity <= 1;
+        private bool IsQuantityLessThanOrEqualToOne(OrderItem item) => item.Quantity <= 1;
 
-        private async Task UpdateQuantity(CartItem item, int newQuantity)
+        private async Task UpdateQuantity(OrderItem item, int newQuantity)
         {
             item.Quantity = newQuantity;
             await SaveCartToLocalStorage();
@@ -80,7 +80,7 @@ namespace LaptopStore.Client.Pages.Shop
             }
         }
 
-        private async Task LoadImageAsync(CartItem item)
+        private async Task LoadImageAsync(OrderItem item)
         {
             var data = await ProductManager.GetProductImageAsync(item.ProductId);
             if (data.Succeeded)

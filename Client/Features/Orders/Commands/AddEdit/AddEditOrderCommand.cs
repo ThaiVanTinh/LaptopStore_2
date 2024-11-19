@@ -21,13 +21,13 @@ namespace LaptopStore.Application.Features.Orders.Commands.AddEdit
         public string UserId { get; set; }
 
         [Required]
-
         public string UserName { get; set; }
+        [Required]
         public string UserPhone { get; set; }
-
+        [Required]
         public string UserAddress { get; set; }
 
-        public List<CartItem> OrderItem { get; set; } = new List<CartItem>();
+        public List<OrderItem> OrderItem { get; set; } = new List<OrderItem>();
 
         [Required]
         public int TotalPrice { get; set; }
@@ -64,13 +64,13 @@ namespace LaptopStore.Application.Features.Orders.Commands.AddEdit
                 {
                     UserId = command.UserId,
                     UserName = command.UserName,
-                    UserPhone=command.UserPhone,
+                    UserPhone = command.UserPhone,
                     UserAddress = command.UserAddress,
                     TotalPrice = command.TotalPrice,
                     MethodPayment = command.MethodPayment,
                     StatusOrder = command.StatusOrder,
                     IsPayment = command.IsPayment,
-                    OrderItem = command.OrderItem.Select(item => new CartItem
+                    OrderItem = command.OrderItem.Select(item => new OrderItem
                     {
                         ProductId = item.ProductId,
                         ProductName = item.ProductName,
@@ -88,43 +88,32 @@ namespace LaptopStore.Application.Features.Orders.Commands.AddEdit
                 var order = await _unitOfWork.Repository<Order>().GetByIdAsync(command.Id);
                 if (order != null)
                 {
-                    // Update basic order details
                     order.UserId = command.UserId ?? order.UserId;
                     order.UserAddress = command.UserAddress ?? order.UserAddress;
-                    order.UserName= command.UserName ?? order.UserName;
+                    order.UserName = command.UserName ?? order.UserName;
                     order.UserPhone = command.UserPhone ?? order.UserPhone;
                     order.TotalPrice = command.TotalPrice != 0 ? command.TotalPrice : order.TotalPrice;
                     order.MethodPayment = command.MethodPayment ?? order.MethodPayment;
                     order.StatusOrder = command.StatusOrder ?? order.StatusOrder;
                     order.IsPayment = command.IsPayment;
 
-                    // Update Order Items
                     foreach (var item in command.OrderItem)
                     {
                         var existingItem = order.OrderItem.FirstOrDefault(i => i.ProductId == item.ProductId);
                         if (existingItem != null)
                         {
-                            // Update existing item
-                            existingItem.ProductName = item.ProductName;
-                            existingItem.ProductPrice = item.ProductPrice;
                             existingItem.Quantity = item.Quantity;
-                            existingItem.ProductImage = item.ProductImage;
                         }
                         else
                         {
-                            // Add new item
-                            order.OrderItem.Add(new CartItem
+                            order.OrderItem.Add(new OrderItem
                             {
-                                ProductId = item.ProductId,
-                                ProductName = item.ProductName,
-                                ProductPrice = item.ProductPrice,
+                                ProductId = item.ProductId,                            
                                 Quantity = item.Quantity,
-                                ProductImage = item.ProductImage
                             });
                         }
                     }
 
-                    // Remove deleted items
                     var itemsToRemove = order.OrderItem.Where(existing => !command.OrderItem.Any(newItem => newItem.ProductId == existing.ProductId)).ToList();
                     foreach (var itemToRemove in itemsToRemove)
                     {

@@ -24,12 +24,6 @@ namespace LaptopStore.Client.Infrastructure.Managers.Catalog.Order
         public async Task<IResult> CreateOrderAsync(Domain.Entities.Catalog.Order orderRequest)
         {
             var response = await _httpClient.PostAsJsonAsync(Routes.OrdersEndpoints.CreateOrder, orderRequest);
-
-            if (!response.IsSuccessStatusCode)
-            {
-                return Result.Fail("Error creating order");
-            }
-
             return await response.ToResult<int>();
         }
 

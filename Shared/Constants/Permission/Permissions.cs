@@ -31,9 +31,16 @@ namespace LaptopStore.Shared.Constants.Permission
             public const string View = "Permissions.Orders.View";
             public const string Create = "Permissions.Orders.Create";
             public const string Edit = "Permissions.Orders.Edit";
-            public const string Export = "Permissions.Orders.Export";
             public const string Delete = "Permissions.Orders.Delete";
             public const string Search = "Permissions.Orders.Search";
+        }
+        public static class OrderItems
+        {
+            public const string View = "Permissions.OrderItems.View";
+            public const string Create = "Permissions.OrderItems.Create";
+            public const string Edit = "Permissions.OrderItems.Edit";
+            public const string Delete = "Permissions.OrderItems.Delete";
+            public const string Search = "Permissions.OrderItems.Search";
         }
 
         public static class Users
@@ -73,7 +80,6 @@ namespace LaptopStore.Shared.Constants.Permission
         {
             public const string ChangeLanguage = "Permissions.Preferences.ChangeLanguage";
 
-            //TODO - add permissions
         }
 
         public static class Dashboards
@@ -92,10 +98,7 @@ namespace LaptopStore.Shared.Constants.Permission
             public const string Export = "Permissions.AuditTrails.Export";
             public const string Search = "Permissions.AuditTrails.Search";
         }
-       /// <summary>
-       /// Returns a list of Permissions.
-       /// </summary>
-       /// <returns></returns>
+
         public static List<string> GetRegisteredPermissions()
         {
             var permssions = new List<string>();

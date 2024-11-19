@@ -13,15 +13,15 @@ namespace LaptopStore.Application.Requests.Catalog
         public string MethodPayment { get; set; }
         public string StatusOrder { get; set; }
         public bool IsPayment { get; set; }
-        public List<CartItem> Items { get; set; }
+        public List<OrderItem> Items { get; set; }
 
     }
 
-    public class CartItem
+    public class OrderItem
     {
         public int ProductId { get; set; }
         public string ProductName { get; set; }
-        public decimal ProductPrice { get; set; }
+        public int ProductPrice { get; set; }
         public string ProductImage { get; set; } = string.Empty;
         public int Quantity { get; set; }
     }
