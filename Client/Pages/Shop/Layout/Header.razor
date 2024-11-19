@@ -1,113 +1,135 @@
 ﻿@using Microsoft.Extensions.Localization
-
-<MudPaper Class="header" Elevation="0" >
-    <MudGrid Justify="Justify.SpaceBetween" AlignItems="Align.Center">
+<MudPaper Class="header" Elevation="0">
+    <div class="header-grid">
         <!-- Logo -->
-        <MudItem xs="2">
-            <img src="../images/icon/logo.png" alt="Store Image" class="logo-img"/>
+        <MudItem Class="logo-container">
+            <MudNavLink Href="/home">
+                <img src="../images/icon/logo.png" alt="Store Image" class="logo-img" />
+            </MudNavLink>
         </MudItem>
 
-        <!-- Menu Buttons -->
-        <MudItem xs="4">
-            <MudGrid Justify="Justify.FlexStart" AlignItems="Align.Center" Spacing="1">
-                <MudItem>
-                    <MudButton Variant="Variant.Text" Color="Color.Primary" Class="menu-button">
-                        <MudNavLink Href="/products" Color="Color.Inherit">@localizer["Tất cả sản phẩm"]</MudNavLink>
-                    </MudButton>
-                </MudItem>
-                <MudItem>
-                    <MudButton Variant="Variant.Text" Color="Color.Primary" Class="menu-button">
-                        <MudNavLink Href="/contact" Color="Color.Inherit">@localizer["Contact"]</MudNavLink>
-                    </MudButton>
-                </MudItem>
-            </MudGrid>
-        </MudItem>
+        <div class="menu-container">
+                <MudNavLink Href="/menu" Class="menu-button">Danh mục</MudNavLink>
+            </div>
 
         <!-- Search Bar -->
-        <MudItem xs="3">
-            <div class="search-container">
-                <MudTextField T="string" ValueChanged="@(s => OnSearch(s))" Placeholder="Bạn muốn tìm gì?"
-                              Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Search"
-                              IconSize="Size.Medium" Class="mt-0" />
+        <MudItem Class="search-container">
+            <div class="search-bar">
+            <input class="search-text" type="text" name="tukhoa" placeholder="Nhập từ khóa để tìm kiếm"  required />
             </div>
         </MudItem>
-
         <!-- Contact Icons -->
-        <MudItem xs="3">
-            <MudGrid Justify="Justify.FlexEnd" AlignItems="Align.Center" Spacing="1">
-                <MudItem>
-                    <MudText Typo="Typo.body1" Class="contact-info" >
-                        <MudNavLink Href="/contact" Color="Color.Inherit">@localizer["Liên hệ"]</MudNavLink>
-                    </MudText>
-                </MudItem>
-                <MudItem>
-                    <MudText Typo="Typo.body1" Class="contact-info" >
-                        <MudNavLink Href="/contact" Color="Color.Inherit">@localizer["Cửa hàng gần bạn"]</MudNavLink>
-                    </MudText>
-                </MudItem>
-                <MudItem>
-                    <MudButton Variant="Variant.Text" Color="Color.Primary" Class="menu-button">
-                        <MudNavLink Href="/cart" Color="Color.Inherit">@localizer["Giỏ hàng"]</MudNavLink>
-                    </MudButton>
-                </MudItem>
-                <MudItem>
-                    <MudButton Variant="Variant.Text" Color="Color.Primary" Class="menu-button">
-                        <MudIcon Icon="Icons.Material.Filled.AccountCircle" /> Đăng nhập
-                    </MudButton>
-                </MudItem>
-            </MudGrid>
+        <MudItem Class="contact-container">
+            <MudNavLink Href="/info" Class="contact-info">Thông tin </MudNavLink>
+            <MudNavLink Href="/contact" Class="contact-info">Liên Hệ</MudNavLink>
+            <MudNavLink Href="/orderplaced" Class="contact-info">Đơn hàng</MudNavLink>
+            <MudNavLink Href="/cart" Class="contact-info">Giỏ hàng</MudNavLink>
+            <MudNavLink Href="/login" Class="contact-info"> Đăng nhập</MudNavLink>
         </MudItem>
-    </MudGrid>
+    </div>
 </MudPaper>
 <style>
+/* General Styles */
     .header {
         background-color: deepskyblue;
-        padding: 8px 16px;
+        height: 60px;
+        padding: 0 5px;
+        display: flex;
+        align-items: center;
+    }
+
+    .header-grid {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+    }
+
+    .logo-container {
+        flex: 0 0 auto;
+    }
+
+    .logo-img {
+        height: 100px;
+        width: auto;
+        display: flex;
+    }
+
+    .search-container {
+        flex: 2;
         display: flex;
         align-items: center;
         justify-content: space-between;
-        back
+        gap: 10px;
+        text-align: center;
+        min-width:20%;
+    }
+
+    .search-bar {
+        width: 100%;
+        border-radius: 30px;
+        background-color: white;
+    }
+
+    .search-text {
+        width: 100%;
+        border: none;
+        outline: none;
+        background: none;
+        padding: 10px 0px;
+        font-size: medium;
+        flex: 1;
+        padding-left:10px;
+    }
+    .menu-container {
+        display: flex;
+        gap: 10px;
+        align-items: center; /* Căn giữa các mục theo chiều dọc */
+        justify-content: flex-start; /* Căn hàng ngang */
+        flex-wrap: nowrap; /* Ngăn xuống dòng */
     }
 
     .menu-button {
         color: white;
-        font-weight: bold;
-        text-transform: none;
+        font-weight: bolder;
+        font-size: 18px;
+        text-decoration: none;
+        white-space: nowrap; /* Giữ văn bản trên cùng một hàng */
+        padding: 5px; /* Khoảng cách bên trong */
     }
 
-    .logo-img {
-        width: 200px;
-        height:auto;
+   
+
+    .contact-container {
+        flex: 1;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        width: 70%;
     }
 
     .contact-info {
-        font-size: 0.9rem;
-        color: red;
-        line-height: 1.2rem;
+        color: white;
+        font-weight: bolder;
+        font-size:18px;
+        text-decoration: none;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
         text-align: center;
     }
 
 </style>
-@code {
-    [Inject] private IStringLocalizer<Header> localizer { get; set; }
 
-    private string _searchString = ""; // Biến này cần được khai báo
+@code {
+    [Inject] private IStringLocalizer<Header> Localizer { get; set; }
+
+    private string _searchString = "";
 
     private async Task OnSearch(string text)
     {
         _searchString = text;
-        await LoadData(0, 10, new TableState());
-        ApplyFilters();
-    }
-
-    private async Task LoadData(int page, int pageSize, TableState state)
-    {
-        // Thay bằng logic thực tế nếu cần
+        // Placeholder for search logic
         await Task.CompletedTask;
-    }
-
-    private void ApplyFilters()
-    {
-        // Thay bằng logic thực tế nếu cần
     }
 }

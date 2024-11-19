@@ -162,6 +162,17 @@
     overflow: hidden;
     background-color: #fff;
 }
+.product {
+    position: relative;
+    flex: 0 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.product:hover {
+    transition: box-shadow 0.3s ease-in-out;
+    transform: scale(1.2);
+}
 
 .img-product {
     width: 70%;
@@ -247,6 +258,8 @@
 }
 
 .rate {
+    color: yellow;
+    fill: yellow;
     display: flex;
     justify-content: center;
     gap: 2px;
