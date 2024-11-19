@@ -1,0 +1,209 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Thai_Van_Tinh\\WEB\\NET\\LaptopStore\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A7B45D03-7C88-4D69-B932-40A9D5B755C2}|Domain\\Domain.csproj|d:\\thai_van_tinh\\web\\net\\laptopstore\\domain\\entities\\catalog\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A7B45D03-7C88-4D69-B932-40A9D5B755C2}|Domain\\Domain.csproj|solutionrelative:domain\\entities\\catalog\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9C175F31-4041-47AF-9577-D7AC488C2DFA}|Application\\Application.csproj|d:\\thai_van_tinh\\web\\net\\laptopstore\\application\\mappings\\productprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9C175F31-4041-47AF-9577-D7AC488C2DFA}|Application\\Application.csproj|solutionrelative:application\\mappings\\productprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DB1309A5-3FAB-48EC-B5DF-582E8DFFE138}|Client\\Client.csproj|d:\\thai_van_tinh\\web\\net\\laptopstore\\client\\pages\\admin\\orders\\addeditorderitemmodal.razor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DB1309A5-3FAB-48EC-B5DF-582E8DFFE138}|Client\\Client.csproj|solutionrelative:client\\pages\\admin\\orders\\addeditorderitemmodal.razor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DB1309A5-3FAB-48EC-B5DF-582E8DFFE138}|Client\\Client.csproj|d:\\thai_van_tinh\\web\\net\\laptopstore\\client\\extensions\\webassemblyhostbuilderextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DB1309A5-3FAB-48EC-B5DF-582E8DFFE138}|Client\\Client.csproj|solutionrelative:client\\extensions\\webassemblyhostbuilderextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4B1846FD-5793-47BD-B89D-ABFB53141272}|Infrastructure\\Infrastructure.csproj|d:\\thai_van_tinh\\web\\net\\laptopstore\\infrastructure\\mappings\\userprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4B1846FD-5793-47BD-B89D-ABFB53141272}|Infrastructure\\Infrastructure.csproj|solutionrelative:infrastructure\\mappings\\userprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9C175F31-4041-47AF-9577-D7AC488C2DFA}|Application\\Application.csproj|d:\\thai_van_tinh\\web\\net\\laptopstore\\application\\features\\orders\\commands\\addedit\\addeditorderitemcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9C175F31-4041-47AF-9577-D7AC488C2DFA}|Application\\Application.csproj|solutionrelative:application\\features\\orders\\commands\\addedit\\addeditorderitemcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4B1846FD-5793-47BD-B89D-ABFB53141272}|Infrastructure\\Infrastructure.csproj|d:\\thai_van_tinh\\web\\net\\laptopstore\\infrastructure\\services\\storage\\serverstorageservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4B1846FD-5793-47BD-B89D-ABFB53141272}|Infrastructure\\Infrastructure.csproj|solutionrelative:infrastructure\\services\\storage\\serverstorageservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9C175F31-4041-47AF-9577-D7AC488C2DFA}|Application\\Application.csproj|d:\\thai_van_tinh\\web\\net\\laptopstore\\application\\extensions\\servicecollectionextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9C175F31-4041-47AF-9577-D7AC488C2DFA}|Application\\Application.csproj|solutionrelative:application\\extensions\\servicecollectionextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4B1846FD-5793-47BD-B89D-ABFB53141272}|Infrastructure\\Infrastructure.csproj|d:\\thai_van_tinh\\web\\net\\laptopstore\\infrastructure\\services\\excelservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4B1846FD-5793-47BD-B89D-ABFB53141272}|Infrastructure\\Infrastructure.csproj|solutionrelative:infrastructure\\services\\excelservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DB1309A5-3FAB-48EC-B5DF-582E8DFFE138}|Client\\Client.csproj|d:\\thai_van_tinh\\web\\net\\laptopstore\\client\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DB1309A5-3FAB-48EC-B5DF-582E8DFFE138}|Client\\Client.csproj|solutionrelative:client\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DB1309A5-3FAB-48EC-B5DF-582E8DFFE138}|Client\\Client.csproj|d:\\thai_van_tinh\\web\\net\\laptopstore\\client\\_imports.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{DB1309A5-3FAB-48EC-B5DF-582E8DFFE138}|Client\\Client.csproj|solutionrelative:client\\_imports.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 9,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ProductProfile.cs",
+              "DocumentMoniker": "D:\\Thai_Van_Tinh\\WEB\\NET\\LaptopStore\\Application\\Mappings\\ProductProfile.cs",
+              "RelativeDocumentMoniker": "Application\\Mappings\\ProductProfile.cs",
+              "ToolTip": "D:\\Thai_Van_Tinh\\WEB\\NET\\LaptopStore\\Application\\Mappings\\ProductProfile.cs",
+              "RelativeToolTip": "Application\\Mappings\\ProductProfile.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-19T17:02:35.143Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "AddEditOrderItemModal.razor.cs",
+              "DocumentMoniker": "D:\\Thai_Van_Tinh\\WEB\\NET\\LaptopStore\\Client\\Pages\\Admin\\Orders\\AddEditOrderItemModal.razor.cs",
+              "RelativeDocumentMoniker": "Client\\Pages\\Admin\\Orders\\AddEditOrderItemModal.razor.cs",
+              "ToolTip": "D:\\Thai_Van_Tinh\\WEB\\NET\\LaptopStore\\Client\\Pages\\Admin\\Orders\\AddEditOrderItemModal.razor.cs",
+              "RelativeToolTip": "Client\\Pages\\Admin\\Orders\\AddEditOrderItemModal.razor.cs",
+              "ViewState": "AgIAAD8AAAAAAAAAAAAkwBAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-19T17:14:30.39Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "WebAssemblyHostBuilderExtensions.cs",
+              "DocumentMoniker": "D:\\Thai_Van_Tinh\\WEB\\NET\\LaptopStore\\Client\\Extensions\\WebAssemblyHostBuilderExtensions.cs",
+              "RelativeDocumentMoniker": "Client\\Extensions\\WebAssemblyHostBuilderExtensions.cs",
+              "ToolTip": "D:\\Thai_Van_Tinh\\WEB\\NET\\LaptopStore\\Client\\Extensions\\WebAssemblyHostBuilderExtensions.cs",
+              "RelativeToolTip": "Client\\Extensions\\WebAssemblyHostBuilderExtensions.cs",
+              "ViewState": "AgIAAFoAAAAAAAAAAAAnwG4AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-19T17:13:47.911Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "UserProfile.cs",
+              "DocumentMoniker": "D:\\Thai_Van_Tinh\\WEB\\NET\\LaptopStore\\Infrastructure\\Mappings\\UserProfile.cs",
+              "RelativeDocumentMoniker": "Infrastructure\\Mappings\\UserProfile.cs",
+              "ToolTip": "D:\\Thai_Van_Tinh\\WEB\\NET\\LaptopStore\\Infrastructure\\Mappings\\UserProfile.cs",
+              "RelativeToolTip": "Infrastructure\\Mappings\\UserProfile.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAABDAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-19T17:13:28.203Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "ServerStorageService.cs",
+              "DocumentMoniker": "D:\\Thai_Van_Tinh\\WEB\\NET\\LaptopStore\\Infrastructure\\Services\\Storage\\ServerStorageService.cs",
+              "RelativeDocumentMoniker": "Infrastructure\\Services\\Storage\\ServerStorageService.cs",
+              "ToolTip": "D:\\Thai_Van_Tinh\\WEB\\NET\\LaptopStore\\Infrastructure\\Services\\Storage\\ServerStorageService.cs",
+              "RelativeToolTip": "Infrastructure\\Services\\Storage\\ServerStorageService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAABGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-19T17:12:51.34Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "AddEditOrderItemCommand.cs",
+              "DocumentMoniker": "D:\\Thai_Van_Tinh\\WEB\\NET\\LaptopStore\\Application\\Features\\Orders\\Commands\\AddEdit\\AddEditOrderItemCommand.cs",
+              "RelativeDocumentMoniker": "Application\\Features\\Orders\\Commands\\AddEdit\\AddEditOrderItemCommand.cs",
+              "ToolTip": "D:\\Thai_Van_Tinh\\WEB\\NET\\LaptopStore\\Application\\Features\\Orders\\Commands\\AddEdit\\AddEditOrderItemCommand.cs",
+              "RelativeToolTip": "Application\\Features\\Orders\\Commands\\AddEdit\\AddEditOrderItemCommand.cs",
+              "ViewState": "AgIAAFMAAAAAAAAAAADwvw4AAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-19T17:09:47.098Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Order.cs",
+              "DocumentMoniker": "D:\\Thai_Van_Tinh\\WEB\\NET\\LaptopStore\\Domain\\Entities\\Catalog\\Order.cs",
+              "RelativeDocumentMoniker": "Domain\\Entities\\Catalog\\Order.cs",
+              "ToolTip": "D:\\Thai_Van_Tinh\\WEB\\NET\\LaptopStore\\Domain\\Entities\\Catalog\\Order.cs",
+              "RelativeToolTip": "Domain\\Entities\\Catalog\\Order.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAArAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-19T17:05:45.566Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "ServiceCollectionExtensions.cs",
+              "DocumentMoniker": "D:\\Thai_Van_Tinh\\WEB\\NET\\LaptopStore\\Application\\Extensions\\ServiceCollectionExtensions.cs",
+              "RelativeDocumentMoniker": "Application\\Extensions\\ServiceCollectionExtensions.cs",
+              "ToolTip": "D:\\Thai_Van_Tinh\\WEB\\NET\\LaptopStore\\Application\\Extensions\\ServiceCollectionExtensions.cs",
+              "RelativeToolTip": "Application\\Extensions\\ServiceCollectionExtensions.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-19T17:01:19.222Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "ExcelService.cs",
+              "DocumentMoniker": "D:\\Thai_Van_Tinh\\WEB\\NET\\LaptopStore\\Infrastructure\\Services\\ExcelService.cs",
+              "RelativeDocumentMoniker": "Infrastructure\\Services\\ExcelService.cs",
+              "ToolTip": "D:\\Thai_Van_Tinh\\WEB\\NET\\LaptopStore\\Infrastructure\\Services\\ExcelService.cs",
+              "RelativeToolTip": "Infrastructure\\Services\\ExcelService.cs",
+              "ViewState": "AgIAAEIAAAAAAAAAAAAowAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-19T16:59:31.271Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\Thai_Van_Tinh\\WEB\\NET\\LaptopStore\\Client\\Program.cs",
+              "RelativeDocumentMoniker": "Client\\Program.cs",
+              "ToolTip": "D:\\Thai_Van_Tinh\\WEB\\NET\\LaptopStore\\Client\\Program.cs",
+              "RelativeToolTip": "Client\\Program.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAABAAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-19T16:53:45.227Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "_Imports.razor",
+              "DocumentMoniker": "D:\\Thai_Van_Tinh\\WEB\\NET\\LaptopStore\\Client\\_Imports.razor",
+              "RelativeDocumentMoniker": "Client\\_Imports.razor",
+              "ToolTip": "D:\\Thai_Van_Tinh\\WEB\\NET\\LaptopStore\\Client\\_Imports.razor",
+              "RelativeToolTip": "Client\\_Imports.razor",
+              "ViewState": "AgIAABoAAAAAAAAAAAAiwDsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-19T16:53:38.2Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

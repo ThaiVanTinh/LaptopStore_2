@@ -1,0 +1,25 @@
+2024-11-20 00:15:01.296 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-11-20 00:15:01.348 +07:00 [INF] Hosting environment: Development
+2024-11-20 00:15:01.354 +07:00 [INF] Content root path: D:\18d11m\LaptopStore\Server
+2024-11-20 00:15:57.680 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-11-20 00:15:57.717 +07:00 [INF] Hosting environment: Development
+2024-11-20 00:15:57.719 +07:00 [INF] Content root path: D:\18d11m\LaptopStore\Server
+2024-11-20 00:17:49.831 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-11-20 00:17:49.905 +07:00 [ERR] Connection ID "18302628925093707992", Request ID "400000d9-0009-fe00-b63f-84710c7967bb": An unhandled exception was thrown by the application.
+System.OperationCanceledException: The operation was canceled.
+   at System.Threading.CancellationToken.ThrowOperationCanceledException()
+   at System.Threading.CancellationToken.ThrowIfCancellationRequested()
+   at Microsoft.AspNetCore.Server.IIS.Core.HttpResponseStream.ValidateState(CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.IIS.Core.HttpResponseStream.WriteAsync(ReadOnlyMemory`1 source, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.IIS.Core.WrappingStream.WriteAsync(ReadOnlyMemory`1 source, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Watch.BrowserRefresh.BrowserScriptMiddleware.InvokeAsync(HttpContext context)
+   at Microsoft.AspNetCore.Builder.Extensions.MapMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Builder.Extensions.MapMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Builder.Extensions.MapMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Builder.Extensions.MapWhenMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Server.IIS.Core.IISHttpContextOfT`1.ProcessRequestAsync()
+2024-11-20 00:17:49.907 +07:00 [INF] Hosting environment: Development
+2024-11-20 00:17:50.017 +07:00 [INF] Content root path: D:\18d11m\LaptopStore\Server
+2024-11-20 01:31:18.427 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-11-20 01:31:18.477 +07:00 [INF] Hosting environment: Development
+2024-11-20 01:31:18.479 +07:00 [INF] Content root path: D:\Thai_Van_Tinh\WEB\NET\LaptopStore\Server

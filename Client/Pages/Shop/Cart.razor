@@ -1,0 +1,45 @@
+﻿@page "/cart"
+@using LaptopStore.Client.Pages.Shop.Layout;
+@layout ShopLayout
+@inject IJSRuntime JS
+@using System.Text.Json
+@using System.Collections.Generic
+@using System.Linq
+@inject Microsoft.Extensions.Localization.IStringLocalizer<Cart> _localizer
+
+<MudContainer>
+    <MudText Typo="Typo.h4">Giỏ hàng của bạn</MudText>
+    <MudTable Items="cartItems">
+        <HeaderContent>
+            <MudTh>Hình ảnh</MudTh>
+            <MudTh>Sản phẩm</MudTh>
+            <MudTh>Giá</MudTh>
+            <MudTh>Số lượng</MudTh>
+            <MudTh>Tổng cộng</MudTh>
+            <MudTh>Thao tác</MudTh>
+        </HeaderContent>
+        <RowTemplate>
+            <MudTd>
+                <img src="@context.ProductImage" width="50" height="50" alt="@context.ProductName" />
+            </MudTd>
+
+            <MudTd>@context.ProductName</MudTd>
+            <MudTd>@context.ProductPrice</MudTd>
+            <MudTd>
+                <MudIconButton Icon="@Icons.Material.Filled.Remove" OnClick="() => UpdateQuantity(context, context.Quantity - 1)" Disabled="IsQuantityLessThanOrEqualToOne(context)" />
+                <MudText>@context.Quantity</MudText>
+                <MudIconButton Icon="@Icons.Material.Filled.Add" OnClick="() => UpdateQuantity(context, context.Quantity + 1)" />
+            </MudTd>
+            <MudTd>@(context.ProductPrice * context.Quantity)</MudTd>
+            <MudTd>
+                <MudIconButton Icon="@Icons.Material.Filled.Delete" Color="Color.Error" OnClick="() => RemoveFromCart(context.ProductId)" />
+            </MudTd>
+        </RowTemplate>
+        <FooterContent>
+            <MudTd ColSpan="4" Align="Center"><strong>Tổng giá trị</strong></MudTd>
+            <MudTd Align="Center"><strong>@GetTotalPrice()</strong></MudTd>
+            <MudTd></MudTd>
+        </FooterContent>
+    </MudTable>
+    <MudButton Variant="Variant.Filled" Color="Color.Primary" OnClick="@Checkout">Thanh toán</MudButton>
+</MudContainer>
