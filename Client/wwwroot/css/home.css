@@ -280,7 +280,7 @@
 
 
 
-/*Featureproduct */
+
 /* Featured Products Section */
 .featured-products-section {
     width: 100%;
@@ -340,21 +340,19 @@
     }
 
 .product-list-container {
-    display: flex;
-    gap: 16px;
-    overflow-x: auto; /* Duy trì cuộn ngang nếu có nhiều sản phẩm */
+    display: flex; /* Sử dụng flexbox thay vì grid */
+    flex-wrap: nowrap; /* Không cho sản phẩm xuống dòng */
+    overflow-x: auto; /* Cuộn ngang nếu không đủ không gian */
     overflow-y: hidden; /* Loại bỏ cuộn dọc */
-    scroll-behavior: smooth;
-    width: 100%;
-    padding-left: 15px;
-    padding-right: 15px;
-    margin: 0 auto;
-    height: auto; /* Đảm bảo khung container tự co giãn theo nội dung */
+    gap: 16px; /* Khoảng cách giữa các card */
+    padding: 15px; /* Khoảng cách trong container */
 }
 
 
 .single-product-card {
-    flex: 0 0 calc(20% - 16px);
+    width: 200px; /* Cố định chiều rộng */
+    height: 300px; /* Cố định chiều cao */
+    flex: 0 0 auto; /* Không co giãn, giữ nguyên kích thước */
     transition: transform 0.3s ease-in-out;
     border: 1px solid #e0e0e0;
     border-radius: 12px;
@@ -362,27 +360,46 @@
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     text-align: center;
     padding: 10px;
-    max-width: 200px;
-    height: 300px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     position: relative;
 }
-
     .single-product-card:hover {
         transform: scale(1.05);
         box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
     }
-
 .product-thumbnail {
-    width: 75%;
+    width: 100%;
     height: 130px;
     object-fit: contain;
-    margin: 0 auto 10px;
+    margin-bottom: 10px;
     display: block;
 }
 
+@media (max-width: 1200px) {
+    .product-list-container {
+        grid-template-columns: repeat(4, 1fr); /* Hiển thị 4 cột */
+    }
+}
+
+@media (max-width: 992px) {
+    .product-list-container {
+        grid-template-columns: repeat(3, 1fr); /* Hiển thị 3 cột */
+    }
+}
+
+@media (max-width: 768px) {
+    .product-list-container {
+        grid-template-columns: repeat(2, 1fr); /* Hiển thị 2 cột */
+    }
+}
+
+@media (max-width: 576px) {
+    .product-list-container {
+        grid-template-columns: repeat(1, 1fr); /* Hiển thị 1 cột */
+    }
+}
 
 .product-name {
     font-size: 16px;

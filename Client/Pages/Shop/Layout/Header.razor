@@ -1,4 +1,6 @@
 ﻿@using Microsoft.Extensions.Localization
+<link href="css/header.css" rel="stylesheet">
+
 <MudPaper Class="header" Elevation="0">
     <div class="header-grid">
         <!-- Logo -->
@@ -22,104 +24,13 @@
         <MudItem Class="contact-container">
             <MudNavLink Href="/info" Class="contact-info">Thông tin </MudNavLink>
             <MudNavLink Href="/contact" Class="contact-info">Liên Hệ</MudNavLink>
-            <MudNavLink Href="/orderplaced" Class="contact-info">Đơn hàng</MudNavLink>
-            <MudNavLink Href="/cart" Class="contact-info">Giỏ hàng</MudNavLink>
-            <MudNavLink Href="/login" Class="contact-info"> Đăng nhập</MudNavLink>
+            <MudNavLink Href="/orderplaced" Class="contact">Đơn hàng</MudNavLink>
+            <MudNavLink Href="/cart" Class="contact">Giỏ hàng</MudNavLink>
+            <MudNavLink Href="/account" Class="contact-info"> Đăng nhập</MudNavLink>
         </MudItem>
     </div>
 </MudPaper>
-<style>
-/* General Styles */
-    .header {
-        background-color: deepskyblue;
-        height: 60px;
-        padding: 0 5px;
-        display: flex;
-        align-items: center;
-    }
 
-    .header-grid {
-        width: 100%;
-        display: flex;
-        align-items: center;
-        gap: 5px;
-    }
-
-    .logo-container {
-        flex: 0 0 auto;
-    }
-
-    .logo-img {
-        height: 100px;
-        width: auto;
-        display: flex;
-    }
-
-    .search-container {
-        flex: 2;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 10px;
-        text-align: center;
-        min-width:20%;
-    }
-
-    .search-bar {
-        width: 100%;
-        border-radius: 30px;
-        background-color: white;
-    }
-
-    .search-text {
-        width: 100%;
-        border: none;
-        outline: none;
-        background: none;
-        padding: 10px 0px;
-        font-size: medium;
-        flex: 1;
-        padding-left:10px;
-    }
-    .menu-container {
-        display: flex;
-        gap: 10px;
-        align-items: center; /* Căn giữa các mục theo chiều dọc */
-        justify-content: flex-start; /* Căn hàng ngang */
-        flex-wrap: nowrap; /* Ngăn xuống dòng */
-    }
-
-    .menu-button {
-        color: white;
-        font-weight: bolder;
-        font-size: 18px;
-        text-decoration: none;
-        white-space: nowrap; /* Giữ văn bản trên cùng một hàng */
-        padding: 5px; /* Khoảng cách bên trong */
-    }
-
-   
-
-    .contact-container {
-        flex: 1;
-        display: flex;
-        justify-content: flex-end;
-        align-items: center;
-        width: 70%;
-    }
-
-    .contact-info {
-        color: white;
-        font-weight: bolder;
-        font-size:18px;
-        text-decoration: none;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        text-align: center;
-    }
-
-</style>
 
 @code {
     [Inject] private IStringLocalizer<Header> Localizer { get; set; }
