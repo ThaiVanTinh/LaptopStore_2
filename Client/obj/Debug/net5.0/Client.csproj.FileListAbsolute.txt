@@ -1679,7 +1679,6 @@ D:\Thai_Van_Tinh\WEB\NET\LaptopStore\Client\obj\Debug\net5.0\RazorDeclaration\Pa
 D:\Thai_Van_Tinh\WEB\NET\LaptopStore\Client\obj\Debug\net5.0\RazorDeclaration\Pages\Shop\Layout\ShopLayout.razor.g.cs
 D:\Thai_Van_Tinh\WEB\NET\LaptopStore\Client\obj\Debug\net5.0\RazorDeclaration\Pages\Shop\ListProducts.razor.g.cs
 D:\Thai_Van_Tinh\WEB\NET\LaptopStore\Client\obj\Debug\net5.0\RazorDeclaration\Pages\Shop\Order.razor.g.cs
-D:\Thai_Van_Tinh\WEB\NET\LaptopStore\Client\obj\Debug\net5.0\RazorDeclaration\Pages\Shop\OrderPlaced.razor.g.cs
 D:\Thai_Van_Tinh\WEB\NET\LaptopStore\Client\obj\Debug\net5.0\RazorDeclaration\Pages\Shop\ProductDetail.razor.g.cs
 D:\Thai_Van_Tinh\WEB\NET\LaptopStore\Client\obj\Debug\net5.0\RazorDeclaration\Pages\Shop\ViewProduct.razor.g.cs
 D:\Thai_Van_Tinh\WEB\NET\LaptopStore\Client\obj\Debug\net5.0\RazorDeclaration\Shared\Components\BlazorHeroLogo.razor.g.cs
@@ -2382,7 +2381,6 @@ D:\Thai_Van_Tinh\WEB\NET\LaptopStore\Client\obj\Debug\net5.0\Razor\Pages\Shop\La
 D:\Thai_Van_Tinh\WEB\NET\LaptopStore\Client\obj\Debug\net5.0\Razor\Pages\Shop\Layout\ShopLayout.razor.g.cs
 D:\Thai_Van_Tinh\WEB\NET\LaptopStore\Client\obj\Debug\net5.0\Razor\Pages\Shop\ListProducts.razor.g.cs
 D:\Thai_Van_Tinh\WEB\NET\LaptopStore\Client\obj\Debug\net5.0\Razor\Pages\Shop\Order.razor.g.cs
-D:\Thai_Van_Tinh\WEB\NET\LaptopStore\Client\obj\Debug\net5.0\Razor\Pages\Shop\OrderPlaced.razor.g.cs
 D:\Thai_Van_Tinh\WEB\NET\LaptopStore\Client\obj\Debug\net5.0\Razor\Pages\Shop\ProductDetail.razor.g.cs
 D:\Thai_Van_Tinh\WEB\NET\LaptopStore\Client\obj\Debug\net5.0\Razor\Pages\Shop\ViewProduct.razor.g.cs
 D:\Thai_Van_Tinh\WEB\NET\LaptopStore\Client\obj\Debug\net5.0\Razor\Shared\Components\BlazorHeroLogo.razor.g.cs
@@ -2733,3 +2731,5 @@ D:\Thai_Van_Tinh\WEB\NET\LaptopStore\Client\obj\Debug\net5.0\LaptopStore.Client.
 D:\Thai_Van_Tinh\WEB\NET\LaptopStore\Client\obj\Debug\net5.0\refint\LaptopStore.Client.dll
 D:\Thai_Van_Tinh\WEB\NET\LaptopStore\Client\obj\Debug\net5.0\LaptopStore.Client.pdb
 D:\Thai_Van_Tinh\WEB\NET\LaptopStore\Client\obj\Debug\net5.0\ref\LaptopStore.Client.dll
+D:\Thai_Van_Tinh\WEB\NET\LaptopStore\Client\obj\Debug\net5.0\RazorDeclaration\Pages\Shop\OrderDetail.razor.g.cs
+D:\Thai_Van_Tinh\WEB\NET\LaptopStore\Client\obj\Debug\net5.0\Razor\Pages\Shop\OrderDetail.razor.g.cs

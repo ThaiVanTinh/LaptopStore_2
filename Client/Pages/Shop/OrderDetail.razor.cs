@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace LaptopStore.Client.Pages.Shop
 {
-    public partial class OrderPlaced
+    public partial class OrderDetail : ComponentBase // Đảm bảo lớp kế thừa từ ComponentBase
     {
         [Inject] private IOrderManager OrderManager { get; set; }
         [Inject] private AuthenticationStateProvider AuthenticationProvider { get; set; }
@@ -20,7 +20,7 @@ namespace LaptopStore.Client.Pages.Shop
         private bool IsLoading { get; set; }
         private List<GetAllOrdersResponse> Orders { get; set; } = new();
 
-        protected override async Task OnInitializedAsync()
+        protected override async Task OnInitializedAsync() // Đảm bảo phương thức có override
         {
             IsLoading = true;
             await LoadOrdersAsync();

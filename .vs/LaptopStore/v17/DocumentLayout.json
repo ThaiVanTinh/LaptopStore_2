@@ -3,12 +3,20 @@
   "WorkspaceRootPath": "D:\\Thai_Van_Tinh\\WEB\\NET\\LaptopStore\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{DB1309A5-3FAB-48EC-B5DF-582E8DFFE138}|Client\\Client.csproj|d:\\thai_van_tinh\\web\\net\\laptopstore\\client\\wwwroot\\css\\header.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
-      "RelativeMoniker": "D:0:0:{DB1309A5-3FAB-48EC-B5DF-582E8DFFE138}|Client\\Client.csproj|solutionrelative:client\\wwwroot\\css\\header.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{DB1309A5-3FAB-48EC-B5DF-582E8DFFE138}|Client\\Client.csproj|d:\\thai_van_tinh\\web\\net\\laptopstore\\client\\pages\\shop\\layout\\header.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{DB1309A5-3FAB-48EC-B5DF-582E8DFFE138}|Client\\Client.csproj|solutionrelative:client\\pages\\shop\\layout\\header.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DB1309A5-3FAB-48EC-B5DF-582E8DFFE138}|Client\\Client.csproj|d:\\thai_van_tinh\\web\\net\\laptopstore\\client\\pages\\shop\\orderdetail.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{DB1309A5-3FAB-48EC-B5DF-582E8DFFE138}|Client\\Client.csproj|solutionrelative:client\\pages\\shop\\orderdetail.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DB1309A5-3FAB-48EC-B5DF-582E8DFFE138}|Client\\Client.csproj|d:\\thai_van_tinh\\web\\net\\laptopstore\\client\\pages\\shop\\orderdetail.razor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DB1309A5-3FAB-48EC-B5DF-582E8DFFE138}|Client\\Client.csproj|solutionrelative:client\\pages\\shop\\orderdetail.razor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DB1309A5-3FAB-48EC-B5DF-582E8DFFE138}|Client\\Client.csproj|d:\\thai_van_tinh\\web\\net\\laptopstore\\client\\wwwroot\\css\\header.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{DB1309A5-3FAB-48EC-B5DF-582E8DFFE138}|Client\\Client.csproj|solutionrelative:client\\wwwroot\\css\\header.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{DB1309A5-3FAB-48EC-B5DF-582E8DFFE138}|Client\\Client.csproj|d:\\thai_van_tinh\\web\\net\\laptopstore\\client\\pages\\shop\\layout\\shoplayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
@@ -42,8 +50,34 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 5,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "OrderDetail.razor",
+              "DocumentMoniker": "D:\\Thai_Van_Tinh\\WEB\\NET\\LaptopStore\\Client\\Pages\\Shop\\OrderDetail.razor",
+              "RelativeDocumentMoniker": "Client\\Pages\\Shop\\OrderDetail.razor",
+              "ToolTip": "D:\\Thai_Van_Tinh\\WEB\\NET\\LaptopStore\\Client\\Pages\\Shop\\OrderDetail.razor",
+              "RelativeToolTip": "Client\\Pages\\Shop\\OrderDetail.razor",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAATAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-20T12:05:58.264Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "OrderDetail.razor.cs",
+              "DocumentMoniker": "D:\\Thai_Van_Tinh\\WEB\\NET\\LaptopStore\\Client\\Pages\\Shop\\OrderDetail.razor.cs",
+              "RelativeDocumentMoniker": "Client\\Pages\\Shop\\OrderDetail.razor.cs",
+              "ToolTip": "D:\\Thai_Van_Tinh\\WEB\\NET\\LaptopStore\\Client\\Pages\\Shop\\OrderDetail.razor.cs",
+              "RelativeToolTip": "Client\\Pages\\Shop\\OrderDetail.razor.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAADUAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-20T12:05:43.786Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
@@ -58,33 +92,33 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "Header.razor",
               "DocumentMoniker": "D:\\Thai_Van_Tinh\\WEB\\NET\\LaptopStore\\Client\\Pages\\Shop\\Layout\\Header.razor",
               "RelativeDocumentMoniker": "Client\\Pages\\Shop\\Layout\\Header.razor",
               "ToolTip": "D:\\Thai_Van_Tinh\\WEB\\NET\\LaptopStore\\Client\\Pages\\Shop\\Layout\\Header.razor",
               "RelativeToolTip": "Client\\Pages\\Shop\\Layout\\Header.razor",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAbAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAAqAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-11-20T10:37:50.71Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "header.css",
               "DocumentMoniker": "D:\\Thai_Van_Tinh\\WEB\\NET\\LaptopStore\\Client\\wwwroot\\css\\header.css",
               "RelativeDocumentMoniker": "Client\\wwwroot\\css\\header.css",
               "ToolTip": "D:\\Thai_Van_Tinh\\WEB\\NET\\LaptopStore\\Client\\wwwroot\\css\\header.css",
               "RelativeToolTip": "Client\\wwwroot\\css\\header.css",
-              "ViewState": "AQIAADAAAAAAAAAAAAAAAEUAAAAYAAAA",
+              "ViewState": "AQIAADAAAAAAAAAAAAAAAEQAAAAaAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
               "WhenOpened": "2024-11-20T08:54:05.062Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "ShopLayout.razor",
               "DocumentMoniker": "D:\\Thai_Van_Tinh\\WEB\\NET\\LaptopStore\\Client\\Pages\\Shop\\Layout\\ShopLayout.razor",
               "RelativeDocumentMoniker": "Client\\Pages\\Shop\\Layout\\ShopLayout.razor",
@@ -97,7 +131,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "Home.razor.cs",
               "DocumentMoniker": "D:\\Thai_Van_Tinh\\WEB\\NET\\LaptopStore\\Client\\Pages\\Shop\\Home.razor.cs",
               "RelativeDocumentMoniker": "Client\\Pages\\Shop\\Home.razor.cs",
@@ -110,7 +144,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 6,
               "Title": "Cart.razor",
               "DocumentMoniker": "D:\\Thai_Van_Tinh\\WEB\\NET\\LaptopStore\\Client\\Pages\\Shop\\Cart.razor",
               "RelativeDocumentMoniker": "Client\\Pages\\Shop\\Cart.razor",
@@ -123,7 +157,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 7,
               "Title": "cart.css",
               "DocumentMoniker": "D:\\Thai_Van_Tinh\\WEB\\NET\\LaptopStore\\Client\\wwwroot\\css\\cart.css",
               "RelativeDocumentMoniker": "Client\\wwwroot\\css\\cart.css",
@@ -136,7 +170,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 8,
               "Title": "Footer.razor",
               "DocumentMoniker": "D:\\Thai_Van_Tinh\\WEB\\NET\\LaptopStore\\Client\\Pages\\Shop\\Layout\\Footer.razor",
               "RelativeDocumentMoniker": "Client\\Pages\\Shop\\Layout\\Footer.razor",
@@ -149,7 +183,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 9,
               "Title": "footer.css",
               "DocumentMoniker": "D:\\Thai_Van_Tinh\\WEB\\NET\\LaptopStore\\Client\\wwwroot\\css\\footer.css",
               "RelativeDocumentMoniker": "Client\\wwwroot\\css\\footer.css",
