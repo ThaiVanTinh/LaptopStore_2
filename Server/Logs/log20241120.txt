@@ -23,3 +23,99 @@ System.OperationCanceledException: The operation was canceled.
 2024-11-20 01:31:18.427 +07:00 [INF] Application started. Press Ctrl+C to shut down.
 2024-11-20 01:31:18.477 +07:00 [INF] Hosting environment: Development
 2024-11-20 01:31:18.479 +07:00 [INF] Content root path: D:\Thai_Van_Tinh\WEB\NET\LaptopStore\Server
+2024-11-20 15:56:22.755 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-11-20 15:56:22.825 +07:00 [INF] Hosting environment: Development
+2024-11-20 15:56:22.827 +07:00 [INF] Content root path: D:\Thai_Van_Tinh\WEB\NET\LaptopStore\Server
+2024-11-20 15:58:16.061 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-11-20 15:58:16.106 +07:00 [INF] Hosting environment: Development
+2024-11-20 15:58:16.107 +07:00 [INF] Content root path: D:\Thai_Van_Tinh\WEB\NET\LaptopStore\Server
+2024-11-20 16:02:32.727 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-11-20 16:02:32.777 +07:00 [INF] Hosting environment: Development
+2024-11-20 16:02:32.779 +07:00 [INF] Content root path: D:\Thai_Van_Tinh\WEB\NET\LaptopStore\Server
+2024-11-20 16:04:03.932 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-11-20 16:04:03.978 +07:00 [INF] Hosting environment: Development
+2024-11-20 16:04:03.979 +07:00 [INF] Content root path: D:\Thai_Van_Tinh\WEB\NET\LaptopStore\Server
+2024-11-20 16:09:40.103 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-11-20 16:09:40.149 +07:00 [INF] Hosting environment: Development
+2024-11-20 16:09:40.151 +07:00 [INF] Content root path: D:\Thai_Van_Tinh\WEB\NET\LaptopStore\Server
+2024-11-20 16:24:48.552 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-11-20 16:24:48.598 +07:00 [INF] Hosting environment: Development
+2024-11-20 16:24:48.600 +07:00 [INF] Content root path: D:\Thai_Van_Tinh\WEB\NET\LaptopStore\Server
+2024-11-20 16:45:03.954 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-11-20 16:45:04.011 +07:00 [INF] Hosting environment: Development
+2024-11-20 16:45:04.013 +07:00 [INF] Content root path: D:\Thai_Van_Tinh\WEB\NET\LaptopStore\Server
+2024-11-20 16:49:01.998 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-11-20 16:49:02.055 +07:00 [INF] Hosting environment: Development
+2024-11-20 16:49:02.057 +07:00 [INF] Content root path: D:\Thai_Van_Tinh\WEB\NET\LaptopStore\Server
+2024-11-20 16:53:32.594 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-11-20 16:53:32.640 +07:00 [INF] Hosting environment: Development
+2024-11-20 16:53:32.642 +07:00 [INF] Content root path: D:\Thai_Van_Tinh\WEB\NET\LaptopStore\Server
+2024-11-20 16:55:08.624 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-11-20 16:55:08.698 +07:00 [INF] Hosting environment: Development
+2024-11-20 16:55:08.701 +07:00 [INF] Content root path: D:\Thai_Van_Tinh\WEB\NET\LaptopStore\Server
+2024-11-20 17:00:30.693 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-11-20 17:00:30.741 +07:00 [INF] Hosting environment: Development
+2024-11-20 17:00:30.743 +07:00 [INF] Content root path: D:\Thai_Van_Tinh\WEB\NET\LaptopStore\Server
+2024-11-20 17:02:18.422 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-11-20 17:02:18.470 +07:00 [INF] Hosting environment: Development
+2024-11-20 17:02:18.473 +07:00 [INF] Content root path: D:\Thai_Van_Tinh\WEB\NET\LaptopStore\Server
+2024-11-20 17:03:42.231 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-11-20 17:03:42.287 +07:00 [INF] Hosting environment: Development
+2024-11-20 17:03:42.289 +07:00 [INF] Content root path: D:\Thai_Van_Tinh\WEB\NET\LaptopStore\Server
+2024-11-20 17:07:14.043 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-11-20 17:07:14.096 +07:00 [INF] Hosting environment: Development
+2024-11-20 17:07:14.099 +07:00 [INF] Content root path: D:\Thai_Van_Tinh\WEB\NET\LaptopStore\Server
+2024-11-20 17:08:03.134 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-11-20 17:08:03.193 +07:00 [INF] Hosting environment: Development
+2024-11-20 17:08:03.195 +07:00 [INF] Content root path: D:\Thai_Van_Tinh\WEB\NET\LaptopStore\Server
+2024-11-20 17:09:18.433 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-11-20 17:09:18.481 +07:00 [INF] Hosting environment: Development
+2024-11-20 17:09:18.483 +07:00 [INF] Content root path: D:\Thai_Van_Tinh\WEB\NET\LaptopStore\Server
+2024-11-20 17:11:27.070 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-11-20 17:11:27.129 +07:00 [INF] Hosting environment: Development
+2024-11-20 17:11:27.131 +07:00 [INF] Content root path: D:\Thai_Van_Tinh\WEB\NET\LaptopStore\Server
+2024-11-20 17:14:53.403 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-11-20 17:14:53.452 +07:00 [INF] Hosting environment: Development
+2024-11-20 17:14:53.454 +07:00 [INF] Content root path: D:\Thai_Van_Tinh\WEB\NET\LaptopStore\Server
+2024-11-20 17:16:58.683 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-11-20 17:16:58.728 +07:00 [INF] Hosting environment: Development
+2024-11-20 17:16:58.731 +07:00 [INF] Content root path: D:\Thai_Van_Tinh\WEB\NET\LaptopStore\Server
+2024-11-20 17:22:42.286 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-11-20 17:22:42.333 +07:00 [INF] Hosting environment: Development
+2024-11-20 17:22:42.335 +07:00 [INF] Content root path: D:\Thai_Van_Tinh\WEB\NET\LaptopStore\Server
+2024-11-20 17:25:44.280 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-11-20 17:25:44.327 +07:00 [INF] Hosting environment: Development
+2024-11-20 17:25:44.329 +07:00 [INF] Content root path: D:\Thai_Van_Tinh\WEB\NET\LaptopStore\Server
+2024-11-20 17:26:27.826 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-11-20 17:26:27.872 +07:00 [INF] Hosting environment: Development
+2024-11-20 17:26:27.874 +07:00 [INF] Content root path: D:\Thai_Van_Tinh\WEB\NET\LaptopStore\Server
+2024-11-20 17:27:51.222 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-11-20 17:27:51.273 +07:00 [INF] Hosting environment: Development
+2024-11-20 17:27:51.276 +07:00 [INF] Content root path: D:\Thai_Van_Tinh\WEB\NET\LaptopStore\Server
+2024-11-20 17:29:40.672 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-11-20 17:29:40.718 +07:00 [INF] Hosting environment: Development
+2024-11-20 17:29:40.721 +07:00 [INF] Content root path: D:\Thai_Van_Tinh\WEB\NET\LaptopStore\Server
+2024-11-20 17:30:14.326 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-11-20 17:30:14.372 +07:00 [INF] Hosting environment: Development
+2024-11-20 17:30:14.374 +07:00 [INF] Content root path: D:\Thai_Van_Tinh\WEB\NET\LaptopStore\Server
+2024-11-20 17:30:41.158 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-11-20 17:30:41.203 +07:00 [INF] Hosting environment: Development
+2024-11-20 17:30:41.205 +07:00 [INF] Content root path: D:\Thai_Van_Tinh\WEB\NET\LaptopStore\Server
+2024-11-20 17:34:31.826 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-11-20 17:34:31.877 +07:00 [INF] Hosting environment: Development
+2024-11-20 17:34:31.879 +07:00 [INF] Content root path: D:\Thai_Van_Tinh\WEB\NET\LaptopStore\Server
+2024-11-20 17:36:13.410 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-11-20 17:36:13.458 +07:00 [INF] Hosting environment: Development
+2024-11-20 17:36:13.460 +07:00 [INF] Content root path: D:\Thai_Van_Tinh\WEB\NET\LaptopStore\Server
+2024-11-20 17:37:23.193 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-11-20 17:37:23.242 +07:00 [INF] Hosting environment: Development
+2024-11-20 17:37:23.244 +07:00 [INF] Content root path: D:\Thai_Van_Tinh\WEB\NET\LaptopStore\Server
+2024-11-20 17:39:20.257 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-11-20 17:39:20.313 +07:00 [INF] Hosting environment: Development
+2024-11-20 17:39:20.314 +07:00 [INF] Content root path: D:\Thai_Van_Tinh\WEB\NET\LaptopStore\Server
+2024-11-20 17:40:58.781 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-11-20 17:40:58.817 +07:00 [INF] Hosting environment: Development
+2024-11-20 17:40:58.819 +07:00 [INF] Content root path: D:\Thai_Van_Tinh\WEB\NET\LaptopStore\Server
+2024-11-20 17:45:19.310 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-11-20 17:45:19.355 +07:00 [INF] Hosting environment: Development
+2024-11-20 17:45:19.357 +07:00 [INF] Content root path: D:\Thai_Van_Tinh\WEB\NET\LaptopStore\Server

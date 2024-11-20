@@ -74,6 +74,7 @@ D:\Thai_Van_Tinh\WEB\NET\LaptopStore\Client.Infrastructure\obj\Debug\net5.0\Clie
 D:\Thai_Van_Tinh\WEB\NET\LaptopStore\Client.Infrastructure\obj\Debug\net5.0\Client.Infrastructure.AssemblyInfoInputs.cache
 D:\Thai_Van_Tinh\WEB\NET\LaptopStore\Client.Infrastructure\obj\Debug\net5.0\Client.Infrastructure.AssemblyInfo.cs
 D:\Thai_Van_Tinh\WEB\NET\LaptopStore\Client.Infrastructure\obj\Debug\net5.0\Client.Infrastructure.csproj.CoreCompileInputs.cache
+D:\Thai_Van_Tinh\WEB\NET\LaptopStore\Client.Infrastructure\obj\Debug\net5.0\Client.Infrastructure.sourcelink.json
 D:\Thai_Van_Tinh\WEB\NET\LaptopStore\Client.Infrastructure\obj\Debug\net5.0\en\LaptopStore.Client.Infrastructure.resources.dll
 D:\Thai_Van_Tinh\WEB\NET\LaptopStore\Client.Infrastructure\obj\Debug\net5.0\ru\LaptopStore.Client.Infrastructure.resources.dll
 D:\Thai_Van_Tinh\WEB\NET\LaptopStore\Client.Infrastructure\obj\Debug\net5.0\km\LaptopStore.Client.Infrastructure.resources.dll

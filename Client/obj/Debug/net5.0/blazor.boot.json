@@ -272,18 +272,18 @@
       "mscorlib.dll": "sha256-zMI\/dXK7DoZZ9Qm9U9\/jRN4iQ9Ss3w8\/rwQQxC6SW9Y=",
       "netstandard.dll": "sha256-W3q3PN+lpRB+tRJEIhtMgYOGFv0pauEeeCS9iIRkKAM=",
       "System.Private.CoreLib.dll": "sha256-9rUJv1mXEQdGt\/kWiJ1ITPPzp3cAi3lSmqHVTisp7w0=",
-      "LaptopStore.Application.dll": "sha256-78ZYLqeCA3A94Qlpxx3xjaSPSebIfJPJCOHSoE8HpJg=",
-      "LaptopStore.Client.Infrastructure.dll": "sha256-dnV4ryIxZO+oAKU783\/p2\/fFki6qyMLNW3dTTt\/YwwU=",
-      "LaptopStore.Domain.dll": "sha256-nExlihzeI+mSrJsbaSqrXVf2tC\/CDhHijkJ1uA4bGEU=",
-      "LaptopStore.Infrastructure.dll": "sha256-v5YWeXjyoJ5mIAeOjs\/cMwKnRNH7L0Hm3H+s8sgOf30=",
-      "LaptopStore.Shared.dll": "sha256-eY8Dri0\/EtWzqnnuT0FhgUcEP3ueDc0YB89JZ96ABM4=",
-      "LaptopStore.Client.dll": "sha256-Nvn6Wzx5C48631itQjnuKDUfesf0hshai1UC9xoZYnQ="
+      "LaptopStore.Application.dll": "sha256-JQgB\/JHQIwrQEAqav7uCHYBgmqCrMXVAe2h0\/gjkn50=",
+      "LaptopStore.Client.Infrastructure.dll": "sha256-6t2vHLN9jtJ9+Ei+ZWbuH8EQyA2dPdTLAJzxN0uwdXE=",
+      "LaptopStore.Domain.dll": "sha256-QS309u9ZQlZZohY01d5pkdBLKiN2o6HF\/1nzbAR+3D0=",
+      "LaptopStore.Infrastructure.dll": "sha256-U5tK3lOFhkxM+VC1Zgvip73KVttls7Grkeos4G1Pn80=",
+      "LaptopStore.Shared.dll": "sha256-zzniWQB47RSTLJBSg0zGvhiQ\/zcm0yAPNzI4CCUT9ms=",
+      "LaptopStore.Client.dll": "sha256-FUdPppwC019TOPbCE3JK9X3ZWYlSHnqV3YXeOf32Vrk="
     },
     "extensions": null,
     "lazyAssembly": null,
     "libraryInitializers": null,
     "pdb": {
-      "LaptopStore.Client.pdb": "sha256-Y+qFNPGhdeZAtMseAT5hfJT3+62Of099fGM1idkNmsE="
+      "LaptopStore.Client.pdb": "sha256-nX+Rr91pSULEAKuUCYeYCzMiud+SLGnbtAo0hrarDGw="
     },
     "runtime": {
       "dotnet.timezones.blat": "sha256-8oJip361m8OrfLRJOuIeswWKaoxtT27\/wINCxhn+s4c=",
@@ -301,24 +301,24 @@
       },
       "de": {
         "de\/Hangfire.Core.resources.dll": "sha256-i7W\/Gf9lgc59jU+scjD3FVFaSbQwfu++8XlIQifdPvQ=",
-        "de\/LaptopStore.Client.resources.dll": "sha256-HQ9V2IkZWu4mX+FZeBGFKEpW19juU2F+GWbVlpB4u1w=",
-        "de\/LaptopStore.Application.resources.dll": "sha256-+HGmxkI96mGz\/2O4gmRGmPWueim0OvrYqimgP3hIMu8=",
-        "de\/LaptopStore.Infrastructure.resources.dll": "sha256-uLFlVvqy1wRJR\/N0MAEn+TTpVFCpfkFViN60OW8orgs="
+        "de\/LaptopStore.Client.resources.dll": "sha256-kcFv7FthHYxAuG52BcJGkRU6NwPf2RB2zh32Wqnt1lw=",
+        "de\/LaptopStore.Application.resources.dll": "sha256-qQRT+oeUGRCciKOswnm0drtdCdIb6j2jthUQcreZyq8=",
+        "de\/LaptopStore.Infrastructure.resources.dll": "sha256-8\/u\/FpiomcRLAGKdgfQF+u883a7sfEB02JwSqUnZChk="
       },
       "es": {
         "es\/Hangfire.Core.resources.dll": "sha256-EEYoRruvn8\/9sTP+WtCQvOmCXrVbb6ymXe7O\/6XH9Pg=",
-        "es\/LaptopStore.Client.resources.dll": "sha256-HmqJCvcmrMjhlwsPavN1bAlTUMX+HXRKQ\/wBSH99D1g=",
-        "es\/LaptopStore.Application.resources.dll": "sha256-o9j4gdVWzytWFNm915jp2rJXuocDqpWW4KfK3Xbe1bA=",
-        "es\/LaptopStore.Infrastructure.resources.dll": "sha256-VjVCS8x3H9sjDMQEzNX46XsN7IlaYKloO\/1hYzLNV20="
+        "es\/LaptopStore.Client.resources.dll": "sha256-QgIlYPSRDaB1OE87ihIgAvVJIdewaG\/fjJIw1ytGSxs=",
+        "es\/LaptopStore.Application.resources.dll": "sha256-IFSRB3Qe\/QY3oYoF75DWi9Af5FFMrVQyVL+glWz7Zew=",
+        "es\/LaptopStore.Infrastructure.resources.dll": "sha256-dfwbAUu6sXPhWFc0lC8C8Vw42n7vOAVpsikd4rHONo8="
       },
       "fa": {
         "fa\/Hangfire.Core.resources.dll": "sha256-cPouJLSxYKB9zjT7rCa+GWSUDKsF936waaUIt8sGHvI="
       },
       "fr": {
         "fr\/Hangfire.Core.resources.dll": "sha256-yE7vgu4kYo92YRHFbhIxxLxbpWCCb9uPXz8tbH+1XFI=",
-        "fr\/LaptopStore.Client.resources.dll": "sha256-Q5lZpx\/wp9mAZqMKnM5TfmWh32kIcAqzqskxb0+z7Ls=",
-        "fr\/LaptopStore.Application.resources.dll": "sha256-SPA6I5SyQHfM8pHOaxMJRHXwk4CGQd6YCwh8CPFxWJw=",
-        "fr\/LaptopStore.Infrastructure.resources.dll": "sha256-HQ3jcOEXCUe1+h3YK4mZBl9jrKyR9s+8VgpYKg+87\/U="
+        "fr\/LaptopStore.Client.resources.dll": "sha256-BKrD0yIAnY1cetVLFsMJGjg2lnnXhqe6yybX+RM\/XLw=",
+        "fr\/LaptopStore.Application.resources.dll": "sha256-qnTSTE2fkuJ4j7g6td9xF3Om9C07dp5vTiG275L\/lqA=",
+        "fr\/LaptopStore.Infrastructure.resources.dll": "sha256-2OPKTbNu\/\/j0jh83vlD2LU6XYNojYk4V2gUvKQTUGJ8="
       },
       "nb": {
         "nb\/Hangfire.Core.resources.dll": "sha256-jdoSymg76BrwTDtXv9YOIV+KNPziPThL3MK9P7ga5wk="
@@ -342,37 +342,37 @@
         "zh\/Hangfire.Core.resources.dll": "sha256-8xliObyvELLFJZGHsjHLQmVVOz\/GJcNn4a09SxEVgd8="
       },
       "en": {
-        "en\/LaptopStore.Client.resources.dll": "sha256-DrO\/v\/bflw3MTXU3tW48JlwYXcxJUvuMSc\/52RJouzM=",
-        "en\/LaptopStore.Application.resources.dll": "sha256-QU9\/pdJXoauugDVYoy0I1hH06hjZGmun\/RqDbDNq1vw=",
-        "en\/LaptopStore.Client.Infrastructure.resources.dll": "sha256-E6wQAdI8uH\/OwcbKXXP1KlQaAqVoaAJqKQvMCSKbLVU=",
-        "en\/LaptopStore.Infrastructure.resources.dll": "sha256-P03Pv3vWSI6HwT3iwTx7Ls0w+jd8NtrXl0kX6OjBsLA="
+        "en\/LaptopStore.Client.resources.dll": "sha256-yo+Z8Say5VhboZhUMxF1Evkj8mgTPDVeLPEEqMRQ57o=",
+        "en\/LaptopStore.Application.resources.dll": "sha256-mscHqJjQvOOXc0GsFEIt\/bBCEB2ADh0IegO4ihlu5Uw=",
+        "en\/LaptopStore.Client.Infrastructure.resources.dll": "sha256-JKMHzmNRyxHxrs0Q2r4+tj6lLdXR8gU0yS\/PU+2zT0Q=",
+        "en\/LaptopStore.Infrastructure.resources.dll": "sha256-a+igEp\/Fb6NhzHWTxRCJusLp4fN+XGbIcXQX+riio9M="
       },
       "id": {
-        "id\/LaptopStore.Client.resources.dll": "sha256-oPqAukGAR9A0r8hXdhPDBhJLDluO\/IsYb6SN439wy2o=",
-        "id\/LaptopStore.Application.resources.dll": "sha256-h6ceuvQAUQaWWok00f7QBXTfGwzin86tvsqhWQisroU=",
-        "id\/LaptopStore.Infrastructure.resources.dll": "sha256-shIiDnNOgeA1i71pyibuR5MR+8Q0TOruqSti0WcDzuU="
+        "id\/LaptopStore.Client.resources.dll": "sha256-Fv+6TEHmqb50FFFN1kJB6w9EFiNr0yuj4Zdbx+xkDAg=",
+        "id\/LaptopStore.Application.resources.dll": "sha256-GeR3cO1Ho9qj0A2lZdrbF\/KgA+L5eaKpH1eAFMNJzBw=",
+        "id\/LaptopStore.Infrastructure.resources.dll": "sha256-lTeLuL8CEqWa2\/Zdkxw2B\/C6aRMUqrABR5HyZ+f49kA="
       },
       "it": {
-        "it\/LaptopStore.Client.resources.dll": "sha256-5CBDVybI8s8PnIaMuiRRu70HpOmL9RjRAICR6h5iPU8=",
-        "it\/LaptopStore.Application.resources.dll": "sha256-pQhbOcLuhhRZVrkNqcWlbhSaFfZ\/+fawRH8gwChrRYY=",
-        "it\/LaptopStore.Infrastructure.resources.dll": "sha256-JaNfpuIOESPUAk\/TEUXyTAac8T49g8dMIzq12Pk2hR4="
+        "it\/LaptopStore.Client.resources.dll": "sha256-Lu6Xb7mcb4srsb2\/gu\/UvOhtrwi\/sa0Dl7F3KI8s\/G4=",
+        "it\/LaptopStore.Application.resources.dll": "sha256-jgnOMmBg2FH9SdS16X\/sp7FOiFyIuODhBh5cg4YrHqY=",
+        "it\/LaptopStore.Infrastructure.resources.dll": "sha256-qLyFHWh4NV6cKA4HgsE0+eF6+L73iCll3yu5TyB18qE="
       },
       "km": {
-        "km\/LaptopStore.Client.resources.dll": "sha256-DRv\/qrFzvAYRuDTS2wmlRiyRFH8jd+spkbhpaVhZMKQ=",
-        "km\/LaptopStore.Application.resources.dll": "sha256-9Guy5n0WnbMwljH\/qS\/T+mSgKv3ULtFR0+uSkzgfPuc=",
-        "km\/LaptopStore.Client.Infrastructure.resources.dll": "sha256-BoqLjxWwSZsATEajteAI7uqHKRsuhzh7D8FKiy0VM1I=",
-        "km\/LaptopStore.Infrastructure.resources.dll": "sha256-AxjP1CCrIlBU5RxtHWIVZwhjDBbMy9CEcHXrsKA38hM="
+        "km\/LaptopStore.Client.resources.dll": "sha256-ryJn3d5pBzZquui5Bf+xdXo8x5aXdXjkve2A++cp1MQ=",
+        "km\/LaptopStore.Application.resources.dll": "sha256-ffGEqHAKWhoCcZdTlo3GxE8PaGZSzqXKe+Xn9IR7A\/E=",
+        "km\/LaptopStore.Client.Infrastructure.resources.dll": "sha256-dYn4I1kdhSjEMXDItOjkUrYQxbKkqqqpAByzcWEHu0M=",
+        "km\/LaptopStore.Infrastructure.resources.dll": "sha256-cQQ\/pMu4QIXJ5NIAmi\/2KTfbbiaAUw5Y1Tiw71aFh90="
       },
       "ru": {
-        "ru\/LaptopStore.Client.resources.dll": "sha256-h4phZ8X\/Gn38qAL7xWof9iOvRY6M89iLCEcYIUbjwMc=",
-        "ru\/LaptopStore.Application.resources.dll": "sha256-6ak7plqHOdjCil91x5mMs2vfpXhImUeAb7AN8H\/f+C4=",
-        "ru\/LaptopStore.Client.Infrastructure.resources.dll": "sha256-Zjh9DR4kIcKj9xnu7NL8RbUwiDq\/Sdpbp6bdRu6zysU=",
-        "ru\/LaptopStore.Infrastructure.resources.dll": "sha256-q0D1meM2WrG\/9wYzexsu1YDBvqLGOWJ7RdLqyyQPSvA="
+        "ru\/LaptopStore.Client.resources.dll": "sha256-3CwV3xlCAJzhuWMEPigcbHJg+yeiKuXu1WbMme1B5Cw=",
+        "ru\/LaptopStore.Application.resources.dll": "sha256-YnZ80yGRexouA+zK2ygTT7rMG\/n09y3YhgDtbEmfeSg=",
+        "ru\/LaptopStore.Client.Infrastructure.resources.dll": "sha256-U5DHgoE+1ytKNTa\/hkhs9rdl8kqjyjLBhAlbGxTC8L0=",
+        "ru\/LaptopStore.Infrastructure.resources.dll": "sha256-CHRY4dsHxEzCb33Xd1Mcx6fmHy4k3xVICp8Su9uLwE4="
       },
       "sv": {
-        "sv\/LaptopStore.Client.resources.dll": "sha256-bugunybAveboQBKQKuM4l9ACj8K+lmz0yGp28BR3hBE=",
-        "sv\/LaptopStore.Application.resources.dll": "sha256-1M5qnZvVemb+ZGlogiOFRtJzx6mYQXmkhpK\/usjkbf0=",
-        "sv\/LaptopStore.Infrastructure.resources.dll": "sha256-hd60kliKxnNVy9W6FCcz38T06mmfaXIcUn218bfFFaM="
+        "sv\/LaptopStore.Client.resources.dll": "sha256-2ECzhnAde\/KKF3JmA6zVHF0GemHdMXWYBWk\/9VZLG74=",
+        "sv\/LaptopStore.Application.resources.dll": "sha256-sAqizezkUqtzfaRsrxSXe+smPym\/OY0vM5SR3qmhYJ8=",
+        "sv\/LaptopStore.Infrastructure.resources.dll": "sha256-qesU0KEY8b9TCCwJDNnMnsGJhEmo5hsHQ9mRk2ye5K0="
       }
     }
   }

@@ -161,6 +161,7 @@ D:\Thai_Van_Tinh\WEB\NET\LaptopStore\Infrastructure\obj\Debug\net5.0\Infrastruct
 D:\Thai_Van_Tinh\WEB\NET\LaptopStore\Infrastructure\obj\Debug\net5.0\Infrastructure.AssemblyInfoInputs.cache
 D:\Thai_Van_Tinh\WEB\NET\LaptopStore\Infrastructure\obj\Debug\net5.0\Infrastructure.AssemblyInfo.cs
 D:\Thai_Van_Tinh\WEB\NET\LaptopStore\Infrastructure\obj\Debug\net5.0\Infrastructure.csproj.CoreCompileInputs.cache
+D:\Thai_Van_Tinh\WEB\NET\LaptopStore\Infrastructure\obj\Debug\net5.0\Infrastructure.sourcelink.json
 D:\Thai_Van_Tinh\WEB\NET\LaptopStore\Infrastructure\obj\Debug\net5.0\en\LaptopStore.Infrastructure.resources.dll
 D:\Thai_Van_Tinh\WEB\NET\LaptopStore\Infrastructure\obj\Debug\net5.0\ru\LaptopStore.Infrastructure.resources.dll
 D:\Thai_Van_Tinh\WEB\NET\LaptopStore\Infrastructure\obj\Debug\net5.0\it\LaptopStore.Infrastructure.resources.dll

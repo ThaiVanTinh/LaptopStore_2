@@ -18,6 +18,7 @@ D:\Thai_Van_Tinh\WEB\NET\LaptopStore\Domain\obj\Debug\net5.0\Domain.GeneratedMSB
 D:\Thai_Van_Tinh\WEB\NET\LaptopStore\Domain\obj\Debug\net5.0\Domain.AssemblyInfoInputs.cache
 D:\Thai_Van_Tinh\WEB\NET\LaptopStore\Domain\obj\Debug\net5.0\Domain.AssemblyInfo.cs
 D:\Thai_Van_Tinh\WEB\NET\LaptopStore\Domain\obj\Debug\net5.0\Domain.csproj.CoreCompileInputs.cache
+D:\Thai_Van_Tinh\WEB\NET\LaptopStore\Domain\obj\Debug\net5.0\Domain.sourcelink.json
 D:\Thai_Van_Tinh\WEB\NET\LaptopStore\Domain\obj\Debug\net5.0\LaptopStore.Domain.dll
 D:\Thai_Van_Tinh\WEB\NET\LaptopStore\Domain\obj\Debug\net5.0\refint\LaptopStore.Domain.dll
 D:\Thai_Van_Tinh\WEB\NET\LaptopStore\Domain\obj\Debug\net5.0\LaptopStore.Domain.pdb

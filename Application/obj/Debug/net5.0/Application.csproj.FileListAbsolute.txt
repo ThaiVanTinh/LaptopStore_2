@@ -418,6 +418,7 @@ D:\Thai_Van_Tinh\WEB\NET\LaptopStore\Application\obj\Debug\net5.0\Application.Ge
 D:\Thai_Van_Tinh\WEB\NET\LaptopStore\Application\obj\Debug\net5.0\Application.AssemblyInfoInputs.cache
 D:\Thai_Van_Tinh\WEB\NET\LaptopStore\Application\obj\Debug\net5.0\Application.AssemblyInfo.cs
 D:\Thai_Van_Tinh\WEB\NET\LaptopStore\Application\obj\Debug\net5.0\Application.csproj.CoreCompileInputs.cache
+D:\Thai_Van_Tinh\WEB\NET\LaptopStore\Application\obj\Debug\net5.0\Application.sourcelink.json
 D:\Thai_Van_Tinh\WEB\NET\LaptopStore\Application\obj\Debug\net5.0\en\LaptopStore.Application.resources.dll
 D:\Thai_Van_Tinh\WEB\NET\LaptopStore\Application\obj\Debug\net5.0\it\LaptopStore.Application.resources.dll
 D:\Thai_Van_Tinh\WEB\NET\LaptopStore\Application\obj\Debug\net5.0\km\LaptopStore.Application.resources.dll
