@@ -1,0 +1,169 @@
+﻿
+/* General Styles */
+.header {
+    background-color: deepskyblue;
+    height: 80px;
+    padding-top: 10px ;
+    display: flex;
+    align-items: center;
+}
+
+.header-grid {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.logo-container {
+    flex: 0 0 auto;
+}
+
+.logo-img {
+    height: 100px;
+    width: auto;
+    display: flex;
+}
+
+.search-container {
+    flex: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 20%;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 40px;
+    border-radius: 30px;
+    background-color: white;
+    padding: 0 10px;
+}
+
+.search-text {
+    width: 100%;
+    border: none;
+    outline: none;
+    background: none;
+    font-size: medium;
+    padding: 0 10px;
+    flex: 1;
+    padding-bottom: 15px;
+}
+
+
+.menu-container {
+    display: flex;
+    gap: 10px;
+    align-items: center; /* Căn giữa các mục theo chiều dọc */
+    justify-content: flex-start; /* Căn hàng ngang */
+    flex-wrap: nowrap; /* Ngăn xuống dòng */
+}
+
+.menu-button {
+    border-radius: 25px;
+    background-color: #00aaff;
+    color: white;
+    font-weight: bolder;
+    font-size: 18px;
+    text-decoration: none;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: center;
+}
+
+
+
+.contact-container {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 70%;
+}
+
+.contact {
+    border-radius: 25px;
+    background-color: #00aaff;
+    color: white;
+    font-weight: bolder;
+    font-size: 18px;
+    text-decoration: none;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: center;
+}
+.contact-info {
+    border-radius: 25px;
+    background-color: #00aaff;
+    color: white;
+    font-weight: bolder;
+    font-size: 18px;
+    text-decoration: none;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: center;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .menu-container,
+    .contact-container .contact-info {
+        display: none; /* Hide "Danh mục", "Thông tin", and "Liên hệ" buttons */
+    }
+
+    .contact-container {
+        justify-content: flex-end;
+    }
+
+    .search-container {
+        flex: 3; /* Increase search bar size */
+    }
+}
+/* thanh địa chỉ*/
+.breadcrumb-container {
+    padding: 10px 20px;
+    background: linear-gradient(to bottom, #ffffff, #f8f8f8);
+    border-bottom: 1px solid #ddd;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.breadcrumb {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    color: #555;
+}
+
+.breadcrumb-icon {
+    margin-right: 5px;
+    font-size: 16px;
+}
+
+.breadcrumb-link {
+    text-decoration: none;
+    color: #555;
+    margin-right: 5px;
+}
+
+    .breadcrumb-link:hover {
+        color: #e91e63;
+        text-decoration: underline;
+    }
+
+.breadcrumb-separator {
+    margin: 0 5px;
+    color: #999;
+}
+
+.breadcrumb-current {
+    font-weight: bold;
+    color: #333;
+}

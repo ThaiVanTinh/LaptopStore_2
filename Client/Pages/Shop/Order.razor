@@ -1,0 +1,116 @@
+﻿@page "/order"
+@using LaptopStore.Client.Shared.Shop
+@layout ShopLayout
+@inject Microsoft.Extensions.Localization.IStringLocalizer<Order> _localizer
+<link href="css/order.css" rel="stylesheet">
+
+<MudContainer Class="order-container">
+    <!-- Thông tin địa chỉ -->
+    <MudPaper Class="user-address">
+        <MudText Typo="Typo.h6">Thông tin và địa chỉ</MudText>
+
+        <MudGrid Class="form-address flex-container">
+            <!-- Họ và Tên -->
+            <MudItem xs="6" Class="form-info-user">
+                <MudTextField @bind-Value="FirstName" Label="Họ" Required="true" RequiredError="Họ là bắt buộc" />
+            </MudItem>
+            <MudItem xs="6" Class="form-info-user">
+                <MudTextField @bind-Value="LastName" Label="Tên" Required="true" RequiredError="Tên là bắt buộc" />
+            </MudItem>
+        </MudGrid>
+
+        <!-- Số điện thoại -->
+        <MudGrid Class="form-address flex-container">
+            <MudItem xs="12">
+                <MudTextField Class="form-info-user" @bind-Value="PhoneNumber" Label="Số điện thoại" Required="true" RequiredError="Số điện thoại là bắt buộc" />
+                <MudTextField Class="form-address" @bind-Value="Street" Label="Số nhà, tên đường" Placeholder="Nhập số nhà, tên đường" />
+            </MudItem>
+        </MudGrid>
+
+        <!-- Địa chỉ -->
+        <MudInputLabel> Chọn địa chỉ </MudInputLabel>
+        <MudGrid Class="form-address flex-container">
+            <MudItem xs="4">
+                <select id="city" class="form-info-user" @onchange="OnCitySelect">
+                    <option value="">Chọn tỉnh thành</option>
+                    @foreach (var city in Cities)
+                    {
+                        <option value="@city.Name">@city.Name</option>
+                    }
+                </select>
+            </MudItem>
+            <MudItem xs="4">
+                <select id="district" class="form-info-user" @onchange="OnDistrictSelect">
+                    <option value="">Chọn quận huyện</option>
+                    @foreach (var district in Districts)
+                    {
+                        <option value="@district.Name">@district.Name</option>
+                    }
+                </select>
+            </MudItem>
+            <MudItem xs="4">
+                <select id="ward" class="form-info-user" @onchange="OnWardSelect">
+                    <option value="">Chọn phường xã</option>
+                    @foreach (var ward in Wards)
+                    {
+                        <option value="@ward.Name">@ward.Name</option>
+                    }
+                </select>
+            </MudItem>
+        </MudGrid>
+
+    </MudPaper>
+
+    <!-- Đặt hàng -->
+    <MudContainer Class="dat-hang">
+        @foreach (var item in cartItems)
+        {
+            <MudItem Class="product">
+                <img src="@item.ProductImage" alt="@item.ProductName" class="img-product" />
+                <MudItem Class="product-info">
+                    <MudText Class="product-name"> @item.ProductName</MudText>
+                    <MudText Class="product-quantity">Số lượng: @item.Quantity</MudText>
+                    <MudText Class="product-price">Giá: @item.ProductPrice</MudText>
+                </MudItem>
+            </MudItem>
+
+        }
+        <MudText Class="tienhang">Tiền Hàng hóa: @String.Format("{0:N0}đ", GetTotalPrice())</MudText>
+        <MudText Class="giamgia">Giảm giá: </MudText>
+        <MudText Class="tongtien">Tổng cộng: @String.Format("{0:N0}đ", GetTotalPrice())</MudText>
+
+        <MudButton Variant="Variant.Filled" Color="Color.Primary" OnClick="Checkout" Class="thanhtoan-button">Đặt hàng</MudButton>
+    </MudContainer>
+</MudContainer>
+
+<!-- Phương thức thanh toán -->
+
+<MudPaper Class="thanhtoan">
+    <h3>Phương thức thanh toán</h3>
+
+    <div class="payment-methods">
+        <label>
+            <input id="payment-method-vnpay" type="radio" name="payment-method" value="VNPAY" @onchange="HandlePaymentMethodChange" />
+            <img class="payment-icon" src="/images/pay/vnpay.png" alt="VNPAY" />
+            Thanh toán online qua cổng VNPAY <br />
+        </label>
+        <label>
+            <input id="payment-method-cod" type="radio" name="payment-method" value="COD" @onchange="HandlePaymentMethodChange" />
+            <img class="payment-icon" src="/images/pay/cod.png" alt="COD" />
+            Thanh toán khi giao hàng (COD)
+        </label>
+        <label>
+            <input id="payment-method-banking" type="radio" name="payment-method" value="Chuyển khoản ngân hàng" @onchange="HandlePaymentMethodChange" />
+            <img class="payment-icon" src="/images/pay/mobile-banking.png" alt="onl-banking" /> Chuyển Khoản ngân hàng<br />
+        </label>
+        <label>
+            <input id="payment-method-creditcard" type="radio" name="payment-method" value="Thẻ Nội địa" @onchange="HandlePaymentMethodChange" />
+            <img class="payment-icon" src="/images/pay/credit-card.png" alt="credit-card" />
+            Thanh toán bằng thẻ nội địa
+            @* <div class="credit-card-inputs @(SelectedPaymentMethod == "Thẻ Nội địa" ? "" : "hidden")">
+                <input class="card-style" type="text" name="card-number" placeholder="Số thẻ" />
+                <input class="card-style-2" type="text" name="ngayhethan" placeholder="MM/YY" pattern="(0[1-9]|1[0-2])\/[0-9]{2}" maxlength="5" required />
+            </div> *@
+        </label>
+    </div>
+</MudPaper>
