@@ -1,0 +1,38 @@
+﻿@page "/account/reset-password/"
+@using LaptopStore.Client.Shared.Shop
+@layout ShopLayout
+@attribute [AllowAnonymous]
+@inject Microsoft.Extensions.Localization.IStringLocalizer<Reset> _localizer
+<link href="css/register.css" rel="stylesheet">
+
+<EditForm Model="@_resetPasswordModel" OnValidSubmit="SubmitAsync">
+    <FluentValidationValidator @ref="_fluentValidationValidator" />
+    <MudGrid Class="register-container">
+        <MudItem xs="12" Class="logo-container">
+            <img class="img-login" src="/images/icon/logo.png" />
+        </MudItem>
+        <DataAnnotationsValidator />
+        <MudItem xs="12" Class="title-container">
+            <div class="d-flex justify-center">
+                <h1 class="h1-title">@_localizer["Reset mật khẩu"]</h1>
+            </div>
+        </MudItem>
+        <MudItem xs="12">
+            <div class="d-flex justify-center">
+                <MudText>@_localizer["Nhập email để reset mật khẩu"]</MudText>
+            </div>
+        </MudItem>
+        <MudItem xs="12">
+            <MudTextField Class="input-register" T="string" Label="@_localizer["E-mail"]" @bind-Value="_resetPasswordModel.Email" For="@(() => _resetPasswordModel.Email)" />
+        </MudItem>
+        <MudItem xs="12">
+            <MudTextField Class="input-register" T="string" Label="@_localizer["Mật khẩu"]" @bind-Value="_resetPasswordModel.Password" For="@(() => _resetPasswordModel.Password)" InputType="@_passwordInput" Adornment="Adornment.End" AdornmentIcon="@_passwordInputIcon" OnAdornmentClick="TogglePasswordVisibility" />
+        </MudItem>
+        <MudItem xs="12">
+            <MudTextField Class="input-register" T="string" Label="@_localizer["Xác nhận lại mật khẩu"]" @bind-Value="_resetPasswordModel.ConfirmPassword" For="@(() => _resetPasswordModel.ConfirmPassword)" InputType="InputType.Password" />
+        </MudItem>
+        <MudItem xs="12" Class="d-flex justify-center">
+            <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Disabled="@(!Validated)" Class="regisster-button">@_localizer["Reset mật khẩu"]</MudButton>
+        </MudItem>
+    </MudGrid>
+</EditForm>

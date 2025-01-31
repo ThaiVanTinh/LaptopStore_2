@@ -1,0 +1,23 @@
+﻿@inherits LayoutComponentBase
+@inject Microsoft.Extensions.Localization.IStringLocalizer<ShopLayout> localizer
+
+<link href="css/layout.css" rel="stylesheet" />
+
+<MudDialogProvider  />
+<MudSnackbarProvider />
+<MudPaper Elevation="1" Style="margin-bottom: 16px;">
+    <!-- Gọi Header component tại đây -->
+    <Header />
+</MudPaper>
+<MudContainer MaxWidth="MaxWidth.ExtraLarge" >
+    
+    <MudPaper Elevation="0" Style="padding: 16px;">
+        <!-- Đây là nơi hiển thị nội dung của trang -->
+        @Body
+    </MudPaper>
+   
+</MudContainer>
+<MudPaper Elevation="1">
+    <!-- Gọi Footer component tại đây -->
+    <Footer />
+</MudPaper>
